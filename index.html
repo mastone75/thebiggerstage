@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Operator to Icon — The Bigger Stage with Matt Stone</title>
+    <meta name="description" content="Most founder-CEOs are the best-kept secret in their industry. The Bigger Stage is where that changes. Matt Stone helps founders become the name everyone in their space knows.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="From Operator to Icon — The Bigger Stage with Matt Stone">
+    <meta property="og:description" content="Most founder-CEOs are the best-kept secret in their industry. The Bigger Stage is where that changes.">
+    <meta property="og:image" content="https://thebiggerstage.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://thebiggerstage.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Bigger Stage">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From Operator to Icon — The Bigger Stage with Matt Stone">
+    <meta name="twitter:description" content="Most founder-CEOs are the best-kept secret in their industry. The Bigger Stage is where that changes.">
+    <meta name="twitter:image" content="https://thebiggerstage.com/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-charcoal: #1a1a1a;
+            --color-orange: #ff5722;
+            --color-orange-bright: #ff6b3d;
+            --color-white: #ffffff;
+            --color-gray: #8a8a8a;
+            --color-light-gray: #e8e8e8;
+            --color-stone: #f5f5f0;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Archivo', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-white);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+            text-decoration: none; transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--color-white); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 8rem 3rem 6rem;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,87,34,0.07) 0%, transparent 60%);
+        }
+
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            display: grid; grid-template-columns: 1fr 400px; gap: 5rem; align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            color: var(--color-orange); letter-spacing: 0.2em; text-transform: uppercase;
+            margin-bottom: 1.5rem; display: block;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 900; line-height: 0.95; letter-spacing: 0.01em;
+            text-transform: uppercase; margin-bottom: 1.2rem;
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero h1 .highlight { color: var(--color-orange); display: block; }
+
+        .hero-bridge {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+            color: var(--color-white); letter-spacing: 0.05em; margin-bottom: 1.5rem;
+            opacity: 0.85;
+            animation: fadeUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem; line-height: 1.75; color: var(--color-gray);
+            max-width: 560px; margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-cta-group {
+            display: flex; flex-direction: column; gap: 0.75rem;
+            animation: fadeUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .btn-primary {
+            display: inline-block; background: var(--color-orange);
+            color: var(--color-white); text-decoration: none;
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 1.1rem 2.2rem; transition: background 0.2s, transform 0.2s;
+            align-self: flex-start;
+        }
+
+        .btn-primary:hover { background: var(--color-orange-bright); transform: translateY(-2px); }
+
+        .cta-note {
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+        }
+
+        .hero-arc {
+            display: flex; align-items: center; gap: 0.5rem; margin-top: 3rem;
+            animation: fadeUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .arc-step {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+            padding: 0.4rem 0.9rem; border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .arc-step.active {
+            color: var(--color-orange); border-color: var(--color-orange);
+            background: rgba(255,87,34,0.08);
+        }
+
+        .arc-arrow { color: var(--color-orange); font-size: 1rem; }
+
+        .hero-visual {
+            animation: fadeIn 1s ease-out 0.4s backwards;
+        }
+
+        .hero-show-card {
+            border: 2px solid var(--color-orange); padding: 0;
+            position: relative; overflow: hidden;
+        }
+
+        .hero-show-card img { width: 100%; display: block; }
+
+        .hero-show-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(10,10,10,0.85);
+            padding: 1rem 1.2rem;
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        /* POSITIONING LINE */
+        .positioning-bar {
+            background: var(--color-orange); padding: 1.2rem 3rem;
+            text-align: center;
+        }
+
+        .positioning-bar p {
+            font-family: var(--font-display); font-size: clamp(0.85rem, 1.5vw, 1rem);
+            font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--color-white);
+        }
+
+        /* SECTIONS */
+        section { padding: 7rem 3rem; }
+
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-eyebrow {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-orange);
+            margin-bottom: 1.5rem; display: block;
+        }
+
+        .section-headline {
+            font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 900; text-transform: uppercase; line-height: 1;
+            margin-bottom: 2rem; letter-spacing: -0.01em;
+        }
+
+        .section-body {
+            font-size: 1.1rem; line-height: 1.8; color: var(--color-gray);
+            max-width: 680px;
+        }
+
+        /* WHO THIS IS FOR */
+        .who-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+        }
+
+        .recognition-grid {
+            display: grid; gap: 1.5rem; margin-top: 1rem;
+        }
+
+        .recognition-item {
+            padding: 1.5rem; border-left: 3px solid var(--color-orange);
+            background: rgba(255,87,34,0.04);
+            font-size: 1rem; line-height: 1.7; color: var(--color-light-gray);
+            transition: background 0.2s;
+        }
+
+        .recognition-item:hover { background: rgba(255,87,34,0.08); }
+
+        .who-photo {
+            width: 100%; margin-top: 2rem;
+            border-left: 3px solid var(--color-orange);
+            overflow: hidden; display: block;
+        }
+
+        .who-photo img { width: 100%; display: block; filter: brightness(0.85); }
+
+        .pull-quote {
+            font-size: 1.4rem; font-style: italic; color: var(--color-white);
+            line-height: 1.5; margin: 2.5rem 0;
+            padding-left: 2rem; border-left: 3px solid var(--color-orange);
+            max-width: 620px;
+        }
+
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step { position: relative; }
+
+        .step-num {
+            font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+            color: rgba(255,87,34,0.15); line-height: 1; margin-bottom: 0.5rem;
+        }
+
+        .step-label {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.75rem;
+        }
+
+        .step h4 {
+            font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 1rem; color: var(--color-white);
+        }
+
+        .step p {
+            font-size: 0.95rem; line-height: 1.75; color: var(--color-gray);
+        }
+
+        /* AT SCALE */
+        .scale-cards {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scale-card {
+            padding: 2rem; border: 1px solid rgba(255,87,34,0.2);
+            background: rgba(255,87,34,0.03);
+        }
+
+        .scale-card-label {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.75rem; display: block;
+        }
+
+        .scale-card h4 {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 0.75rem;
+        }
+
+        .scale-card p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* OFFERS */
+        .offers-section { background: var(--color-charcoal); }
+
+        .offers-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .offer-card {
+            background: var(--color-black); padding: 2.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex; flex-direction: column;
+            transition: border-color 0.2s;
+        }
+
+        .offer-card:hover { border-color: rgba(255,87,34,0.4); }
+
+        .offer-card.featured {
+            border-color: var(--color-orange);
+            background: rgba(255,87,34,0.05);
+        }
+
+        .offer-badge {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-orange); background: rgba(255,87,34,0.15);
+            display: inline-block; padding: 0.3rem 0.75rem;
+            margin-bottom: 1.5rem; align-self: flex-start;
+        }
+
+        .offer-card h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 900;
+            text-transform: uppercase; margin-bottom: 0.5rem;
+        }
+
+        .offer-investment {
+            font-size: 0.9rem; color: var(--color-orange); font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-card p {
+            font-size: 0.95rem; line-height: 1.75; color: var(--color-gray);
+            margin-bottom: 1.5rem; flex: 1;
+        }
+
+        .offer-deliverables {
+            list-style: none; margin-bottom: 2rem;
+        }
+
+        .offer-deliverables li {
+            font-size: 0.85rem; color: var(--color-gray); padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding-left: 1rem; position: relative;
+        }
+
+        .offer-deliverables li::before {
+            content: '→'; position: absolute; left: 0;
+            color: var(--color-orange); font-size: 0.8rem;
+        }
+
+        .offer-cta {
+            display: inline-block; text-decoration: none;
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 0.9rem 1.5rem; transition: all 0.2s;
+            border: 1px solid var(--color-orange);
+            color: var(--color-orange); background: transparent;
+            text-align: center;
+        }
+
+        .offer-cta:hover {
+            background: var(--color-orange); color: var(--color-white);
+        }
+
+        .offer-card.featured .offer-cta {
+            background: var(--color-orange); color: var(--color-white);
+        }
+
+        .offer-card.featured .offer-cta:hover {
+            background: var(--color-orange-bright);
+        }
+
+        .intensive-card {
+            margin-top: 2rem; padding: 2.5rem;
+            border: 1px solid rgba(255,87,34,0.3);
+            background: rgba(255,87,34,0.04);
+            display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+        }
+
+        .intensive-badge {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            background: var(--color-orange); color: var(--color-white);
+            display: inline-block; padding: 0.3rem 0.75rem; margin-bottom: 1rem;
+        }
+
+        .intensive-card h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 900;
+            text-transform: uppercase; margin-bottom: 0.75rem;
+        }
+
+        .intensive-card p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            padding: 2.5rem; background: var(--color-charcoal);
+            border-top: 3px solid var(--color-orange);
+        }
+
+        .testimonial blockquote {
+            font-size: 1rem; line-height: 1.8; color: var(--color-light-gray);
+            font-style: italic; margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-white);
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem; color: var(--color-gray); margin-top: 0.25rem;
+        }
+
+        /* PODCAST */
+        .podcast-section { background: var(--color-charcoal); }
+
+        .episodes-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .episode-card {
+            background: var(--color-black); border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none; color: var(--color-white);
+            display: block; transition: border-color 0.2s;
+        }
+
+        .episode-card:hover { border-color: var(--color-orange); }
+
+        .episode-thumb {
+            width: 100%; aspect-ratio: 16/9; background: #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+
+        .episode-thumb-inner {
+            width: 100%; height: 100%; display: flex; align-items: center;
+            justify-content: center; background: var(--color-charcoal);
+        }
+
+        .play-icon {
+            width: 48px; height: 48px; background: var(--color-orange);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .play-icon svg { width: 20px; height: 20px; margin-left: 3px; }
+
+        .episode-info { padding: 1.25rem; }
+
+        .episode-title {
+            font-size: 0.9rem; font-weight: 600; line-height: 1.5;
+            color: var(--color-white); margin-bottom: 0.5rem;
+        }
+
+        .episode-guest {
+            font-size: 0.8rem; color: var(--color-gray);
+        }
+
+        .podcast-platforms {
+            margin-top: 2.5rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+
+        .podcast-platforms span {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .platform-link {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-orange);
+            text-decoration: none; border: 1px solid rgba(255,87,34,0.4);
+            padding: 0.4rem 1rem; transition: all 0.2s;
+        }
+
+        .platform-link:hover { background: var(--color-orange); color: var(--color-white); }
+
+        /* ABOUT */
+        .about-layout {
+            display: grid; grid-template-columns: 380px 1fr; gap: 6rem; align-items: start;
+        }
+
+        .about-photo {
+            width: 100%; aspect-ratio: 3/4; background: var(--color-charcoal);
+            border: 3px solid var(--color-orange); overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .about-photo-placeholder {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 1;
+        }
+
+        .about-text p {
+            font-size: 1rem; line-height: 1.85; color: var(--color-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .about-signoff {
+            font-size: 1.1rem; color: var(--color-white) !important;
+            font-style: italic; border-left: 3px solid var(--color-orange);
+            padding-left: 1.5rem; margin-top: 2rem !important;
+        }
+
+        .about-facts {
+            margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .fact {
+            padding: 1rem; background: var(--color-charcoal);
+        }
+
+        .fact-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.4rem; display: block;
+        }
+
+        .fact-value { font-size: 0.85rem; color: var(--color-light-gray); line-height: 1.5; }
+
+        /* CLOSING CTA */
+        .closing-cta {
+            background: radial-gradient(ellipse at center, rgba(255,87,34,0.12) 0%, transparent 70%);
+            text-align: center; padding: 8rem 3rem;
+        }
+
+        .closing-cta .section-eyebrow { justify-content: center; }
+
+        .closing-cta h2 {
+            font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900; text-transform: uppercase; line-height: 1;
+            margin-bottom: 1.5rem; letter-spacing: -0.02em;
+        }
+
+        .closing-cta p {
+            font-size: 1.1rem; line-height: 1.75; color: var(--color-gray);
+            max-width: 560px; margin: 0 auto 2.5rem;
+        }
+
+        .secondary-cta {
+            display: block; margin-top: 1.25rem;
+            font-size: 0.9rem; color: var(--color-gray);
+        }
+
+        .secondary-cta a { color: var(--color-orange); text-decoration: none; }
+        .secondary-cta a:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-charcoal); padding: 2.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem; color: var(--color-gray);
+            font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-gray); text-decoration: none; transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--color-orange); }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        /* HAMBURGER */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            background: none; border: none; padding: 4px;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--color-white); transition: all 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--color-black); z-index: 999;
+            flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-white); text-decoration: none; transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: var(--color-orange); }
+        .mobile-menu-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; color: var(--color-gray);
+            font-size: 2rem; cursor: pointer; line-height: 1;
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; z-index: 1001; position: relative; }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-visual { display: block; text-align: center; }
+            .hero-show-card { max-width: 280px; margin: 0 auto; }
+            section { padding: 5rem 1.5rem; }
+            .who-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .scale-cards { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .episodes-grid { grid-template-columns: 1fr; }
+            .about-layout { grid-template-columns: 1fr; }
+            .about-photo { max-width: 320px; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .intensive-card { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+    <a href="#the-work" class="mobile-nav-link">The Work</a>
+    <a href="#offers" class="mobile-nav-link">Offers</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#podcast" class="mobile-nav-link">Podcast</a>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-logo">The Bigger Stage</a>
+    <ul class="nav-links">
+        <li><a href="#the-work">The Work</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="hero-eyebrow">For founders who are done being the best-kept secret in their industry</span>
+            <h1>
+                Your shift:
+                <span class="highlight">operator to icon.</span>
+            </h1>
+            <p class="hero-bridge">The words are already there.</p>
+            <p class="hero-sub">You've built something real. The meaning behind it, the story only you can tell, the reason it matters beyond the service, is already inside you. You just haven't had the space, the mirror, or the right person to pull it out and put it on camera. That's the work. And when it's done, the right people find you.</p>
+            <div class="hero-cta-group">
+                <a href="#offers" class="btn-primary">Start with a Rapid Revelation Session</a>
+                <span class="cta-note">Self-assessment, one-hour conversation, and a debrief call. High value. Minimal disruption.</span>
+            </div>
+            <div class="hero-arc">
+                <span class="arc-step">Operator</span>
+                <span class="arc-arrow">→</span>
+                <span class="arc-step">Authority</span>
+                <span class="arc-arrow">→</span>
+                <span class="arc-step active">Icon</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-show-card">
+                <img src="IMG_5013.jpeg" alt="Matt Stone">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POSITIONING BAR -->
+<div class="positioning-bar">
+    <p>Most founder-CEOs are the best-kept secret in their industry. The Bigger Stage is where that changes.</p>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<section id="the-work">
+    <div class="section-inner">
+        <div class="who-layout">
+            <div class="reveal">
+                <span class="section-eyebrow">Who this is for</span>
+                <h2 class="section-headline">You've outgrown the operator identity. The icon is ready to emerge.</h2>
+                <p class="section-body">You're a founder. The business is real, built by your hands, your decisions, your belief in something. It's growing. New rooms, new audiences, new people asking you to explain what you do and why it matters.</p>
+                <br>
+                <p class="section-body">You're joining associations. Taking on leadership roles. Being asked to speak. The operator you've been is becoming something more. But the narrative hasn't caught up. The gap between what you've built and how you talk about it is starting to show.</p>
+            </div>
+            <div class="recognition-grid reveal">
+                <div class="recognition-item">You know there's something deeper in what you've built. You just don't have the words for it yet.</div>
+                <div class="recognition-item">You're being asked to show up as an authority. But inside, you're still thinking like an operator.</div>
+                <div class="recognition-item">You're explaining your business constantly to partners, hires, and audiences. It never quite lands the way it should.</div>
+                <div class="recognition-item">You want to build something beyond the service: a brand, a voice, a legacy that outlasts the day-to-day.</div>
+                <div class="recognition-item">You watch peers with less to offer get the stages, the press, and the deals — and you know the gap isn't ability. It's visibility.</div>
+                <div class="who-photo reveal">
+                    <img src="DB_A5566.jpg" alt="Matt Stone in conversation with founders">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE METHOD -->
+<div style="background: var(--color-orange); padding: 1.5rem 3rem; text-align: center;">
+    <p style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 700; letter-spacing: 0.05em; color: var(--color-white); margin: 0; text-transform: uppercase;">He doesn’t help people become louder versions of themselves. He helps them become clearer ones.</p>
+</div>
+
+<section class="method-section" id="method">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">The method</span>
+        <h2 class="section-headline reveal">The Revelation</h2>
+        <p class="section-body reveal">Every founder who makes the operator-to-icon shift goes through the same internal transition first. The meaning behind the business, what it truly stands for, why it matters beyond the service, has to become accessible before it can become communicable. Most operators don’t know exactly what’s blocking them until someone asks the right questions.</p>
+        <br>
+        <p class="section-body reveal">The Revelation is a recorded conversation process designed to draw out what you haven’t been able to say. Not to install a message. To surface the true one. And put it on camera, where it becomes real.</p>
+
+        <blockquote class="pull-quote reveal">“The difference between an operator and an icon isn’t talent or vision. It’s the ability to make other people feel what you already know.”</blockquote>
+
+        <div class="steps-grid">
+            <div class="step reveal">
+                <div class="step-num">01</div>
+                <div class="step-label">Reveal</div>
+                <h4>Surface what’s already there</h4>
+                <p>Through a recorded conversation, unscripted and on camera, we excavate the real meaning underneath your business: what it stands for, why it matters, and how you need to talk about it. Most operators don’t know exactly what’s blocking them until someone asks the right questions. The camera becomes your first stage.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">02</div>
+                <div class="step-label">Realign</div>
+                <h4>Shift from operational to iconic</h4>
+                <p>With the message surfaced, we reorient your perspective from the inside out. You’ve been thinking like an operator, in numbers, process, and deliverables. We build a messaging framework that shifts you toward iconic leadership, clarifying your authority, defining your vision, and giving you language your investors, team, and market actually understand.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">03</div>
+                <div class="step-label">Repurpose</div>
+                <h4>Send it into the world</h4>
+                <p>The recordings, the language, and the story become assets, ready to deploy across your brand, your team communications, your investor narrative, and your public presence. Your voice traveling into rooms you are not in, with the clarity and conviction of someone who knows exactly what they stand for.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- YOUR STORY AT SCALE -->
+<section>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Your story at scale</span>
+        <h2 class="section-headline reveal">When the message is clear and on camera, it travels without you.</h2>
+        <p class="section-body reveal">Most founders are the bottleneck of their own brand. Every new partner, hire, or market requires them to show up in person and explain, again, what the business is, why it matters, and why they're the one to lead it.</p>
+        <br>
+        <p class="section-body reveal">The Revelation changes that. When your story is clear and captured on camera, it becomes an asset that works independently. A future franchise partner discovers your vision before you've met. A senior hire understands your leadership before the first interview. A customer feels the meaning behind the business before they pick up the phone.</p>
+        <br>
+        <p class="section-body reveal">This is what separates an icon from an operator. An operator's impact is limited by their presence. An icon's message scales beyond it.</p>
+
+        <blockquote class="pull-quote reveal">"Your story reaches the partner you haven't met, the hire who finds you before you find them, the audience that needs to hear what you've built — without you having to be in every room."</blockquote>
+
+        <div class="scale-cards">
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For growth</span>
+                <h4>Attract the right people</h4>
+                <p>Partners, hires, and customers who already understand what you stand for arrive pre-aligned. Less convincing. More choosing.</p>
+            </div>
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For scale</span>
+                <h4>Build beyond the service</h4>
+                <p>Franchising, new locations, new markets — the brand travels with you because the meaning is clear, captured, and communicable without you in the room.</p>
+            </div>
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For legacy</span>
+                <h4>Create a lasting voice</h4>
+                <p>The content assets built through The Revelation become the foundation of a platform — a body of work that outlasts any single transaction or season of growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers-section" id="offers">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Ways to work together</span>
+        <h2 class="section-headline reveal">Every founder enters differently.<br>The destination is the same.</h2>
+        <p class="section-body reveal">Whether you're just beginning to feel the gap or deep in the shift, there's a right place to start. Each offer is built on the same method, Reveal, Realign, Repurpose, and each one creates a natural path forward.</p>
+
+        <div class="offers-grid" style="margin-top: 3rem;">
+
+            <div class="offer-card featured reveal">
+                <span class="offer-badge">Start here</span>
+                <h3>The Rapid Revelation Session</h3>
+                <div class="offer-investment">Single session</div>
+                <p>You start on your own with a short self-assessment that surfaces where you are in the operator-to-icon shift. Then we meet for an hour: mostly conversation, with fifteen minutes captured on camera. A few days later, we reconvene to watch the clips together, capture what emerged, and map the real opportunity — how much further your message can go, how fast, and what it would mean for your time and budget to build this way. High value. Minimal disruption.</p>
+                <ul class="offer-deliverables">
+                    <li>Self-assessment: your Operator-to-Icon baseline</li>
+                    <li>One-hour conversation with Matt (15 minutes on camera)</li>
+                    <li>3 professionally edited clips from the recording</li>
+                    <li>Debrief call: review clips, capture learning, identify next opportunities</li>
+                    <li>Evaluation of time and cost savings from this approach</li>
+                    <li>Clear picture of what's possible if you go deeper</li>
+                </ul>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+
+            <div class="offer-card reveal">
+                <span class="offer-badge">Complete project</span>
+                <h3>The Revelation</h3>
+                <div class="offer-investment">Investment discussed on discovery call</div>
+                <p>The full Reveal, Realign, Repurpose process, deep and unhurried, built on focused intention. A long-form recorded conversation that excavates the real meaning underneath your business, followed by a messaging framework that shifts you from operational thinking to iconic leadership. Delivered with edited video, shareable clips, a full transcript, and a narrative analysis: our read on what surfaced, the through-lines of your authority, and the language your audience has been waiting to hear.</p>
+                <ul class="offer-deliverables">
+                    <li>Intention-setting consultation</li>
+                    <li>Long-form recorded conversation</li>
+                    <li>Edited video and shareable clips</li>
+                    <li>Full transcript</li>
+                    <li>Narrative analysis and debrief</li>
+                </ul>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+
+            <div class="offer-card reveal">
+                <span class="offer-badge">Ongoing</span>
+                <h3>The Icon Partnership</h3>
+                <div class="offer-investment">Investment discussed on discovery call</div>
+                <p>For founders building toward icon, steadily, intentionally, over time. Each session goes deeper as you grow into new rooms and new audiences, refining your message, strengthening your presence, and building a growing library of content that scales your voice beyond you. This is where the full operator-to-icon arc unfolds. When we’re done, you’ll be irresistible on stage, more influential where it matters, and insured against sounding like everyone else in a crowded market, because when people believe in you, not just your service, you grow on your own terms.</p>
+                <ul class="offer-deliverables">
+                    <li>Ongoing intention-setting and recorded sessions</li>
+                    <li>Narrative refinement as your story evolves</li>
+                    <li>Growing library of content assets</li>
+                    <li>Strategic thinking partnership</li>
+                </ul>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+        </div>
+
+        <div class="intensive-card reveal">
+            <div>
+                <span class="intensive-badge">Live experience</span>
+                <h3>The Revelation Intensive</h3>
+                <p>A one to two-day in-person experience for a small group of founders, six to ten people. Structured intake and intention-setting in advance. On the day, each founder goes on camera, witnessed by peers in the room. Hearing another founder make the shift often unlocks your own. Every participant leaves with footage, clips, and a narrative analysis. Complete on its own. A natural beginning for those ready to go further.</p>
+            </div>
+            <div>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Inquire about the next intensive →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">What people say</span>
+        <h2 class="section-headline reveal">In their own words.</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial reveal">
+                <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. He skillfully held the room and seamlessly facilitated the conversation. In his podcast, he made it easy for us to tell a true, unpolished story. When it came time to translate that story into video, he carried it with the same attentive, unhurried, quietly excellent care. Presence first. Story second. Craft all the way through. We needed someone who can produce beautiful media and keep the human being at the center of the process, and Matt has overdelivered."</blockquote>
+                <div class="testimonial-author">Samir Selmanovic, Ph.D. & Jordan Soliday</div>
+                <div class="testimonial-role">Leadership Coach & Innovation Instructor · Epic Ordinary LLC</div>
+            </div>
+            <div class="testimonial reveal">
+                <blockquote>"You had great questions. You made it really comfortable for us to just have a conversation. Not only was the one hour we spent together great, but the deliverables on the back end were polished and gave me and my team what we needed to showcase what it is that we're doing and where we're going. You picked things that I maybe wouldn't have picked myself — but I was happy with it. Part of the reason we were working together was because of the background you bring to ask good questions that pulled out things I wasn't necessarily thinking about."</blockquote>
+                <div class="testimonial-author">Rhonda Noordyk</div>
+                <div class="testimonial-role">Founder & Financial Advocate</div>
+            </div>
+            <div class="testimonial reveal">
+                <blockquote>"Matt is a strategist coach like no other. His listening skills, combined with his many experiences helping professionals find their potential, has been pivotal. I trust that his robust knowledge will benefit those looking for purpose in their work."</blockquote>
+                <div class="testimonial-author">Xavier Desaulles</div>
+                <div class="testimonial-role">CEO, Adagio SAS</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PODCAST -->
+<section class="podcast-section" id="podcast">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">The Bigger Stage podcast</span>
+        <h2 class="section-headline reveal">Conversations with people who know what it takes to step into a bigger role.</h2>
+        <p class="section-body reveal">Leaders who've made the shift. Thinkers who've studied it. Practitioners who've lived it. Every episode is an honest conversation about the human moments behind growth: how trust is built, how visibility changes responsibility, and how storytelling becomes a leadership skill as stakes rise.</p>
+
+        <div class="episodes-grid">
+            <a href="https://youtu.be/kXs6tvhHFkk?si=2RbGpcGqWe3IFIR6" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/kXs6tvhHFkk/hqdefault.jpg" alt="He Built a Multi-Million Dollar Painting Empire — Then Walked Away" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">He Built a Multi-Million Dollar Painting Empire — Then Walked Away</div>
+                    <div class="episode-guest">Kevin Nolan</div>
+                </div>
+            </a>
+            <a href="https://youtu.be/rXekWjxFOiE?si=7pp5fNDQP4sYVA6B" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/rXekWjxFOiE/hqdefault.jpg" alt="The More You Prepare, The More You Can Let Go" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">The Sacrifice Paradox: What You Give Up Is What Gets You There</div>
+                    <div class="episode-guest">David Kalinowski</div>
+                </div>
+            </a>
+            <a href="https://youtu.be/p3V1qygGO6o?si=6RsbQgrNp2LdjsTW" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/p3V1qygGO6o/hqdefault.jpg" alt="The Sacrifice Paradox: What You Give Up Is What Gets You There" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">The More You Prepare, The More You Can Let Go</div>
+                    <div class="episode-guest">Meridith Grundei</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="podcast-platforms reveal">
+            <span>Find all episodes on</span>
+            <a href="https://www.youtube.com/@thebiggerstage" target="_blank" class="platform-link">YouTube</a>
+            <a href="https://podcasts.apple.com/us/podcast/the-bigger-stage-w-matt-stone/id1843248743" target="_blank" class="platform-link">Apple Podcasts</a>
+            <a href="https://open.spotify.com/show/23sV8PD1HY84g1tiZscqwc?si=25842a0f14374f8d" target="_blank" class="platform-link">Spotify</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-inner">
+        <div class="about-layout">
+            <div class="about-photo reveal">
+                <img src="IMG_5470.jpeg" alt="Matt Stone in New York City">
+            </div>
+            <div class="about-text reveal">
+                <span class="section-eyebrow">About Matt</span>
+                <h2>He's been in a lot of rooms.</h2>
+                <p>A law office. Federal agencies. The highest levels of leadership at the Pentagon. Multinational boardrooms. Hollywood studios. Silicon Valley startups. Leadership teams navigating change. The contexts changed. The work never did.</p>
+                <p>In every room, the same thing mattered most: the ability to listen deeply enough to draw out what someone couldn't quite say, and reflect it back in a way that changed everything. A case that settled. A pitch that landed. A team that finally understood why the work mattered. A leadership team turned around.</p>
+                <p>Growing up as a military upbringing that kept the family moving, and a career that never stopped, took Matt across seven states, three continents, and into rooms most people only read about. Always the new person. Always reading an unfamiliar room. He learned early that curiosity and genuine interest in people weren’t just social skills. They were how you survived. And they became the foundation of a career built entirely on helping people find and express what’s truest about themselves.</p>
+                <p>For ten years, he built a management consultancy on someone else's foundation, carrying another founder's meaning, speaking another founder's words. He got far. But something never fully landed. He knew that gap intimately. The personal cost of a presence that doesn't match what you've actually built.</p>
+                <p>That gap became The Bigger Stage. The operator-to-icon journey isn’t just a framework he teaches. It’s one he lived.</p>
+                <div class="about-facts">
+                    <div class="fact"><span class="fact-label">Background</span><span class="fact-value">Law, Hollywood, Silicon Valley, federal consulting, management advisory</span></div>
+                    <div class="fact"><span class="fact-label">Training</span><span class="fact-value">J.D., University of Hawaiʻi · B.A., University of Oregon · Neuroscience-based coaching</span></div>
+                    <div class="fact"><span class="fact-label">Lived in</span><span class="fact-value">Seven US states, Europe, Asia</span></div>
+                    <div class="fact"><span class="fact-label">Based</span><span class="fact-value">New York metropolitan area</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="closing-cta">
+    <div class="section-inner" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="section-eyebrow reveal" style="display: block; text-align: center;">Your next step</span>
+        <h2 class="section-headline reveal">Start with a complimentary Operator-to-Icon Clarity Call.</h2>
+        <p class="reveal">A 30-minute recorded conversation where you’ll get a preview of what the Reveal process feels like — and leave with at least one insight you can use immediately. No pitch. No pressure. Just clarity.</p>
+        <div class="reveal">
+            <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary">Book your Clarity Call</a>
+            <span class="secondary-cta">Or reach out directly: <a href="mailto:matt@mattstone.co">matt@mattstone.co</a></span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-copy">© 2026 Matt Stone Enterprises LLC</span>
+    <div class="footer-links">
+        <a href="https://www.youtube.com/@thebiggerstage" target="_blank">The Bigger Stage Podcast</a>
+        <a href="mailto:matt@mattstone.co">Contact</a>
+        <a href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+        </a>
+    </div>
+</footer>
+
+<script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 80) el.classList.add('active');
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    menuClose.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+
+</body>
+</html>
