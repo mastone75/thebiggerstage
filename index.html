@@ -72,6 +72,20 @@
 
         .nav-links a:hover { color: var(--color-white); }
 
+        .nav-links a.nav-cta {
+            color: var(--color-white);
+            background: var(--color-orange);
+            padding: 0.55rem 1.1rem;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--color-orange-bright);
+            color: var(--color-white);
+            transform: translateY(-1px);
+        }
+
         /* HERO */
         .hero {
             min-height: 100vh; display: flex; align-items: center;
@@ -717,6 +731,7 @@
             nav { padding: 1.25rem 1.5rem; }
             .nav-links { display: none; }
             .hamburger { display: flex; z-index: 1001; position: relative; }
+            .hero { padding: 6rem 1.5rem 4rem; }
             .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
             .hero-visual { display: block; text-align: center; }
             .hero-show-card { max-width: 280px; margin: 0 auto; }
@@ -743,6 +758,7 @@
     <a href="#offers" class="mobile-nav-link">Offers</a>
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="/iconic-conversations" class="mobile-nav-link">Live Events</a>
 </div>
 
 <!-- NAV -->
@@ -753,6 +769,7 @@
         <li><a href="#offers">Offers</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#podcast">Podcast</a></li>
+        <li><a href="/iconic-conversations" class="nav-cta">Live Events</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
