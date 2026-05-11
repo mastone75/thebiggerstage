@@ -130,22 +130,64 @@
 
         /* HERO */
         .hero {
-            min-height: 100vh; display: flex; align-items: center;
+            position: relative;
+            display: flex;
+            align-items: center;
             padding: 7rem 0 4rem;
             background: var(--color-black);
-            position: relative;
             overflow: hidden;
+            min-height: 92vh;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: var(--color-black);
+        }
+
+        .hero-bg img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            max-width: none;
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            animation: fadeIn 1.2s ease-out backwards;
+        }
+
+        /* Soft gradient blends the dark left of the image into the text area */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right,
+                    rgba(10,10,10,1) 0%,
+                    rgba(10,10,10,0.95) 20%,
+                    rgba(10,10,10,0.7) 40%,
+                    rgba(10,10,10,0.25) 55%,
+                    rgba(10,10,10,0) 70%);
+            pointer-events: none;
         }
 
         .hero-inner {
-            max-width: 1400px; margin: 0 auto; width: 100%;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;
-            padding-left: 3rem;
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 3rem;
         }
 
         .hero-text {
-            padding: 2rem 3rem 2rem 0;
-            display: flex; flex-direction: column; justify-content: center;
+            max-width: 580px;
         }
 
         .hero-eyebrow {
@@ -156,10 +198,11 @@
         }
 
         .hero h1 {
-            font-family: var(--font-display); font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+            font-family: var(--font-display); font-size: clamp(2.75rem, 5.5vw, 5rem);
             font-weight: 900; line-height: 0.95; letter-spacing: 0.01em;
             text-transform: uppercase; margin-bottom: 1.2rem;
             animation: fadeUp 0.8s ease-out 0.2s backwards;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.6);
         }
 
         .hero h1 .highlight { color: var(--color-orange); display: block; }
@@ -167,20 +210,20 @@
         .hero-bridge {
             font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
             color: var(--color-white); letter-spacing: 0.05em; margin-bottom: 1.5rem;
-            opacity: 0.85;
+            opacity: 0.9;
             animation: fadeUp 0.8s ease-out 0.3s backwards;
         }
 
         .hero-sub {
-            font-size: 1.05rem; line-height: 1.75; color: var(--color-gray);
-            max-width: 560px; margin-bottom: 2rem;
+            font-size: 1.05rem; line-height: 1.75; color: var(--color-light-gray);
+            max-width: 520px; margin-bottom: 2rem;
             animation: fadeUp 0.8s ease-out 0.4s backwards;
         }
 
         .hero-meta {
             display: flex; flex-wrap: wrap; gap: 1.75rem;
             margin-bottom: 2.5rem; padding-top: 1.75rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.18);
             animation: fadeUp 0.8s ease-out 0.5s backwards;
         }
 
@@ -213,29 +256,6 @@
 
         .hero-cta-note {
             font-size: 0.85rem; color: var(--color-gray); font-style: italic;
-        }
-
-        .hero-image {
-            position: relative;
-            height: 100%;
-            min-height: 520px;
-            animation: fadeUp 0.8s ease-out 0.3s backwards;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to right, var(--color-black) 0%, transparent 12%, transparent 100%);
-            pointer-events: none;
         }
 
         /* SECTIONS */
@@ -490,20 +510,30 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 900px) {
             nav { padding: 1.25rem 1.5rem; }
             .nav-links { display: none; }
             .hamburger { display: flex; z-index: 1001; position: relative; }
-            .hero { padding: 5rem 0 3rem; }
-            .hero-inner {
-                grid-template-columns: 1fr; gap: 2rem;
-                padding-left: 0;
+            .hero { padding: 6rem 0 4rem; min-height: 85vh; }
+            .hero-inner { padding: 0 1.5rem; }
+            .hero-bg img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 70% center;
             }
-            .hero-text { padding: 0 1.5rem; }
-            .hero-image { min-height: 300px; order: -1; }
-            .hero-image::after {
-                background: linear-gradient(to bottom, transparent 60%, var(--color-black) 100%);
+            .hero-bg::after {
+                background:
+                    linear-gradient(to bottom,
+                        rgba(10,10,10,0.92) 0%,
+                        rgba(10,10,10,0.78) 50%,
+                        rgba(10,10,10,0.88) 100%);
             }
             section { padding: 5rem 1.5rem; }
             .premise-layout { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -549,6 +579,9 @@
 
 <!-- HERO -->
 <section class="hero">
+    <div class="hero-bg">
+        <img src="iconic-conversations-hero.png" alt="Matt Stone in studio for Iconic Conversations">
+    </div>
     <div class="hero-inner">
         <div class="hero-text">
             <span class="hero-eyebrow">A different kind of room</span>
@@ -587,10 +620,6 @@
                 <!-- EVENT-SPECIFIC: update deadline per month -->
                 <span class="hero-cta-note">Applications close Mon, May 25</span>
             </div>
-        </div>
-
-        <div class="hero-image">
-            <img src="iconic-conversations-hero.png" alt="Matt Stone in studio">
         </div>
     </div>
 </section>
