@@ -41,8 +41,8 @@
   --text:        #e8e4dc;
   --text-dim:    #8a8780;
   --text-dimmer: #5a5750;
-  --orange:      #E8722A;
-  --orange-dim:  rgba(232,114,42,0.10);
+  --orange:      #FF5722;
+  --orange-dim:  rgba(255,87,34,0.10);
   --white:       #f5f2ec;
   --nav-h:       56px;
 }
@@ -273,7 +273,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
     <div class="dim-desc">How solid your operator base is</div>
   </div>
   <div class="dim-cell">
-    <div class="dim-dot" style="background:#E8722A;"></div>
+    <div class="dim-dot" style="background:#FF5722;"></div>
     <div class="dim-name">Presence</div>
     <div class="dim-desc">How you show up in rooms</div>
   </div>
@@ -330,8 +330,8 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
   </div>
 
   <!-- ── PRESENCE ── -->
-  <div class="dim-header" style="border-left-color:#E8722A;">
-    <div class="dim-header-dot" style="background:#E8722A;"></div>
+  <div class="dim-header" style="border-left-color:#FF5722;">
+    <div class="dim-header-dot" style="background:#FF5722;"></div>
     <div class="dim-header-name">Presence</div>
     <div class="dim-header-label">Questions 3 – 4</div>
   </div>
@@ -358,7 +358,7 @@ footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex;
 
   <!-- Milestone: Presence complete -->
   <div class="milestone" id="ms2">
-    <span class="ms-dot" style="background:#E8722A;"></span>
+    <span class="ms-dot" style="background:#FF5722;"></span>
     Presence complete &nbsp;·&nbsp; 2 of 5 dimensions
   </div>
 
@@ -541,7 +541,7 @@ const DIMS = [
     high: 'Your foundation is strong. You\'ve proven yourself. People trust your capability — now they need to trust your vision.'
   },
   {
-    key: 'presence', label: 'Presence', color: '#E8722A',
+    key: 'presence', label: 'Presence', color: '#FF5722',
     desc: 'How you show up in rooms — the gravity, point of view, and energy you carry.',
     low:  'You\'re letting your work speak before you do. Presence means walking in with a perspective, not just a resume.',
     mid:  'You have a clear point of view and people notice it. The next step is making that presence feel inevitable — not earned in the room, but carried into it.',
@@ -874,9 +874,9 @@ function drawSpider(dimScores) {
   ctx.beginPath();
   pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
   ctx.closePath();
-  ctx.fillStyle   = 'rgba(232,114,42,0.13)';
+  ctx.fillStyle   = 'rgba(255,87,34,0.13)';
   ctx.fill();
-  ctx.strokeStyle = 'rgba(232,114,42,0.55)';
+  ctx.strokeStyle = 'rgba(255,87,34,0.55)';
   ctx.lineWidth   = 1.5;
   ctx.stroke();
 
