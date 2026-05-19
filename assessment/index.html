@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inner Icon Assessment — The Bigger Stage</title>
+<meta name="description" content="Five dimensions. One profile. Map exactly where you are on the operator-to-icon journey — and where to focus next.">
+
+<!-- Open Graph / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thebiggerstage.com/assessment">
+<meta property="og:title" content="Inner Icon Assessment — The Bigger Stage">
+<meta property="og:description" content="Five dimensions. One profile. Map exactly where you are on the operator-to-icon journey — and where to focus next.">
+<meta property="og:image" content="https://thebiggerstage.com/og-image.jpg">
+<meta property="og:site_name" content="The Bigger Stage">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inner Icon Assessment — The Bigger Stage">
+<meta name="twitter:description" content="Five dimensions. One profile. Map exactly where you are on the operator-to-icon journey — and where to focus next.">
+<meta name="twitter:image" content="https://thebiggerstage.com/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '476051');
+</script>
+<!-- End MailerLite Universal -->
+
+<style>
+
+:root {
+  --bg:          #0e0e0d;
+  --bg-card:     #141413;
+  --border:      #2a2a27;
+  --border-mid:  #3a3a36;
+  --text:        #e8e4dc;
+  --text-dim:    #8a8780;
+  --text-dimmer: #5a5750;
+  --orange:      #E8722A;
+  --orange-dim:  rgba(232,114,42,0.10);
+  --white:       #f5f2ec;
+  --nav-h:       56px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: var(--nav-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px;
+}
+.nav-logo { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.04em; color: var(--white); text-decoration: none; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+
+/* PROGRESS */
+.prog-wrap { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 100; height: 2px; background: var(--border); }
+.prog-fill { height: 100%; background: var(--orange); transition: width 0.35s ease; width: 0%; }
+
+/* HERO */
+.hero { padding: calc(var(--nav-h) + 100px) 40px 80px; max-width: 780px; margin: 0 auto; }
+.eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 24px; }
+.hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 400; line-height: 1.1; color: var(--white); margin-bottom: 20px; letter-spacing: -0.01em; }
+.hero h1 em { font-style: italic; }
+.hero-sub { font-size: 19px; color: var(--text-dim); max-width: 520px; line-height: 1.7; margin-bottom: 48px; font-style: italic; }
+.hero-rule { width: 1px; height: 44px; background: var(--border-mid); margin-bottom: 20px; }
+.hero-note { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-dimmer); letter-spacing: 0.04em; line-height: 1.8; max-width: 460px; }
+.hero-note strong { color: var(--text-dim); font-weight: 500; }
+.hero-kicker {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase; color: var(--orange);
+  margin-bottom: 20px;
+}
+
+/* DIMENSION LEGEND */
+.dim-legend { max-width: 780px; margin: 0 auto 0; padding: 0 40px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 0; }
+.dim-cell { background: var(--bg-card); padding: 20px 16px; text-align: center; }
+.dim-dot { width: 8px; height: 8px; border-radius: 50%; margin: 0 auto 10px; }
+.dim-name { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 4px; }
+.dim-desc { font-family: 'EB Garamond', serif; font-size: 14px; font-style: italic; color: var(--text-dimmer); line-height: 1.4; }
+
+/* BODY */
+.body { max-width: 780px; margin: 0 auto; padding: 0 40px 120px; }
+
+/* DIMENSION HEADER between question groups */
+.dim-header { margin-top: 64px; margin-bottom: 0; padding: 14px 20px; background: var(--bg-card); border-left: 3px solid var(--orange); display: flex; align-items: center; gap: 12px; }
+.dim-header-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dim-header-name { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); }
+.dim-header-label { font-family: 'EB Garamond', serif; font-size: 15px; font-style: italic; color: var(--text-dimmer); margin-left: auto; }
+
+/* Q BLOCKS */
+.q-block { padding-top: 40px; border-top: 1px solid var(--border); margin-top: 40px; }
+.q-block:first-child { border-top: none; margin-top: 0; }
+.q-num { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 14px; }
+.q-prompt { font-size: clamp(16px, 2.5vw, 20px); font-weight: 400; font-style: italic; color: var(--white); margin-bottom: 24px; line-height: 1.4; }
+
+/* OPTIONS */
+.options { display: flex; flex-direction: column; gap: 8px; }
+.opt-btn {
+  width: 100%; text-align: left; padding: 16px 20px 16px 18px;
+  border: 1px solid var(--border-mid); background: transparent; border-radius: 2px;
+  font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.55;
+  color: var(--text-dim); cursor: pointer; transition: all 0.15s ease; position: relative;
+}
+.opt-btn:hover { border-color: var(--text-dim); color: var(--text); background: rgba(255,255,255,0.02); }
+.opt-btn.selected { border-color: var(--orange); color: var(--white); background: var(--orange-dim); }
+.opt-btn.selected::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: var(--orange); border-radius: 2px 0 0 2px;
+}
+
+/* SUBMIT */
+.submit-wrap { margin-top: 80px; padding-top: 56px; border-top: 1px solid var(--border); }
+.prog-label { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-dimmer); letter-spacing: 0.04em; margin-bottom: 24px; }
+.prog-label em { color: var(--orange); font-style: normal; }
+.warn { display: none; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--orange); letter-spacing: 0.04em; margin-bottom: 20px; }
+.warn.on { display: block; }
+.link-btn {
+  display: inline-flex; align-items: center; gap: 10px; background: none; border: none;
+  border-bottom: 1px solid var(--border-mid); padding: 0 0 4px;
+  font-family: 'EB Garamond', serif; font-size: 20px; color: var(--white);
+  cursor: pointer; transition: border-color 0.2s; letter-spacing: 0.01em;
+}
+.link-btn:hover { border-color: var(--white); }
+.arr { display: inline-block; transition: transform 0.2s; }
+.link-btn:hover .arr { transform: translateX(4px); }
+
+/* GATE */
+.gate { display: none; margin-top: 80px; padding-top: 72px; border-top: 1px solid var(--border); }
+.gate.on { display: block; }
+.gate-title { font-size: clamp(26px, 4vw, 38px); font-weight: 400; color: var(--white); margin-bottom: 8px; line-height: 1.2; margin-top: 16px; }
+.gate-sub { font-size: 17px; font-style: italic; color: var(--text-dim); margin-bottom: 48px; max-width: 420px; }
+.gate-form { max-width: 380px; display: flex; flex-direction: column; }
+.gate-input { width: 100%; padding: 14px 0; border: none; border-bottom: 1px solid var(--border-mid); background: transparent; font-family: 'EB Garamond', serif; font-size: 17px; color: var(--white); outline: none; transition: border-color 0.2s; margin-bottom: 14px; }
+.gate-input::placeholder { color: var(--text-dimmer); }
+.gate-input:focus { border-color: var(--text-dim); }
+.gate-err { display: none; font-family: 'Inter', sans-serif; font-size: 11px; color: var(--orange); letter-spacing: 0.04em; margin-top: 12px; }
+.gate-fine { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-dimmer); margin-top: 18px; letter-spacing: 0.02em; }
+
+/* RESULTS */
+.results { display: none; margin-top: 80px; padding-top: 72px; border-top: 1px solid var(--border); }
+.results.on { display: block; }
+.res-eyebrow { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 16px; }
+.res-title { font-size: clamp(28px, 5vw, 48px); font-weight: 400; color: var(--white); line-height: 1.1; margin-bottom: 8px; }
+.res-title em { font-style: italic; color: var(--orange); }
+.res-sub { font-size: 18px; font-style: italic; color: var(--text-dim); margin-bottom: 48px; }
+
+/* SPIDER GRAPH */
+.spider-wrap {
+  display: flex; flex-direction: column; align-items: center;
+  margin-bottom: 64px;
+}
+.spider-wrap canvas { max-width: 100%; }
+
+/* DIMENSION BREAKDOWN */
+.dim-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+.dim-row { background: var(--bg-card); padding: 24px 24px; display: flex; align-items: center; gap: 16px; }
+.dim-row-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dim-row-info { flex: 1; }
+.dim-row-name { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 4px; }
+.dim-row-desc { font-size: 15px; font-style: italic; color: var(--text-dim); line-height: 1.4; }
+.dim-row-score { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-dimmer); text-align: right; white-space: nowrap; }
+.dim-row-score strong { display: block; font-size: 28px; color: var(--white); font-family: 'EB Garamond', serif; font-weight: 400; line-height: 1; }
+.dim-bar { height: 2px; background: var(--border); margin-top: 8px; border-radius: 2px; overflow: hidden; }
+.dim-bar-fill { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); width: 0%; }
+
+/* PROFILE TEXT */
+.res-profile { margin-bottom: 64px; }
+.res-desc { font-size: 19px; color: var(--text); line-height: 1.75; max-width: 580px; margin-bottom: 20px; }
+.res-insight { font-size: 17px; font-style: italic; color: var(--text-dim); max-width: 480px; line-height: 1.65; }
+
+/* STRONGEST / GROWTH */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-bottom: 64px; }
+.two-col-cell { background: var(--bg-card); padding: 28px 24px; }
+.two-col-label { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dimmer); margin-bottom: 10px; }
+.two-col-name { font-size: 22px; color: var(--white); margin-bottom: 6px; }
+.two-col-name em { font-style: italic; color: var(--orange); }
+.two-col-body { font-size: 15px; font-style: italic; color: var(--text-dim); line-height: 1.55; }
+
+/* CTA */
+.res-cta { padding-top: 56px; border-top: 1px solid var(--border); }
+.res-cta-title { font-size: clamp(20px, 3vw, 30px); font-weight: 400; color: var(--white); margin-bottom: 14px; line-height: 1.25; margin-top: 16px; }
+.res-cta-body { font-size: 17px; color: var(--text-dim); line-height: 1.7; max-width: 520px; margin-bottom: 32px; font-style: italic; }
+.res-cta-link { display: inline-flex; align-items: center; gap: 10px; font-family: 'EB Garamond', serif; font-size: 19px; color: var(--white); text-decoration: none; border-bottom: 1px solid var(--border-mid); padding-bottom: 4px; transition: border-color 0.2s; letter-spacing: 0.01em; }
+.res-cta-link:hover { border-color: var(--white); }
+.res-cta-link:hover .arr { transform: translateX(4px); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; }
+.foot-logo { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--text-dimmer); text-decoration: none; letter-spacing: 0.04em; }
+.foot-links { display: flex; gap: 24px; list-style: none; }
+.foot-links a { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--text-dimmer); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.foot-links a:hover { color: var(--text-dim); }
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .nav-links { gap: 20px; }
+  .hero, .body { padding-left: 20px; padding-right: 20px; }
+  .hero { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 56px; }
+  .dim-legend { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+  .dim-breakdown { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 16px; align-items: flex-start; padding: 28px 20px; }
+  .opt-btn { font-size: 16px; }
+}
+
+/* MILESTONES */
+.milestone {
+  display: none;
+  margin-top: 40px; padding: 12px 20px;
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dimmer);
+  align-items: center; gap: 10px;
+}
+.milestone.done { display: flex; }
+.ms-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.fade-up { animation: fadeUp 0.45s ease forwards; }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://thebiggerstage.com">The Bigger Stage</a>
+  <ul class="nav-links">
+    <li><a href="https://thebiggerstage.com/#the-work">The Work</a></li>
+    <li><a href="https://thebiggerstage.com/#offers">Offers</a></li>
+    <li><a href="https://thebiggerstage.com/#about">About</a></li>
+  </ul>
+</nav>
+
+<div class="prog-wrap" id="progWrap"><div class="prog-fill" id="progFill"></div></div>
+
+<section class="hero">
+  <p class="eyebrow">The Bigger Stage</p>
+  <p class="hero-kicker">Inner Icon Assessment</p>
+  <h1>Five dimensions.<br>One <em>profile.</em></h1>
+  <p class="hero-sub">The Icon was already there. This assessment maps exactly where you are across five dimensions of iconic leadership — and shows you precisely where to focus next.</p>
+  <div class="hero-rule"></div>
+  <p class="hero-note">Ten questions. Each has three statements.<br><strong>Select the one that best reflects your reality today</strong> — not where you want to be.</p>
+</section>
+
+<!-- DIMENSION LEGEND -->
+<div class="dim-legend" style="max-width:780px;margin:0 auto 0;padding:0;">
+  <div class="dim-cell">
+    <div class="dim-dot" style="background:#6B9FD4;"></div>
+    <div class="dim-name">Foundation</div>
+    <div class="dim-desc">How solid your operator base is</div>
+  </div>
+  <div class="dim-cell">
+    <div class="dim-dot" style="background:#E8722A;"></div>
+    <div class="dim-name">Presence</div>
+    <div class="dim-desc">How you show up in rooms</div>
+  </div>
+  <div class="dim-cell">
+    <div class="dim-dot" style="background:#9B72CF;"></div>
+    <div class="dim-name">Story</div>
+    <div class="dim-desc">How you communicate meaning</div>
+  </div>
+  <div class="dim-cell">
+    <div class="dim-dot" style="background:#4BAF7C;"></div>
+    <div class="dim-name">Reach</div>
+    <div class="dim-desc">How far your influence travels</div>
+  </div>
+  <div class="dim-cell">
+    <div class="dim-dot" style="background:#D4A843;"></div>
+    <div class="dim-name">Meaning</div>
+    <div class="dim-desc">What you stand for beyond the work</div>
+  </div>
+</div>
+
+<div class="body">
+
+  <!-- ── FOUNDATION ── -->
+  <div class="dim-header" style="border-left-color:#6B9FD4;">
+    <div class="dim-header-dot" style="background:#6B9FD4;"></div>
+    <div class="dim-header-name">Foundation</div>
+    <div class="dim-header-label">Questions 1 – 2</div>
+  </div>
+
+  <div class="q-block" style="border-top:none;padding-top:32px;">
+    <p class="q-num">Question 1 of 10</p>
+    <p class="q-prompt">Which of these best describes how you spend most of your time?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(1,'foundation',1,this)">I'm primarily focused on delivering work and keeping the business running day to day.</button>
+      <button class="opt-btn" onclick="pick(1,'foundation',2,this)">I split my time between doing the work and developing the people and systems around me.</button>
+      <button class="opt-btn" onclick="pick(1,'foundation',3,this)">I spend most of my time communicating direction, telling the story of the business, and building the platform — others handle execution.</button>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <p class="q-num">Question 2 of 10</p>
+    <p class="q-prompt">Which of these best describes how new business finds you?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(2,'foundation',1,this)">Most new clients come through referrals from people who've seen my work firsthand.</button>
+      <button class="opt-btn" onclick="pick(2,'foundation',2,this)">My reputation in my industry brings opportunities — people seek me out by name.</button>
+      <button class="opt-btn" onclick="pick(2,'foundation',3,this)">Opportunities come from people who have heard me speak, seen my content, or been moved by my story — before we've ever met.</button>
+    </div>
+  </div>
+
+  <!-- Milestone: Foundation complete -->
+  <div class="milestone" id="ms1">
+    <span class="ms-dot" style="background:#6B9FD4;"></span>
+    Foundation complete &nbsp;·&nbsp; 1 of 5 dimensions
+  </div>
+
+  <!-- ── PRESENCE ── -->
+  <div class="dim-header" style="border-left-color:#E8722A;">
+    <div class="dim-header-dot" style="background:#E8722A;"></div>
+    <div class="dim-header-name">Presence</div>
+    <div class="dim-header-label">Questions 3 – 4</div>
+  </div>
+
+  <div class="q-block" style="border-top:none;padding-top:32px;">
+    <p class="q-num">Question 3 of 10</p>
+    <p class="q-prompt">When you walk into a room where no one knows you, what typically happens?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(3,'presence',1,this)">I introduce myself by explaining what I do and who I work with, and let my expertise speak for itself.</button>
+      <button class="opt-btn" onclick="pick(3,'presence',2,this)">I come with a clear point of view and tend to be one of the people others reference or quote after the conversation.</button>
+      <button class="opt-btn" onclick="pick(3,'presence',3,this)">People in the room often already know who I am, or within minutes of meeting me are connecting me to someone else or inviting me somewhere new.</button>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <p class="q-num">Question 4 of 10</p>
+    <p class="q-prompt">After someone meets you for the first time, what do they typically remember?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(4,'presence',1,this)">They remember what I do and that I'm good at it.</button>
+      <button class="opt-btn" onclick="pick(4,'presence',2,this)">They remember my point of view and what I've built.</button>
+      <button class="opt-btn" onclick="pick(4,'presence',3,this)">They remember how I made them think and feel about something differently.</button>
+    </div>
+  </div>
+
+  <!-- Milestone: Presence complete -->
+  <div class="milestone" id="ms2">
+    <span class="ms-dot" style="background:#E8722A;"></span>
+    Presence complete &nbsp;·&nbsp; 2 of 5 dimensions
+  </div>
+
+  <!-- ── STORY ── -->
+  <div class="dim-header" style="border-left-color:#9B72CF;">
+    <div class="dim-header-dot" style="background:#9B72CF;"></div>
+    <div class="dim-header-name">Story</div>
+    <div class="dim-header-label">Questions 5 – 6</div>
+  </div>
+
+  <div class="q-block" style="border-top:none;padding-top:32px;">
+    <p class="q-num">Question 5 of 10</p>
+    <p class="q-prompt">When you talk about what you do, which comes closest to how you describe it?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(5,'story',1,this)">I explain my process, my results, and what clients can expect when they work with me.</button>
+      <button class="opt-btn" onclick="pick(5,'story',2,this)">I talk about my methodology, my perspective, and what makes my approach different.</button>
+      <button class="opt-btn" onclick="pick(5,'story',3,this)">I talk about what the work means for the people it touches — and what I think is broken, possible, or worth fighting for in my world.</button>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <p class="q-num">Question 6 of 10</p>
+    <p class="q-prompt">Which best describes how you use story in your work?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(6,'story',1,this)">I use stories to illustrate results — case studies, testimonials, outcomes.</button>
+      <button class="opt-btn" onclick="pick(6,'story',2,this)">I use stories to build credibility and communicate my experience and approach.</button>
+      <button class="opt-btn" onclick="pick(6,'story',3,this)">Story is the primary way I lead — I open with it, I close with it, and people quote it back to me afterward.</button>
+    </div>
+  </div>
+
+  <!-- Milestone: Story complete -->
+  <div class="milestone" id="ms3">
+    <span class="ms-dot" style="background:#9B72CF;"></span>
+    Story complete &nbsp;·&nbsp; 3 of 5 dimensions
+  </div>
+
+  <!-- ── REACH ── -->
+  <div class="dim-header" style="border-left-color:#4BAF7C;">
+    <div class="dim-header-dot" style="background:#4BAF7C;"></div>
+    <div class="dim-header-name">Reach</div>
+    <div class="dim-header-label">Questions 7 – 8</div>
+  </div>
+
+  <div class="q-block" style="border-top:none;padding-top:32px;">
+    <p class="q-num">Question 7 of 10</p>
+    <p class="q-prompt">Which best describes your current relationship with your industry?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(7,'reach',1,this)">I'm focused on doing excellent work within my area of expertise.</button>
+      <button class="opt-btn" onclick="pick(7,'reach',2,this)">I'm a recognized voice in my field — people look to me for perspective.</button>
+      <button class="opt-btn" onclick="pick(7,'reach',3,this)">I'm being invited into rooms and conversations outside my core industry — people apply what I do to broader contexts.</button>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <p class="q-num">Question 8 of 10</p>
+    <p class="q-prompt">What typically happens after people hear you speak or engage with your content?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(8,'reach',1,this)">They reach out to ask about working together or to get more information about my services.</button>
+      <button class="opt-btn" onclick="pick(8,'reach',2,this)">They share it with someone in their network, reference it in a later conversation, or come back with follow-up questions.</button>
+      <button class="opt-btn" onclick="pick(8,'reach',3,this)">They tell me it changed how they think about something — and they bring others because of it.</button>
+    </div>
+  </div>
+
+  <!-- Milestone: Reach complete -->
+  <div class="milestone" id="ms4">
+    <span class="ms-dot" style="background:#4BAF7C;"></span>
+    Reach complete &nbsp;·&nbsp; 4 of 5 dimensions
+  </div>
+
+  <!-- ── MEANING ── -->
+  <div class="dim-header" style="border-left-color:#D4A843;">
+    <div class="dim-header-dot" style="background:#D4A843;"></div>
+    <div class="dim-header-name">Meaning</div>
+    <div class="dim-header-label">Questions 9 – 10</div>
+  </div>
+
+  <div class="q-block" style="border-top:none;padding-top:32px;">
+    <p class="q-num">Question 9 of 10</p>
+    <p class="q-prompt">How do the people closest to your work — your team, collaborators, or clients — describe your role?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(9,'meaning',1,this)">They see me as the person who sets the standard and makes sure the work gets done right.</button>
+      <button class="opt-btn" onclick="pick(9,'meaning',2,this)">They see me as the leader who sets direction and whose judgment shapes how the team operates.</button>
+      <button class="opt-btn" onclick="pick(9,'meaning',3,this)">They describe me as the reason they do what they do — the vision behind the work, not just the person running it.</button>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <p class="q-num">Question 10 of 10</p>
+    <p class="q-prompt">Which of these best captures what you're building toward?</p>
+    <div class="options">
+      <button class="opt-btn" onclick="pick(10,'meaning',1,this)">I'm building a business I'm proud of and a reputation for excellence in my field.</button>
+      <button class="opt-btn" onclick="pick(10,'meaning',2,this)">I'm building an organization and a brand that extends beyond my personal effort.</button>
+      <button class="opt-btn" onclick="pick(10,'meaning',3,this)">I'm building a body of work — content, ideas, and a platform — that functions and grows even when I'm not actively pushing it.</button>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap">
+    <p class="prog-label"><em id="answeredN">0</em> of 10 answered</p>
+    <p class="warn" id="warnMsg">Please answer all 10 questions to continue.</p>
+    <button class="link-btn" id="submitBtn" onclick="doSubmit()">See my profile <span class="arr">→</span></button>
+  </div>
+
+  <!-- GATE -->
+  <div class="gate" id="gate">
+    <p class="eyebrow">You've answered.</p>
+    <h2 class="gate-title">Now see where your <em style="font-style:italic;color:var(--orange);">Icon</em> stands.</h2>
+    <p class="gate-sub">Enter your details to unlock your five-dimension profile — and find out exactly where to focus next.</p>
+    <div class="gate-form">
+      <input class="gate-input" type="text"  id="nameIn"    placeholder="First name"    autocomplete="given-name">
+      <input class="gate-input" type="email" id="emailIn"   placeholder="Email address" autocomplete="email">
+      <input class="gate-input" type="text"  id="companyIn" placeholder="Company name"  autocomplete="organization">
+      <button class="link-btn" style="margin-top:20px;" onclick="doUnlock()">Reveal my profile <span class="arr">→</span></button>
+      <p class="gate-err" id="gateErr">Please fill in all three fields with a valid email.</p>
+      <p class="gate-fine">No spam. Your results and one follow-up, that's it.</p>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+    <p class="res-eyebrow" id="resEyebrow">Your Inner Icon Profile</p>
+    <h2 class="res-title" id="resTitle"></h2>
+    <p class="res-sub" id="resSub"></p>
+
+    <!-- Profile text FIRST — prime before graph -->
+    <div class="res-profile">
+      <p class="res-desc"    id="resDesc"></p>
+      <p class="res-insight" id="resInsight"></p>
+    </div>
+
+    <!-- Spider Graph -->
+    <div class="spider-wrap">
+      <canvas id="spiderCanvas" width="500" height="500"></canvas>
+    </div>
+
+    <!-- Dimension Breakdown -->
+    <div class="dim-breakdown" id="dimBreakdown"></div>
+
+    <!-- Strongest / Growth -->
+    <div class="two-col" id="twoCol"></div>
+
+    <!-- CTA -->
+    <div class="res-cta">
+      <p class="eyebrow">Your next step</p>
+      <h3 class="res-cta-title">Start with a complimentary Operator-to-Icon Clarity Call.</h3>
+      <p class="res-cta-body" id="ctaBody"></p>
+      <a class="res-cta-link" href="https://calendly.com/matt-stone-2/clarity-call" target="_blank">
+        Book your Clarity Call <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a class="foot-logo" href="https://thebiggerstage.com">The Bigger Stage</a>
+  <ul class="foot-links">
+    <li><a href="https://thebiggerstage.com/#offers">Work with Matt</a></li>
+    <li><a href="mailto:matt@mattstone.co">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────
+// DATA
+// ─────────────────────────────────────────────────────────
+
+const DIMS = [
+  {
+    key: 'foundation', label: 'Foundation', color: '#6B9FD4',
+    desc: 'How solid your operator base is — delivery, process, results, competence.',
+    low:  'Your foundation is still being built. Focus on proven process and consistent results before asking the world to follow your story.',
+    mid:  'Your foundation is solid. You have results to stand on. The next layer is learning to communicate what those results actually mean.',
+    high: 'Your foundation is strong. You\'ve proven yourself. People trust your capability — now they need to trust your vision.'
+  },
+  {
+    key: 'presence', label: 'Presence', color: '#E8722A',
+    desc: 'How you show up in rooms — the gravity, point of view, and energy you carry.',
+    low:  'You\'re letting your work speak before you do. Presence means walking in with a perspective, not just a resume.',
+    mid:  'You have a clear point of view and people notice it. The next step is making that presence feel inevitable — not earned in the room, but carried into it.',
+    high: 'Your presence precedes you. People feel something when you enter. The work now is making that feeling consistent at every scale.'
+  },
+  {
+    key: 'story', label: 'Story', color: '#9B72CF',
+    desc: 'How you communicate meaning — whether you lead with narrative or just information.',
+    low:  'You lead with information. Story isn\'t decoration — it\'s the mechanism through which meaning travels. This is the most learnable gap on the journey.',
+    mid:  'You use story to build credibility. The next shift is using story to build belief — not in what you do, but in what you represent.',
+    high: 'Story is your native language. You lead with it, you close with it, and people carry it with them. This is rare. Use it deliberately.'
+  },
+  {
+    key: 'reach', label: 'Reach', color: '#4BAF7C',
+    desc: 'How far your influence travels beyond your direct effort and immediate network.',
+    low:  'Your reach is limited to who you\'ve met directly. The goal isn\'t more hustle — it\'s a message that travels without you.',
+    mid:  'Your reputation is spreading in your lane. The next stage is helping it cross lanes — into new industries, new rooms, new conversations.',
+    high: 'Your influence travels beyond your presence. People find you before you find them. This is the compounding effect of an iconic platform.'
+  },
+  {
+    key: 'meaning', label: 'Meaning', color: '#D4A843',
+    desc: 'Whether you stand for something larger than your service — the "why it matters" layer.',
+    low:  'You stand for quality and results. That\'s the starting point. The icon layer asks: what does all of this mean for the people it touches?',
+    mid:  'You\'re building something beyond the transaction. People sense there\'s a larger purpose behind what you do. Now make it explicit.',
+    high: 'You represent something. People don\'t just buy from you — they believe in you. This is the territory where icons live.'
+  },
+];
+
+const TOTAL_PROFILES = [
+  {
+    range: [10, 13],
+    label: 'Finding Your Floor',
+    sub: 'Every icon started here.',
+    desc: 'You\'re early in the journey — or being admirably honest about where you are. Your profile shows that the foundational work is still in progress across most dimensions. That\'s the most valuable thing to know. The path forward is concrete, learnable, and closer than it feels.',
+    insight: 'Knowing where you are is the first act of leadership.',
+    cta: 'A Clarity Call is the right place to start. In 30 minutes, we\'ll identify exactly which dimension to focus on first — and give you a clear picture of what the path forward looks like.'
+  },
+  {
+    range: [14, 17],
+    label: 'Proven Operator',
+    sub: 'You\'ve built something real. The ceiling is ahead.',
+    desc: 'Your foundation is strong and your results speak for themselves. But your profile shows that the dimensions of presence, story, reach, and meaning are not yet keeping pace with your competence. You\'re approaching a ceiling — and it has nothing to do with ability.',
+    insight: 'The ceiling you feel isn\'t a business problem. It\'s a communication ceiling.',
+    cta: 'A Clarity Call will show you exactly what\'s on the other side of that ceiling. You\'ll leave with at least one insight you can use immediately.'
+  },
+  {
+    range: [18, 21],
+    label: 'Emerging Authority',
+    sub: 'You\'re building beyond yourself.',
+    desc: 'Your profile shows real strength across several dimensions — but they\'re not yet working together as a unified whole. The market is starting to recognize your name. The gap is in making what you stand for as clear to the outside world as it is to you.',
+    insight: 'The distance between where you are and where you\'re going is a story gap.',
+    cta: 'In a Clarity Call, we\'ll surface the story that\'s been underneath your authority all along — and show you how to let it carry the weight your credentials have been carrying alone.'
+  },
+  {
+    range: [22, 25],
+    label: 'Established Authority',
+    sub: 'You have influence. The next stage is meaning.',
+    desc: 'Your profile shows consistent strength. You have influence, recognition, and a platform. But becoming iconic requires something beyond expertise and visibility — it requires a story that makes people feel something larger than your industry. Your profile shows you\'re ready for that shift.',
+    insight: 'The Icon isn\'t further away than you think. It was already there.',
+    cta: 'A Clarity Call at this stage isn\'t about fixing anything. It\'s about seeing clearly what\'s been in you all along — and deciding if you\'re ready to let the world see it too.'
+  },
+  {
+    range: [26, 30],
+    label: 'Approaching Icon',
+    sub: 'You\'re standing at the edge of something larger.',
+    desc: 'Your profile is strong across most dimensions. You\'ve done the operator work, built authority, and you\'re beginning to represent something that transcends your lane. The work now is consistency, depth, and scale — making others feel what you represent in every room, every time.',
+    insight: 'This is exactly the stage where the right story changes everything.',
+    cta: 'You\'re closer than you realize. A Clarity Call will help you find the precise language that turns what you already represent into something the world can\'t ignore.'
+  },
+];
+
+// ─────────────────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────────────────
+const scores = {}; // { foundation: 0, presence: 0, story: 0, reach: 0, meaning: 0 }
+const answered = {};
+const TOTAL = 10;
+
+// Milestone triggers: show after both questions in a dimension answered
+const MILESTONES = {
+  2:  { id: 'ms1', qs: [1,2]   },
+  4:  { id: 'ms2', qs: [3,4]   },
+  6:  { id: 'ms3', qs: [5,6]   },
+  8:  { id: 'ms4', qs: [7,8]   },
+};
+
+function pick(qNum, dim, pts, btn) {
+  scores[dim] = (scores[dim] || 0);
+  if (answered[qNum]) {
+    scores[answered[qNum].dim] -= answered[qNum].pts;
+  }
+  scores[dim] = (scores[dim] || 0) + pts;
+  answered[qNum] = { dim, pts };
+
+  btn.closest('.options').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+
+  const n = Object.keys(answered).length;
+  document.getElementById('answeredN').textContent = n;
+  document.getElementById('progFill').style.width = (n / TOTAL * 100) + '%';
+  if (n > 0) document.getElementById('progWrap').style.display = 'block';
+  document.getElementById('warnMsg').classList.remove('on');
+
+  // Show milestone if both questions in this pair are answered
+  if (MILESTONES[qNum]) {
+    const m = MILESTONES[qNum];
+    if (m.qs.every(q => answered[q])) {
+      const el = document.getElementById(m.id);
+      if (el) { el.classList.add('done'); el.style.display = 'flex'; }
+    }
+  }
+}
+
+function doSubmit() {
+  if (Object.keys(answered).length < TOTAL) {
+    document.getElementById('warnMsg').classList.add('on');
+    document.getElementById('warnMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  document.getElementById('submitBtn').style.display = 'none';
+  const g = document.getElementById('gate');
+  g.classList.add('on');
+  g.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ─────────────────────────────────────────────────────────
+// MAILERLITE SUBMISSION
+// ─────────────────────────────────────────────────────────
+// Posts lead data to MailerLite's public form endpoint.
+// Fire-and-forget: we don't block the user on the response.
+// MailerLite handles duplicates gracefully (updates existing record).
+function submitToMailerLite(payload) {
+  const FORM_ID    = '187929178312541709';
+  const ACCOUNT_ID = '476051';
+  const url = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+
+  // Build form-encoded body with all fields.
+  // MailerLite expects: fields[name], fields[email], fields[company], fields[custom_field_name]
+  const body = new URLSearchParams();
+  body.append('fields[name]',                payload.name);
+  body.append('fields[email]',               payload.email);
+  body.append('fields[company]',             payload.company);
+  body.append('fields[profile_label]',       payload.profile_label);
+  body.append('fields[total_score]',         payload.total_score);
+  body.append('fields[score_foundation]',    payload.score_foundation);
+  body.append('fields[score_presence]',      payload.score_presence);
+  body.append('fields[score_story]',         payload.score_story);
+  body.append('fields[score_reach]',         payload.score_reach);
+  body.append('fields[score_meaning]',       payload.score_meaning);
+  body.append('fields[strongest_dimension]', payload.strongest_dimension);
+  body.append('fields[growth_dimension]',    payload.growth_dimension);
+  body.append('ml-submit', '1');
+  body.append('anticsrf', 'true');
+
+  // Fire the request. mode: 'no-cors' means we can't read the response,
+  // but the data still reaches MailerLite — which is all we need.
+  fetch(url, {
+    method: 'POST',
+    mode:   'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body:   body.toString()
+  }).catch(err => {
+    // Log for diagnostics during launch. User sees results regardless.
+    console.error('MailerLite submission error:', err);
+  });
+}
+
+function doUnlock() {
+  const name    = document.getElementById('nameIn').value.trim();
+  const email   = document.getElementById('emailIn').value.trim();
+  const company = document.getElementById('companyIn').value.trim();
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!name || !emailOk || !company) {
+    document.getElementById('gateErr').style.display = 'block';
+    return;
+  }
+  document.getElementById('gateErr').style.display = 'none';
+
+  const firstName = name.split(' ')[0];
+  const total = Object.values(scores).reduce((a, v) => a + v, 0);
+
+  // Profile by total
+  const prof = TOTAL_PROFILES.find(p => total >= p.range[0] && total <= p.range[1]);
+
+  // Strongest and weakest dimensions
+  const dimScores = DIMS.map(d => ({ ...d, score: scores[d.key] || 0 }));
+  const sorted = [...dimScores].sort((a, b) => b.score - a.score);
+  const strongest = sorted[0];
+  const growth    = sorted[sorted.length - 1];
+
+  // Send to MailerLite (fire-and-forget — does not block results render)
+  submitToMailerLite({
+    name:                name,
+    email:               email,
+    company:             company,
+    profile_label:       prof.label,
+    total_score:         total,
+    score_foundation:    scores.foundation || 0,
+    score_presence:      scores.presence   || 0,
+    score_story:         scores.story      || 0,
+    score_reach:         scores.reach      || 0,
+    score_meaning:       scores.meaning    || 0,
+    strongest_dimension: strongest.label,
+    growth_dimension:    growth.label
+  });
+
+  // Render header
+  document.getElementById('resEyebrow').textContent = firstName + '\'s Inner Icon Profile';
+  const words = prof.label.split(' ');
+  const last  = words.pop();
+  document.getElementById('resTitle').innerHTML = words.join(' ') + ' <em>' + last + '</em>';
+  document.getElementById('resSub').textContent    = prof.sub;
+  document.getElementById('resDesc').textContent   = prof.desc;
+  document.getElementById('resInsight').textContent = '\u201C' + prof.insight + '\u201D';
+  document.getElementById('ctaBody').textContent   = prof.cta;
+
+  // Render dimension breakdown
+  const breakdown = document.getElementById('dimBreakdown');
+  breakdown.innerHTML = '';
+  dimScores.forEach(d => {
+    const pct = ((d.score - 2) / 4) * 100; // 2–6 range → 0–100%
+    const statusLabel = d.score <= 3 ? 'Building' : d.score <= 4 ? 'Developing' : d.score <= 5 ? 'Strong' : 'Leading';
+    const shortDesc = d.score <= 3 ? d.low.split('.')[0] + '.' : d.score <= 4 ? d.mid.split('.')[0] + '.' : d.high.split('.')[0] + '.';
+    breakdown.innerHTML += `
+      <div class="dim-row">
+        <div class="dim-row-dot" style="background:${d.color};"></div>
+        <div class="dim-row-info">
+          <div class="dim-row-name">${d.label} <span style="color:${d.color};font-weight:500;">${statusLabel}</span></div>
+          <div class="dim-row-desc">${shortDesc}</div>
+          <div class="dim-bar"><div class="dim-bar-fill" style="background:${d.color};" data-pct="${pct}"></div></div>
+        </div>
+        <div class="dim-row-score">
+          <strong>${d.score}</strong>/ 6
+        </div>
+      </div>`;
+  });
+
+  // Render two-col strongest/growth
+  const twoCol = document.getElementById('twoCol');
+  twoCol.innerHTML = `
+    <div class="two-col-cell">
+      <div class="two-col-label">Your Strongest Dimension</div>
+      <div class="two-col-name" style="color:${strongest.color};">${strongest.label}</div>
+      <div class="two-col-body">${strongest[strongest.score <= 3 ? 'low' : strongest.score <= 4 ? 'mid' : 'high']}</div>
+    </div>
+    <div class="two-col-cell">
+      <div class="two-col-label">Your Biggest Opportunity</div>
+      <div class="two-col-name" style="color:${growth.color};">${growth.label}</div>
+      <div class="two-col-body">${growth[growth.score <= 3 ? 'low' : growth.score <= 4 ? 'mid' : 'high']}</div>
+    </div>`;
+
+  // Hide gate, show results
+  document.getElementById('gate').style.display = 'none';
+  const res = document.getElementById('results');
+  res.classList.add('on', 'fade-up');
+  res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Draw spider graph after render
+  setTimeout(() => {
+    drawSpider(dimScores);
+    // Animate bars
+    document.querySelectorAll('.dim-bar-fill').forEach(el => {
+      el.style.width = el.dataset.pct + '%';
+    });
+  }, 400);
+}
+
+// ─────────────────────────────────────────────────────────
+// SPIDER GRAPH
+// ─────────────────────────────────────────────────────────
+function drawSpider(dimScores) {
+  const canvas = document.getElementById('spiderCanvas');
+
+  // Scale canvas for retina / clarity
+  const SIZE = 560;
+  canvas.width  = SIZE;
+  canvas.height = SIZE;
+  canvas.style.width  = Math.min(SIZE, canvas.parentElement.offsetWidth) + 'px';
+  canvas.style.height = Math.min(SIZE, canvas.parentElement.offsetWidth) + 'px';
+
+  const ctx = canvas.getContext('2d');
+  const W   = canvas.width;
+  const H   = canvas.height;
+  const cx  = W / 2;
+  const cy  = H / 2;
+  // Tighter polygon so labels have breathing room on all sides
+  const R   = Math.min(W, H) * 0.30;
+  const n   = dimScores.length;
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Angles: start at top (–90°), clockwise
+  // Pentagon points: Foundation(top), Presence(upper-right),
+  // Reach(lower-right), Meaning(lower-left), Story(upper-left)
+  const angles = dimScores.map((_, i) => (i / n) * Math.PI * 2 - Math.PI / 2);
+
+  // ── Grid rings ────────────────────────────────────────
+  [1, 2, 3].forEach(lv => {
+    const r = R * (lv / 3);
+    ctx.beginPath();
+    angles.forEach((a, i) => {
+      const x = cx + r * Math.cos(a);
+      const y = cy + r * Math.sin(a);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    });
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  // ── Axes ──────────────────────────────────────────────
+  angles.forEach(a => {
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+    ctx.strokeStyle = 'rgba(255,255,255,0.09)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  // ── Data points ───────────────────────────────────────
+  const pts = dimScores.map((d, i) => {
+    const frac = (d.score - 2) / 4;
+    const r    = R * 0.08 + R * 0.92 * frac;
+    return { x: cx + r * Math.cos(angles[i]), y: cy + r * Math.sin(angles[i]), color: d.color };
+  });
+
+  // ── Filled polygon ────────────────────────────────────
+  ctx.beginPath();
+  pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+  ctx.closePath();
+  ctx.fillStyle   = 'rgba(232,114,42,0.13)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(232,114,42,0.55)';
+  ctx.lineWidth   = 1.5;
+  ctx.stroke();
+
+  // ── Dots + score labels ───────────────────────────────
+  pts.forEach((p, i) => {
+    // Dot
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 5, 0, Math.PI * 2);
+    ctx.fillStyle = dimScores[i].color;
+    ctx.fill();
+
+    // Score label: push outward from the dot along the axis
+    const scoreR = R + 22;
+    const sx = cx + scoreR * Math.cos(angles[i]);
+    const sy = cy + scoreR * Math.sin(angles[i]);
+    ctx.font          = '600 12px Inter, sans-serif';
+    ctx.fillStyle     = dimScores[i].color;
+    ctx.textAlign     = 'center';
+    ctx.textBaseline  = 'middle';
+    ctx.fillText(dimScores[i].score + '/6', sx, sy);
+  });
+
+  // ── Dimension name labels ─────────────────────────────
+  // Use a larger radius and angle-aware alignment + vertical offset
+  dimScores.forEach((d, i) => {
+    const a       = angles[i];
+    const labelR  = R + 52;  // well clear of score labels
+    let lx = cx + labelR * Math.cos(a);
+    let ly = cy + labelR * Math.sin(a);
+
+    // Angle-aware horizontal alignment
+    const EPS = 0.15; // tolerance for "center" (near top/bottom axes)
+    const cosA = Math.cos(a);
+    ctx.textAlign =
+      cosA >  EPS ? 'left'  :
+      cosA < -EPS ? 'right' : 'center';
+
+    // Angle-aware vertical alignment
+    const sinA = Math.sin(a);
+    ctx.textBaseline =
+      sinA < -EPS ? 'bottom' :
+      sinA >  EPS ? 'top'    : 'middle';
+
+    ctx.font      = '500 11px Inter, sans-serif';
+    ctx.fillStyle = 'rgba(232,228,220,0.55)';
+    ctx.fillText(d.label.toUpperCase(), lx, ly);
+  });
+}
+</script>
+</body>
+</html>
