@@ -871,6 +871,12 @@ footer{
   </div>
 </section>
 
+<!-- CONSULT CTA -->
+<div style="background:var(--charcoal);border-top:1px solid rgba(255,87,34,0.25);padding:3rem;text-align:center;">
+  <p style="font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);margin-bottom:1.25rem;">Want to talk about it first?</p>
+  <a href="https://calendly.com/matt-stone-2/clarity-call" target="_blank" class="consult-btn" style="display:inline-block;border:1px solid var(--orange);color:var(--orange);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:1rem 2.2rem;transition:background 0.2s,color 0.2s;">Book a free consultation</a>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 Matt Stone Enterprises LLC · The Bigger Stage</span>
@@ -917,12 +923,6 @@ function doSubmit(){
     btn.disabled=false;
     alert('Something went wrong. Please try again or email matt@mattstone.co directly.');
   });
-}
-  document.getElementById('waitlist-form').style.display='none';
-  var s=document.getElementById('success-msg');
-  s.style.display='block';
-  s.querySelector('h3').textContent="You're on the list, "+fn+".";
-  s.querySelector('p').innerHTML="We'll reach out as soon as dates open in <strong style='color:var(--white)'>"+city+"</strong>.<br>Spots are limited — keep an eye on your inbox.";
 }
 
 const reveals=document.querySelectorAll('.reveal');
