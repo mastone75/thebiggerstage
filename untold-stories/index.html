@@ -552,7 +552,7 @@ footer{
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <span class="hero-eyebrow">The Bigger Stage · 2025 Tour</span>
+      <span class="hero-eyebrow">The Bigger Stage</span>
       <h1>The <em>Untold</em> Stories Session</h1>
       <p class="hero-sub">You've built something real. <strong>One masterful interview</strong> will surface the breakthrough stories your market has never heard — and turn it into a content and messaging system that works everywhere you show up.</p>
       <div class="hero-cta">
@@ -815,7 +815,7 @@ footer{
 <!-- WAITLIST -->
 <section id="waitlist" class="waitlist-bg">
   <div class="waitlist-inner">
-    <span class="section-eyebrow reveal" style="display:block;text-align:center;">2025 Tour · Register Your Interest</span>
+    <span class="section-eyebrow reveal" style="display:block;text-align:center;">Register Your Interest</span>
     <h2 class="section-headline reveal" style="text-align:center;font-size:clamp(2rem,4vw,2.8rem);">Coming to a city <em>near you.</em></h2>
     <p class="reveal" style="color:var(--gray);font-size:0.95rem;margin-bottom:0;text-align:center;">Dates are opening soon. Select your city and you'll be first to know when spots become available.</p>
 
@@ -908,16 +908,22 @@ function doSubmit(){
   var btn=document.querySelector('.btn-submit');
   btn.textContent='Submitting…';
   btn.disabled=true;
-  fetch('https://script.google.com/macros/s/AKfycbzFxxK3V6BAlG1WaaheWOcVXOpRfDEeC2ZjeWdjdkI-kOmN3EfIJcbfJVaGEXuEwv3O/exec',{
+  var formData = new FormData();
+  formData.append('firstName', fn);
+  formData.append('lastName', ln);
+  formData.append('email', em);
+  formData.append('company', co);
+  formData.append('city', city);
+  fetch('https://script.google.com/macros/s/AKfycbwB7N_P7EjmNEOzhUB-JrfI0DS_Ra0PV1rH9Lc-FnThrTPzSunRBAlBt7uBKxqe768h/exec',{
     method:'POST',
-    body:JSON.stringify({firstName:fn,lastName:ln,email:em,company:co,city:city}),
-    headers:{'Content-Type':'application/json'}
+    mode:'no-cors',
+    body:formData
   }).then(function(){
     document.getElementById('waitlist-form').style.display='none';
     var s=document.getElementById('success-msg');
     s.style.display='block';
     s.querySelector('h3').textContent="You're on the list, "+fn+".";
-    s.querySelector('p').innerHTML="We'll reach out as soon as dates open in <strong style='color:var(--white)'>"+city+"</strong>.<br>Spots are limited — keep an eye on your inbox.";
+    s.querySelector('p').innerHTML="We'll reach out as soon as dates open in <strong style='color:#fff'>"+city+"</strong>.<br>Spots are limited — keep an eye on your inbox.";
   }).catch(function(){
     btn.textContent='Join the Waitlist →';
     btn.disabled=false;
