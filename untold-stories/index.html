@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Untold Story Session — The Bigger Stage</title>
+<meta name="description" content="One masterful interview. Your breakthrough story, finally told. The Untold Story Session — coming to New York City, Tulsa, Denver, and Portland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --orange: #ff5722;
+  --orange-bright: #ff6b3d;
+  --white: #ffffff;
+  --gray: #8a8a8a;
+  --light-gray: #e8e8e8;
+  --stone: #f5f5f0;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:var(--font-body);
+  background:var(--black);
+  color:var(--white);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;width:100%;
+  padding:1.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  z-index:1000;
+  background:linear-gradient(to bottom,rgba(10,10,10,0.98) 0%,transparent 100%);
+}
+.nav-logo{
+  font-family:var(--font-display);font-size:1rem;font-weight:900;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--white);text-decoration:none;
+}
+.nav-cta{
+  font-family:var(--font-display);font-size:0.75rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--white);text-decoration:none;
+  background:var(--orange);padding:0.55rem 1.1rem;
+  transition:background 0.2s,transform 0.2s;display:inline-block;
+}
+.nav-cta:hover{background:var(--orange-bright);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:10rem 3rem 6rem;
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 65% 50%,rgba(255,87,34,0.08) 0%,transparent 65%);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 79px,
+    rgba(255,255,255,0.02) 79px,
+    rgba(255,255,255,0.02) 80px
+  );
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 480px;gap:5rem;align-items:center;
+  position:relative;z-index:1;
+}
+.hero-eyebrow{
+  font-family:var(--font-display);font-size:0.75rem;font-weight:700;
+  color:var(--orange);letter-spacing:0.25em;text-transform:uppercase;
+  margin-bottom:1.5rem;display:block;
+  animation:fadeUp 0.8s ease-out 0.1s backwards;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(3.5rem,6.5vw,5.5rem);
+  font-weight:900;line-height:0.92;letter-spacing:0.01em;
+  text-transform:uppercase;margin-bottom:1.5rem;
+  animation:fadeUp 0.8s ease-out 0.2s backwards;
+}
+.hero h1 em{
+  font-style:italic;color:var(--orange);
+  font-weight:900;display:block;
+}
+.hero-sub{
+  font-size:1.05rem;line-height:1.8;color:var(--gray);
+  max-width:520px;margin-bottom:2.5rem;
+  animation:fadeUp 0.8s ease-out 0.35s backwards;
+}
+.hero-sub strong{color:var(--white);}
+.btn-primary{
+  display:inline-block;background:var(--orange);
+  color:var(--white);text-decoration:none;
+  font-family:var(--font-display);font-size:0.8rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:1.1rem 2.2rem;
+  transition:background 0.2s,transform 0.2s;
+}
+.btn-primary:hover{background:var(--orange-bright);transform:translateY(-2px);}
+.hero-cta{animation:fadeUp 0.8s ease-out 0.45s backwards;}
+.hero-note{
+  display:block;margin-top:0.85rem;
+  font-size:0.75rem;color:var(--gray);letter-spacing:0.08em;
+}
+.hero-photo-wrap{
+  position:relative;
+  animation:fadeUp 0.9s ease-out 0.3s backwards;
+}
+.hero-photo{
+  width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;
+  display:block;
+}
+.hero-photo-badge{
+  position:absolute;bottom:-1.5rem;left:-1.5rem;
+  background:var(--orange);padding:1.2rem 1.5rem;
+  max-width:220px;
+}
+.hero-photo-badge p{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);line-height:1.5;
+}
+.hero-photo-badge span{
+  display:block;font-family:var(--font-display);
+  font-size:1.4rem;font-weight:900;color:var(--white);
+  margin-top:0.15rem;
+}
+
+/* ── PAT MILLER STRIP ── */
+.authority-strip{
+  background:var(--charcoal);
+  border-top:1px solid rgba(255,87,34,0.3);
+  border-bottom:1px solid rgba(255,87,34,0.3);
+  padding:2rem 3rem;text-align:center;
+}
+.authority-strip blockquote{
+  font-family:var(--font-body);font-style:italic;
+  font-size:1.2rem;color:var(--white);
+  max-width:700px;margin:0 auto 0.6rem;line-height:1.5;
+}
+.authority-strip .attr{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);
+}
+
+/* ── SECTIONS ── */
+section{padding:7rem 3rem;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-eyebrow{
+  font-family:var(--font-display);font-size:0.72rem;font-weight:700;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:1.2rem;display:block;
+}
+.section-headline{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:900;text-transform:uppercase;
+  line-height:0.95;letter-spacing:0.01em;
+  margin-bottom:2rem;
+}
+.section-headline em{color:var(--orange);font-style:italic;}
+.body-lg{
+  font-size:1.05rem;line-height:1.8;
+  color:var(--gray);max-width:640px;
+}
+.body-lg strong{color:var(--white);}
+
+/* ── PROBLEM ── */
+.problem-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+  margin-top:4rem;
+}
+.pullquote{
+  border-left:3px solid var(--orange);
+  padding:1rem 0 1rem 1.5rem;margin:2.5rem 0;
+}
+.pullquote p{
+  font-family:var(--font-body);font-style:italic;
+  font-size:1.15rem;line-height:1.6;color:var(--white);
+  margin-bottom:0.6rem;
+}
+.pullquote small{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+}
+
+/* ── FORMATS ── */
+.formats-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin-top:3rem;
+}
+.format-card{
+  background:var(--charcoal);padding:2.5rem;
+  border:1px solid rgba(255,255,255,0.05);
+  transition:border-color 0.2s;
+}
+.format-card:hover{border-color:rgba(255,87,34,0.4);}
+.format-icon{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:1.25rem;display:block;
+}
+.format-card h3{
+  font-family:var(--font-display);font-size:1.3rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:0.05em;
+  margin-bottom:1rem;color:var(--white);
+}
+.format-card p{font-size:0.95rem;line-height:1.75;color:var(--gray);}
+
+/* ── PODCAST SPLIT ── */
+.podcast-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  margin-top:4rem;overflow:hidden;
+}
+.podcast-img-wrap{position:relative;overflow:hidden;}
+.podcast-img{width:100%;height:100%;min-height:500px;object-fit:cover;object-position:center top;display:block;}
+.podcast-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 60%,var(--black) 100%);
+  pointer-events:none;
+}
+.podcast-text{
+  background:var(--charcoal);
+  padding:3.5rem;display:flex;flex-direction:column;justify-content:center;
+}
+.podcast-text h3{
+  font-family:var(--font-display);font-size:1.1rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--white);margin-bottom:1.5rem;
+}
+.podcast-quote{
+  font-style:italic;font-size:1rem;line-height:1.75;
+  color:var(--gray);margin-bottom:1rem;
+}
+.podcast-quote strong{color:var(--white);}
+.podcast-attr{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+}
+
+/* ── PROCESS ── */
+.process-bg{background:var(--charcoal);}
+.process-steps{margin-top:3.5rem;display:flex;flex-direction:column;gap:0;}
+.step{
+  display:grid;grid-template-columns:60px 1fr;gap:2rem;
+  padding:2rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  align-items:start;
+}
+.step:last-child{border-bottom:none;}
+.step-num{
+  font-family:var(--font-display);font-size:2rem;font-weight:900;
+  color:var(--orange);letter-spacing:-0.02em;line-height:1;
+  padding-top:0.2rem;
+}
+.step-content h3{
+  font-family:var(--font-display);font-size:1rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--white);margin-bottom:0.6rem;
+}
+.step-content p{font-size:0.95rem;line-height:1.75;color:var(--gray);}
+.step-quote{
+  margin-top:1rem;padding:1rem 1.25rem;
+  border-left:2px solid var(--orange);
+  background:rgba(255,87,34,0.05);
+}
+.step-quote p{font-style:italic;font-size:0.9rem;color:var(--gray);line-height:1.65;margin-bottom:0.4rem;}
+.step-quote small{
+  font-family:var(--font-display);font-size:0.6rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+}
+
+/* ── DELIVERABLES ── */
+.deliverables-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+  margin-top:3rem;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.del-item{
+  padding:1.5rem 2rem;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  border-right:1px solid rgba(255,255,255,0.06);
+  display:flex;gap:1rem;align-items:flex-start;
+}
+.del-item:nth-child(even){border-right:none;}
+.del-item:nth-last-child(-n+2){border-bottom:none;}
+.del-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--orange);flex-shrink:0;margin-top:0.45rem;
+}
+.del-text strong{
+  font-family:var(--font-display);font-size:0.75rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--white);display:block;margin-bottom:0.3rem;
+}
+.del-text span{font-size:0.88rem;color:var(--gray);line-height:1.5;}
+
+/* ── WHERE ── */
+.where-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:3rem;
+}
+.where-item{
+  background:var(--charcoal);padding:1.5rem;
+  border:1px solid rgba(255,255,255,0.05);
+  display:flex;align-items:flex-start;gap:1rem;
+}
+.where-label{
+  font-family:var(--font-display);font-size:0.8rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--white);
+}
+
+/* ── BIO ── */
+.bio-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;
+}
+.bio-photo{position:relative;}
+.bio-photo img{width:100%;display:block;object-fit:cover;}
+.bio-photo-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(10,10,10,0.85);backdrop-filter:blur(4px);
+  padding:1rem 1.25rem;
+}
+.bio-photo-caption p{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:0.15rem;
+}
+.bio-photo-caption span{font-size:0.85rem;color:var(--gray);}
+.bio-facts{margin-top:2rem;display:flex;flex-direction:column;gap:0;}
+.bio-fact{
+  display:grid;grid-template-columns:120px 1fr;gap:1rem;
+  padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.bio-fact:last-child{border-bottom:none;}
+.bio-fact-label{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+  padding-top:0.1rem;
+}
+.bio-fact-val{font-size:0.9rem;color:var(--gray);line-height:1.55;}
+
+/* ── INVESTMENT ── */
+.investment-bg{background:var(--charcoal);}
+.investment-inner{
+  display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:start;
+}
+.price-card{
+  background:var(--black);padding:3rem;
+  border:1px solid rgba(255,87,34,0.3);
+  position:relative;
+}
+.price-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--orange);
+}
+.price-card-label{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.25em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:1rem;display:block;
+}
+.price-card-amt{
+  font-family:var(--font-display);font-size:4rem;font-weight:900;
+  color:var(--white);line-height:1;margin-bottom:0.25rem;
+}
+.price-card-sub{font-size:0.85rem;color:var(--gray);margin-bottom:2rem;line-height:1.5;}
+.price-card .btn-primary{display:block;text-align:center;margin-bottom:1rem;}
+.price-card-note{font-size:0.78rem;color:var(--gray);text-align:center;}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin-top:3rem;
+}
+.testi-card{
+  background:var(--charcoal);padding:2.5rem;
+  border:1px solid rgba(255,255,255,0.05);
+}
+.testi-card blockquote{
+  font-style:italic;font-size:1rem;line-height:1.75;
+  color:var(--gray);margin-bottom:1rem;
+}
+.testi-card blockquote strong{color:var(--white);}
+.testi-attr{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
+}
+.testi-feature{
+  background:var(--charcoal);padding:3rem;
+  border:1px solid rgba(255,87,34,0.25);
+  margin-top:2px;
+  text-align:center;
+}
+.testi-feature blockquote{
+  font-family:var(--font-display);font-style:italic;
+  font-size:1.35rem;font-weight:700;line-height:1.4;
+  color:var(--white);margin-bottom:1rem;max-width:600px;margin-left:auto;margin-right:auto;
+}
+.testi-feature .testi-attr{display:block;margin-top:0.5rem;}
+
+/* ── WAITLIST ── */
+.waitlist-bg{
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,87,34,0.1) 0%,transparent 60%);
+}
+.waitlist-inner{max-width:680px;margin:0 auto;text-align:center;}
+.city-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin:2.5rem 0;text-align:left;
+}
+.city-btn{
+  background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);
+  padding:1.25rem 1.5rem;cursor:pointer;
+  display:flex;align-items:center;gap:0.75rem;
+  transition:border-color 0.2s,background 0.2s;
+  text-align:left;
+}
+.city-btn:hover{border-color:rgba(255,87,34,0.4);background:rgba(255,87,34,0.05);}
+.city-btn.selected{border-color:var(--orange);background:rgba(255,87,34,0.08);}
+.city-check{
+  width:18px;height:18px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:background 0.2s,border-color 0.2s;
+}
+.city-btn.selected .city-check{background:var(--orange);border-color:var(--orange);}
+.city-check-dot{width:6px;height:6px;border-radius:50%;background:var(--white);display:none;}
+.city-btn.selected .city-check-dot{display:block;}
+.city-name{
+  font-family:var(--font-display);font-size:0.85rem;font-weight:700;
+  letter-spacing:0.05em;text-transform:uppercase;color:var(--white);display:block;
+}
+.city-state{font-size:0.75rem;color:var(--gray);}
+
+.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2rem;}
+.tier-btn{
+  background:var(--charcoal);border:1px solid rgba(255,255,255,0.08);
+  padding:1rem;cursor:pointer;text-align:center;
+  transition:border-color 0.2s;
+}
+.tier-btn:hover{border-color:rgba(255,87,34,0.4);}
+.tier-btn.selected{border-color:var(--orange);}
+.tier-name{
+  font-family:var(--font-display);font-size:0.8rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--white);display:block;
+}
+.tier-price{font-size:0.78rem;color:var(--gray);}
+
+.form-group{margin-bottom:1rem;text-align:left;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:1rem;}
+.form-label{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);
+  display:block;margin-bottom:0.5rem;
+}
+input[type=text],input[type=email]{
+  width:100%;background:var(--charcoal);border:1px solid rgba(255,255,255,0.1);
+  color:var(--white);padding:0.9rem 1rem;
+  font-family:var(--font-body);font-size:0.95rem;
+  outline:none;transition:border-color 0.2s;
+}
+input[type=text]:focus,input[type=email]:focus{border-color:var(--orange);}
+input::placeholder{color:var(--gray);}
+
+.btn-submit{
+  width:100%;background:var(--orange);color:var(--white);border:none;
+  font-family:var(--font-display);font-size:0.8rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:1.1rem;cursor:pointer;
+  transition:background 0.2s,transform 0.2s;margin-bottom:1rem;
+}
+.btn-submit:hover{background:var(--orange-bright);transform:translateY(-1px);}
+.form-note{font-size:0.78rem;color:var(--gray);text-align:center;}
+.proof-row{
+  display:flex;justify-content:center;gap:2rem;
+  margin-top:1.5rem;flex-wrap:wrap;
+}
+.proof-item{font-size:0.72rem;color:var(--gray);letter-spacing:0.08em;}
+.proof-item span{color:var(--orange);}
+
+.success-msg{display:none;padding:3rem;text-align:center;}
+.success-msg h3{
+  font-family:var(--font-display);font-size:1.5rem;font-weight:900;
+  text-transform:uppercase;color:var(--white);margin-bottom:1rem;
+}
+.success-msg p{color:var(--gray);font-size:0.95rem;line-height:1.75;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--charcoal);
+  padding:2rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-copy{font-size:0.78rem;color:var(--gray);}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gray);text-decoration:none;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--orange);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:1.25rem 1.5rem;}
+  .hero{padding:8rem 1.5rem 5rem;}
+  .hero-inner,.problem-grid,.bio-grid,.investment-inner,.podcast-split{grid-template-columns:1fr;}
+  .formats-grid,.deliverables-grid,.testi-grid,.city-grid,.tier-grid,.form-row,.where-grid{grid-template-columns:1fr;}
+  section{padding:5rem 1.5rem;}
+  footer{flex-direction:column;gap:1rem;text-align:center;}
+  .del-item:nth-child(even){border-right:none;}
+  .del-item{border-right:none;}
+  .podcast-img{min-height:300px;}
+  .hero-photo-badge{position:static;margin-top:1rem;max-width:100%;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://thebiggerstage.com" class="nav-logo">The Bigger Stage</a>
+  <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-eyebrow">The Bigger Stage · 2025 Tour</span>
+      <h1>The <em>Untold</em> Story Session</h1>
+      <p class="hero-sub">You've built something real. <strong>One masterful interview</strong> will surface the breakthrough story your market has never heard — and turn it into a content and messaging system that works everywhere you show up.</p>
+      <div class="hero-cta">
+        <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
+        <span class="hero-note">Coming to NYC · Tulsa · Denver · Portland &nbsp;·&nbsp; Limited to 5 per city</span>
+      </div>
+    </div>
+    <div class="hero-photo-wrap reveal">
+      <img class="hero-photo" src="/untold-stories/matt-studio.jpg" alt="Matt Stone in the studio">
+      <div class="hero-photo-badge">
+        <p>One session</p>
+        <span>$4,995</span>
+        <p style="margin-top:0.3rem;">Everything included</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAT MILLER AUTHORITY STRIP -->
+<div class="authority-strip">
+  <blockquote>"Matt Stone is hands down the best interviewer I've ever seen."</blockquote>
+  <span class="attr">Pat Miller · The Fridays Off Guy · Former Career Radio Broadcaster & Media Executive · Milwaukee, WI</span>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-inner">
+    <div class="problem-grid">
+      <div>
+        <span class="section-eyebrow reveal">The problem</span>
+        <h2 class="section-headline reveal">You're outperforming <em>your messaging.</em></h2>
+        <p class="body-lg reveal">Your results are there. Your reputation is growing. But when someone looks you up — or asks what you do — what they find doesn't match the business you've actually built.</p>
+        <div class="pullquote reveal">
+          <p>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying."</p>
+          <small>Samir Selmanovic, Ph.D. & Jordan Soliday · Epic Ordinary LLC · New York City</small>
+        </div>
+      </div>
+      <div>
+        <p class="body-lg reveal" style="margin-bottom:1.5rem;">That gap is costing you deals, stages, and credibility you've already earned. The story that would make your market stop and pay attention is still inside you. Untold. Underleveraged.</p>
+        <p class="body-lg reveal">If professional storytellers have an untold story problem, your story is more valuable than you think. <strong>Most founders never get the right question at the right moment from someone trained to listen for what matters.</strong> That's what this session changes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PODCAST SPLIT — using the podcast screenshot image -->
+<section style="padding:0;">
+  <div class="podcast-split">
+    <div class="podcast-img-wrap">
+      <img class="podcast-img" src="/untold-stories/podcast-session.jpg" alt="Matt Stone in a podcast interview session">
+      <div class="podcast-img-overlay"></div>
+    </div>
+    <div class="podcast-text">
+      <span class="section-eyebrow">The work in action</span>
+      <h3>What it looks like in the room</h3>
+      <p class="podcast-quote">"Being interviewed by Matt is basically just a conversation — <strong>easier than almost anything you'll do during your day.</strong> Half the time you're thinking, wow, I'm saying something cool. But that's because the thinking that went into the questions was smart."</p>
+      <span class="podcast-attr">Jason Durkee · Founder & President<br>Idea Development Corporation · Tokyo, Japan</span>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section id="formats">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">The interview formats</span>
+    <h2 class="section-headline reveal">Two styles. <em>One transformative conversation.</em></h2>
+    <p class="body-lg reveal">You choose the format that fits your story and your audience.</p>
+    <div class="formats-grid">
+      <div class="format-card reveal reveal-delay-1">
+        <span class="format-icon">Format 01</span>
+        <h3>Podcast Style</h3>
+        <p>Conversational, warm, and revealing. A two-person dialogue that draws out your origin, your inflection points, and the perspective only you can offer. Both host and guest on camera — natural, unscripted, human.</p>
+      </div>
+      <div class="format-card reveal reveal-delay-2">
+        <span class="format-icon">Format 02</span>
+        <h3>Executive Sit-Down</h3>
+        <p>Single camera, subject-forward, interviewer off-screen. All attention stays on you — authoritative, focused, and built to command credibility. The format that says: this person is worth listening to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process-bg">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">The process</span>
+    <h2 class="section-headline reveal">From first conversation <em>to full content system.</em></h2>
+    <div class="process-steps">
+
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Pre-Shoot Strategy Consultation</h3>
+          <p>Before a camera rolls, we excavate your story — your journey, the moments that defined you, and the messaging your market needs to hear. This isn't prep. It's the first layer of the reveal.</p>
+          <div class="step-quote">
+            <p>"Presence first. Story second. Craft all the way through."</p>
+            <small>Samir Selmanovic, Ph.D. & Jordan Soliday · Epic Ordinary LLC</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>The On-Camera Interview (45 min)</h3>
+          <p>A professional interview conducted by a masterful interviewer who has spent a career drawing out what people couldn't quite say — and reflecting it back in a way that changes everything.</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Story Editing & Asset Production</h3>
+          <p>Your interview becomes a professionally edited full-length story, plus 8–12 clips and shorts with copy — ready to deploy across every platform where your audience lives.</p>
+          <div class="step-quote">
+            <p>"The majority of the work happens on the backend — selecting which clips really highlight the messaging. You really took the time to make sure those were polished."</p>
+            <small>Rhonda Noordyk · Founder & Financial Advocate · Wisconsin</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Iconic Messaging Analysis</h3>
+          <p>A strategic review of the language and story angles that surfaced in your session — with specific recommendations for the messaging to lean into and what to sharpen.</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">05</div>
+        <div class="step-content">
+          <h3>Three-Month Content Rollout Plan</h3>
+          <p>A platform-specific content calendar showing exactly how to deploy your story, clips, and messaging across the next 90 days — so the investment keeps working long after the shoot.</p>
+        </div>
+      </div>
+
+      <div class="step reveal">
+        <div class="step-num">06</div>
+        <div class="step-content">
+          <h3>Post-Session Debrief Consultation</h3>
+          <p>A one-hour follow-up to review your assets, walk through your messaging analysis, and make sure you leave with total clarity on how to use what we built.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Everything you get</span>
+    <h2 class="section-headline reveal">Your complete <em>Untold Story package.</em></h2>
+    <div class="deliverables-grid">
+      <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Pre-shoot strategy consultation</strong><span>Story excavation before the camera rolls</span></div></div>
+      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>Professional on-camera interview</strong><span>Podcast style or executive sit-down — your choice</span></div></div>
+      <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Professionally edited full story</strong><span>Your breakthrough story, production ready</span></div></div>
+      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>8–12 clips & shorts with copy</strong><span>Formatted for LinkedIn, Instagram, YouTube, and more</span></div></div>
+      <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Full transcripts</strong><span>Every word, searchable and reusable</span></div></div>
+      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>Iconic messaging analysis</strong><span>Strategic language recommendations from your session</span></div></div>
+      <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Three-month content rollout plan</strong><span>Platform-specific deployment calendar</span></div></div>
+      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>One-hour debrief consultation</strong><span>Review, refine, leave with total clarity</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE YOUR STORY GOES -->
+<section>
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Where your story goes to work</span>
+    <h2 class="section-headline reveal">One session. <em>Every room you walk into.</em></h2>
+    <div class="where-grid">
+      <div class="where-item reveal"><span class="where-label">Networking events & introductions</span></div>
+      <div class="where-item reveal reveal-delay-1"><span class="where-label">LinkedIn & social media presence</span></div>
+      <div class="where-item reveal reveal-delay-2"><span class="where-label">Keynote stages & speaking gigs</span></div>
+      <div class="where-item reveal"><span class="where-label">Sales meetings & pitch decks</span></div>
+      <div class="where-item reveal reveal-delay-1"><span class="where-label">Email outreach & nurture sequences</span></div>
+      <div class="where-item reveal reveal-delay-2"><span class="where-label">Website & media kit</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section id="about" class="process-bg">
+  <div class="section-inner">
+    <div class="bio-grid">
+      <div class="bio-photo reveal">
+        <img src="/untold-stories/post-session.jpg" alt="Matt Stone and a client after a session">
+        <div class="bio-photo-caption">
+          <p>The room after</p>
+          <span>Every session ends with a client who finally heard their own story told back to them.</span>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="section-eyebrow">About your interviewer</span>
+        <h2 class="section-headline" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1.5rem;">The room is the product. <em>The interviewer is the differentiator.</em></h2>
+        <p class="body-lg" style="margin-bottom:1.25rem;">You could hire a production crew, a messaging consultant, a media coach, and an executive interviewer separately. You'd spend two to three times as much — and still not have someone who's been in every room.</p>
+        <p class="body-lg" style="margin-bottom:1.25rem;">Matt Stone has worked across law, federal agencies, the Pentagon, multinational boardrooms, Hollywood studios, Silicon Valley startups, university classrooms, and franchise operations. The contexts changed. The work never did: listen deeply, surface what matters, reflect it back in a way that changes the next decision.</p>
+        <p class="body-lg" style="margin-bottom:2rem;">A J.D. trains you to find what's missing, what's imprecise, what contradicts. In an interview, that means catching the story a client glosses over because they've told it so many times it's lost its shape. That precision is why clients say he pulled out things they weren't thinking about.</p>
+        <div class="bio-facts">
+          <div class="bio-fact"><span class="bio-fact-label">Background</span><span class="bio-fact-val">Law, Hollywood, Silicon Valley, federal consulting, franchise operations</span></div>
+          <div class="bio-fact"><span class="bio-fact-label">Training</span><span class="bio-fact-val">J.D. · Neuroscience-based coaching · Certified mediation</span></div>
+          <div class="bio-fact"><span class="bio-fact-label">Lived in</span><span class="bio-fact-val">Seven US states, Europe, Asia</span></div>
+          <div class="bio-fact"><span class="bio-fact-label">Based</span><span class="bio-fact-val">New York metropolitan area</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section id="investment" class="investment-bg">
+  <div class="section-inner">
+    <div class="investment-inner">
+      <div>
+        <span class="section-eyebrow reveal">Investment</span>
+        <h2 class="section-headline reveal">A content infrastructure. <em>Not a production cost.</em></h2>
+        <p class="body-lg reveal" style="margin-bottom:2rem;">Assembling a masterful interviewer, production team, messaging strategist, and content architect independently would cost multiples of this. The Untold Story Session brings all of it into one focused experience.</p>
+        <div class="pullquote reveal">
+          <p>"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. He asks the questions I should be thinking about — and that is the fastest, most efficient and effective way I know of making a new change."</p>
+          <small>Jason Durkee · Founder & President, Idea Development Corporation · Tokyo, Japan</small>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="price-card">
+          <span class="price-card-label">Investment</span>
+          <div class="price-card-amt">$4,995</div>
+          <p class="price-card-sub">Everything included. One price. No tiers. Pre-shoot consultation, on-camera interview, full story edit, 8–12 clips with copy, transcripts, messaging analysis, 90-day rollout plan, and debrief.</p>
+          <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
+          <p class="price-card-note">Limited to 5 per city · Dates opening soon</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">What clients say</span>
+    <h2 class="section-headline reveal">The session changes <em>how you show up.</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. <strong>We needed someone who can produce beautiful media and keep the human being at the center of the process.</strong> Matt has overdelivered."</blockquote>
+        <span class="testi-attr">Samir Selmanovic, Ph.D. & Jordan Soliday · Epic Ordinary LLC · New York City</span>
+      </div>
+      <div class="testi-card reveal reveal-delay-1">
+        <blockquote>"<strong>Does anybody really want to hear what I have to say?</strong> When you put yourself in a position where you're being asked questions, that brings it out. Once you publish it and get positive feedback, it just exponentially helps with the visibility."</blockquote>
+        <span class="testi-attr">Rhonda Noordyk · Founder & Financial Advocate · Wisconsin</span>
+      </div>
+    </div>
+    <div class="testi-feature reveal">
+      <blockquote>"Matt masterfully pulled stories out that helped us differentiate in our market in a new, more powerful way."</blockquote>
+      <span class="testi-attr">Cody & Lynzie Bowman · Sacred Ground Properties · Tulsa, OK</span>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section id="waitlist" class="waitlist-bg">
+  <div class="waitlist-inner">
+    <span class="section-eyebrow reveal" style="display:block;text-align:center;">2025 Tour · Register Your Interest</span>
+    <h2 class="section-headline reveal" style="text-align:center;font-size:clamp(2rem,4vw,2.8rem);">Coming to a city <em>near you.</em></h2>
+    <p class="reveal" style="color:var(--gray);font-size:0.95rem;margin-bottom:0;text-align:center;">Dates are opening soon. Select your city and you'll be first to know when spots become available.</p>
+
+    <div id="waitlist-form">
+      <div class="city-grid">
+        <button class="city-btn" data-city="New York City" onclick="selCity(this)">
+          <div class="city-check"><div class="city-check-dot"></div></div>
+          <div><span class="city-name">New York City</span><span class="city-state">New York</span></div>
+        </button>
+        <button class="city-btn" data-city="Tulsa" onclick="selCity(this)">
+          <div class="city-check"><div class="city-check-dot"></div></div>
+          <div><span class="city-name">Tulsa</span><span class="city-state">Oklahoma</span></div>
+        </button>
+        <button class="city-btn" data-city="Denver" onclick="selCity(this)">
+          <div class="city-check"><div class="city-check-dot"></div></div>
+          <div><span class="city-name">Denver</span><span class="city-state">Colorado</span></div>
+        </button>
+        <button class="city-btn" data-city="Portland" onclick="selCity(this)">
+          <div class="city-check"><div class="city-check-dot"></div></div>
+          <div><span class="city-name">Portland</span><span class="city-state">Oregon</span></div>
+        </button>
+      </div>
+
+      
+
+      <div style="text-align:left;margin-bottom:0.6rem;">
+        <span class="form-label">Your details</span>
+      </div>
+      <div class="form-row">
+        <input type="text" id="wl-fn" placeholder="First name">
+        <input type="text" id="wl-ln" placeholder="Last name">
+      </div>
+      <div class="form-group">
+        <input type="email" id="wl-em" placeholder="Email address" style="width:100%;">
+      </div>
+      <div class="form-group">
+        <input type="text" id="wl-co" placeholder="Company or title (optional)" style="width:100%;">
+      </div>
+
+      <button class="btn-submit" onclick="doSubmit()">Join the Waitlist →</button>
+      <p class="form-note">No commitment required. You'll hear from us when dates open in your city.</p>
+      <div class="proof-row">
+        <span class="proof-item"><span>·</span> No spam, ever</span>
+        <span class="proof-item"><span>·</span> Limited to 5 per city</span>
+      </div>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      <h3>You're on the list.</h3>
+      <p>We'll reach out as soon as dates open in your city.<br>Spots are limited — keep an eye on your inbox.</p>
+      <p style="margin-top:1rem;font-size:0.82rem;">Questions? <a href="mailto:matt@mattstone.co" style="color:var(--orange);">matt@mattstone.co</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Matt Stone Enterprises LLC · The Bigger Stage</span>
+  <div class="footer-links">
+    <a href="https://thebiggerstage.com">Main Site</a>
+    <a href="https://www.youtube.com/@thebiggerstage" target="_blank">Podcast</a>
+    <a href="mailto:matt@mattstone.co">Contact</a>
+    <a href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+var city=null;
+function selCity(el){
+  document.querySelectorAll('.city-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  city=el.getAttribute('data-city');
+}
+function doSubmit(){
+  var fn=document.getElementById('wl-fn').value.trim();
+  var ln=document.getElementById('wl-ln').value.trim();
+  var em=document.getElementById('wl-em').value.trim();
+  var co=document.getElementById('wl-co').value.trim();
+  var missing=[];
+  if(!city)missing.push('a city');
+  if(!fn)missing.push('your first name');
+  if(!em)missing.push('your email');
+  if(missing.length){alert('Please add: '+missing.join(', ')+'.');return;}
+  var btn=document.querySelector('.btn-submit');
+  btn.textContent='Submitting…';
+  btn.disabled=true;
+  fetch('https://script.google.com/macros/s/AKfycbzFxxK3V6BAlG1WaaheWOcVXOpRfDEeC2ZjeWdjdkI-kOmN3EfIJcbfJVaGEXuEwv3O/exec',{
+    method:'POST',
+    body:JSON.stringify({firstName:fn,lastName:ln,email:em,company:co,city:city}),
+    headers:{'Content-Type':'application/json'}
+  }).then(function(){
+    document.getElementById('waitlist-form').style.display='none';
+    var s=document.getElementById('success-msg');
+    s.style.display='block';
+    s.querySelector('h3').textContent="You're on the list, "+fn+".";
+    s.querySelector('p').innerHTML="We'll reach out as soon as dates open in <strong style='color:var(--white)'>"+city+"</strong>.<br>Spots are limited — keep an eye on your inbox.";
+  }).catch(function(){
+    btn.textContent='Join the Waitlist →';
+    btn.disabled=false;
+    alert('Something went wrong. Please try again or email matt@mattstone.co directly.');
+  });
+}
+  document.getElementById('waitlist-form').style.display='none';
+  var s=document.getElementById('success-msg');
+  s.style.display='block';
+  s.querySelector('h3').textContent="You're on the list, "+fn+".";
+  s.querySelector('p').innerHTML="We'll reach out as soon as dates open in <strong style='color:var(--white)'>"+city+"</strong>.<br>Spots are limited — keep an eye on your inbox.";
+}
+
+const reveals=document.querySelectorAll('.reveal');
+function revealCheck(){
+  const wh=window.innerHeight;
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<wh-80)el.classList.add('active');
+  });
+}
+window.addEventListener('scroll',revealCheck);
+revealCheck();
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    const t=document.querySelector(this.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
