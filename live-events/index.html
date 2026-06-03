@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Events — The Bigger Stage</title>
+    <meta name="description" content="Two ways to be in the room with Matt Stone and a curated group of founders: Iconic Conversations, a periodic virtual gathering, and The Revelation Intensive, a live in-person cohort experience.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Live Events — The Bigger Stage">
+    <meta property="og:description" content="Iconic Conversations and The Revelation Intensive. Two live formats for founders ready to make the shift from operator to icon.">
+    <meta property="og:image" content="https://thebiggerstage.com/og-image.jpg">
+    <meta property="og:url" content="https://thebiggerstage.com/live-events">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Bigger Stage">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Live Events — The Bigger Stage">
+    <meta name="twitter:description" content="Iconic Conversations and The Revelation Intensive. Two live formats for founders ready to make the shift from operator to icon.">
+    <meta name="twitter:image" content="https://thebiggerstage.com/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-charcoal: #1a1a1a;
+            --color-orange: #ff5722;
+            --color-orange-bright: #ff6b3d;
+            --color-white: #ffffff;
+            --color-gray: #8a8a8a;
+            --color-light-gray: #e8e8e8;
+            --color-stone: #f5f5f0;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Archivo', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-white);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+            text-decoration: none; transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--color-white); }
+
+        .nav-links a.nav-cta {
+            color: var(--color-white); background: var(--color-orange);
+            padding: 0.55rem 1.1rem; transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .nav-links a.nav-cta:hover { background: var(--color-orange-bright); transform: translateY(-1px); }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 0.5rem;
+        }
+
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--color-white); transition: all 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* ── MOBILE MENU ── */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--color-black); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+
+        .mobile-menu.open { opacity: 1; pointer-events: auto; }
+
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-white); text-decoration: none; transition: color 0.2s;
+        }
+
+        .mobile-menu a:hover { color: var(--color-orange); }
+
+        .mobile-menu-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; color: var(--color-gray);
+            font-size: 2rem; cursor: pointer; line-height: 1;
+        }
+
+        /* ── REVEAL ANIMATION ── */
+        .reveal {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 72vh;
+            display: flex; align-items: flex-end;
+            padding: 9rem 3rem 5rem;
+            position: relative; overflow: hidden;
+            background: var(--color-black);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px, transparent 79px,
+                rgba(255,255,255,0.018) 79px, rgba(255,255,255,0.018) 80px
+            );
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 50%;
+            background: radial-gradient(ellipse at 80% 40%, rgba(255,87,34,0.09) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            position: relative; z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            color: var(--color-orange); letter-spacing: 0.25em; text-transform: uppercase;
+            margin-bottom: 1.5rem; display: block;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 900; line-height: 0.92; letter-spacing: 0.01em;
+            text-transform: uppercase; margin-bottom: 1.75rem;
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .hero h1 em {
+            font-style: italic; color: var(--color-orange); display: block;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem; line-height: 1.75; color: var(--color-gray);
+            max-width: 640px; margin-bottom: 0;
+            animation: fadeUp 0.8s ease-out 0.35s backwards;
+        }
+
+        .hero-sub strong { color: var(--color-white); }
+
+        /* ── EVENT NAVIGATOR ── */
+        .event-nav {
+            background: var(--color-charcoal);
+            border-bottom: 1px solid rgba(255,87,34,0.2);
+        }
+
+        .event-nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: stretch;
+            padding: 0 3rem;
+        }
+
+        .event-nav-item {
+            display: flex; align-items: center; gap: 1rem;
+            padding: 1.75rem 2.5rem 1.75rem 0;
+            border-right: 1px solid rgba(255,255,255,0.07);
+            text-decoration: none; transition: opacity 0.2s;
+            flex: 1;
+        }
+
+        .event-nav-item:last-child { border-right: none; padding-left: 2.5rem; }
+        .event-nav-item:first-child { padding-left: 0; }
+        .event-nav-item:hover { opacity: 0.75; }
+
+        .event-nav-num {
+            font-family: var(--font-display); font-size: 2rem; font-weight: 900;
+            color: rgba(255,87,34,0.2); line-height: 1; flex-shrink: 0;
+        }
+
+        .event-nav-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.3rem; display: block;
+        }
+
+        .event-nav-title {
+            font-family: var(--font-display); font-size: 0.9rem; font-weight: 900;
+            letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-white);
+        }
+
+        /* ── SECTIONS ── */
+        section { padding: 7rem 3rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-eyebrow {
+            font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 1.25rem; display: block;
+        }
+
+        .section-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 900; text-transform: uppercase;
+            line-height: 0.95; letter-spacing: 0.01em;
+            margin-bottom: 2rem;
+        }
+
+        .section-headline em { color: var(--color-orange); font-style: italic; }
+
+        .section-body {
+            font-size: 1.05rem; line-height: 1.8; color: var(--color-gray);
+            max-width: 660px;
+        }
+
+        .section-body strong { color: var(--color-white); }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,87,34,0.3) 30%, rgba(255,87,34,0.3) 70%, transparent);
+            margin: 0;
+        }
+
+        /* ── FORMAT GRID (IC) ── */
+        .format-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .format-card {
+            padding: 2.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.07);
+            background: rgba(255,87,34,0.03);
+            transition: border-color 0.2s;
+        }
+
+        .format-card:hover { border-color: rgba(255,87,34,0.3); }
+
+        .format-num {
+            font-family: var(--font-display); font-size: 3rem; font-weight: 900;
+            color: rgba(255,87,34,0.15); line-height: 1; margin-bottom: 1rem;
+        }
+
+        .format-card h3 {
+            font-family: var(--font-display); font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-white); margin-bottom: 0.85rem;
+        }
+
+        .format-card p {
+            font-size: 0.95rem; line-height: 1.75; color: var(--color-gray);
+        }
+
+        /* ── ARCHIVE SECTION ── */
+        .archive-section { background: var(--color-charcoal); }
+
+        .archive-header {
+            display: flex; align-items: flex-end; justify-content: space-between;
+            margin-bottom: 3rem; gap: 2rem; flex-wrap: wrap;
+        }
+
+        .archive-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+        }
+
+        .archive-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            background: var(--color-black);
+            display: grid; grid-template-columns: 180px 1fr;
+            transition: border-color 0.2s;
+            overflow: hidden;
+        }
+
+        .archive-card:hover { border-color: rgba(255,87,34,0.3); }
+
+        .archive-card-img {
+            background: var(--color-charcoal);
+            position: relative; overflow: hidden;
+        }
+
+        .archive-card-img img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center top;
+            filter: brightness(0.85);
+            transition: filter 0.3s;
+        }
+
+        .archive-card:hover .archive-card-img img { filter: brightness(1); }
+
+        .archive-card-img-placeholder {
+            width: 100%; height: 100%; min-height: 200px;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+        }
+
+        .archive-card-img-placeholder span {
+            font-family: var(--font-display); font-size: 2.5rem; font-weight: 900;
+            color: rgba(255,87,34,0.2); letter-spacing: -0.02em;
+        }
+
+        .archive-card-body { padding: 2rem; }
+
+        .archive-card-meta {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .archive-tag {
+            font-family: var(--font-display); font-size: 0.6rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+        }
+
+        .archive-tag.past {
+            background: rgba(255,255,255,0.06); color: var(--color-gray);
+        }
+
+        .archive-date {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .archive-card h3 {
+            font-family: var(--font-display); font-size: 1.2rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.02em;
+            color: var(--color-white); margin-bottom: 0.4rem; line-height: 1.1;
+        }
+
+        .archive-card .guest-title {
+            font-size: 0.88rem; line-height: 1.6; color: var(--color-orange);
+            margin-bottom: 0.9rem; font-style: italic;
+        }
+
+        .archive-card p {
+            font-size: 0.9rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* ── UPCOMING CARD ── */
+        .upcoming-card {
+            border: 1px solid rgba(255,87,34,0.25);
+            background: rgba(255,87,34,0.03);
+            display: grid; grid-template-columns: 180px 1fr;
+            overflow: hidden;
+        }
+
+        .upcoming-card-side {
+            background: rgba(255,87,34,0.06);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 2rem 1.5rem; text-align: center;
+            border-right: 1px solid rgba(255,87,34,0.2);
+        }
+
+        .upcoming-card-side .up-label {
+            font-family: var(--font-display); font-size: 0.6rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.75rem; display: block;
+        }
+
+        .upcoming-card-side .up-date {
+            font-family: var(--font-display); font-size: 1.6rem; font-weight: 900;
+            color: var(--color-white); line-height: 1; text-transform: uppercase;
+        }
+
+        .upcoming-card-body { padding: 2rem; }
+
+        .upcoming-card-body h3 {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.03em;
+            color: var(--color-white); margin-bottom: 0.6rem;
+        }
+
+        .upcoming-card-body p {
+            font-size: 0.9rem; line-height: 1.7; color: var(--color-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--color-orange);
+            color: var(--color-orange);
+            font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 0.7rem 1.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-outline:hover { background: var(--color-orange); color: var(--color-white); }
+
+        /* ── UPCOMING SESSIONS ── */
+        .upcoming-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        /* ── HOST QUOTE ── */
+        .host-section { background: var(--color-charcoal); }
+
+        .host-inner {
+            max-width: 1200px; margin: 0 auto; padding: 7rem 3rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+        }
+
+        .pull-quote-large {
+            font-family: var(--font-body); font-style: italic;
+            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+            line-height: 1.5; color: var(--color-white);
+            border-left: 3px solid var(--color-orange);
+            padding-left: 2rem;
+        }
+
+        .host-attribution {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-top: 1.5rem;
+        }
+
+        .host-meta p {
+            font-size: 1rem; line-height: 1.8; color: var(--color-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .host-meta strong { color: var(--color-white); }
+
+        /* ── INTENSIVE SECTION ── */
+        .intensive-section { background: var(--color-black); }
+
+        .intensive-header {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+            align-items: start; margin-bottom: 4rem;
+        }
+
+        .intensive-badge {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            border: 1px solid var(--color-orange);
+            padding: 0.5rem 1rem;
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 1.5rem;
+        }
+
+        .intensive-badge::before {
+            content: '';
+            display: inline-block; width: 7px; height: 7px;
+            background: var(--color-orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .intensive-what {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .intensive-item {
+            padding: 1.5rem;
+            border-left: 3px solid rgba(255,87,34,0.4);
+            background: rgba(255,87,34,0.03);
+        }
+
+        .intensive-item-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.5rem; display: block;
+        }
+
+        .intensive-item p {
+            font-size: 0.9rem; line-height: 1.65; color: var(--color-gray);
+        }
+
+        .intensive-item strong { color: var(--color-white); }
+
+        .intensive-deliverables {
+            margin-top: 0;
+        }
+
+        .intensive-deliverables h4 {
+            font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-gray); margin-bottom: 1.25rem;
+        }
+
+        .deliverable-list {
+            list-style: none; display: grid; gap: 0.85rem;
+        }
+
+        .deliverable-list li {
+            font-size: 0.95rem; line-height: 1.65; color: var(--color-light-gray);
+            padding-left: 1.5rem; position: relative;
+        }
+
+        .deliverable-list li::before {
+            content: '→';
+            position: absolute; left: 0;
+            color: var(--color-orange); font-size: 0.85rem;
+        }
+
+        .intensive-cta-block {
+            margin-top: 3.5rem;
+            padding: 3rem;
+            border: 1px solid rgba(255,87,34,0.25);
+            background: rgba(255,87,34,0.03);
+            display: grid; grid-template-columns: 1fr auto;
+            gap: 3rem; align-items: center;
+        }
+
+        .intensive-cta-block h4 {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--color-white); margin-bottom: 0.75rem;
+        }
+
+        .intensive-cta-block p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray); margin: 0;
+        }
+
+        .btn-primary {
+            display: inline-block; background: var(--color-orange);
+            color: var(--color-white); text-decoration: none;
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 1.1rem 2.2rem; white-space: nowrap;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-primary:hover { background: var(--color-orange-bright); transform: translateY(-2px); }
+
+        /* ── TESTIMONIAL BAND ── */
+        .testi-band {
+            background: var(--color-charcoal);
+            border-top: 1px solid rgba(255,87,34,0.15);
+            border-bottom: 1px solid rgba(255,87,34,0.15);
+            padding: 3.5rem 3rem;
+        }
+
+        .testi-band-inner {
+            max-width: 1200px; margin: 0 auto;
+        }
+
+        .testi-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .testi-card {
+            padding: 2rem;
+            border-left: 3px solid var(--color-orange);
+            background: rgba(255,87,34,0.03);
+        }
+
+        .testi-card blockquote {
+            font-size: 1rem; line-height: 1.75; color: var(--color-light-gray);
+            font-style: italic; margin-bottom: 1rem;
+        }
+
+        .testi-card blockquote strong { color: var(--color-white); font-style: normal; }
+
+        .testi-attr {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-orange);
+        }
+
+        /* ── CLOSING CTA ── */
+        .closing-cta {
+            padding: 7rem 3rem; text-align: center;
+            background: var(--color-black);
+        }
+
+        .closing-cta .section-headline {
+            max-width: 700px; margin: 0 auto 1.5rem;
+        }
+
+        .closing-cta p {
+            font-size: 1rem; line-height: 1.8; color: var(--color-gray);
+            max-width: 560px; margin: 0 auto 2.5rem;
+        }
+
+        .secondary-cta {
+            display: block; margin-top: 1rem;
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+        }
+
+        .secondary-cta a { color: var(--color-orange); border-bottom: 1px solid rgba(255,87,34,0.4); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--color-charcoal);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 2.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+        }
+
+        .footer-copy {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .footer-links {
+            display: flex; gap: 2rem; align-items: center;
+        }
+
+        .footer-links a {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-gray);
+            text-decoration: none; transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--color-white); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+
+            .hero { padding: 8rem 1.5rem 4rem; min-height: 60vh; }
+            .event-nav-inner { flex-direction: column; padding: 0 1.5rem; }
+            .event-nav-item { padding: 1.25rem 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+            .event-nav-item:last-child { border-bottom: none; padding-left: 0; }
+            .event-nav-item:first-child { padding-left: 0; }
+
+            section { padding: 5rem 1.5rem; }
+            .format-grid { grid-template-columns: 1fr; }
+            .archive-grid { grid-template-columns: 1fr; }
+            .archive-card { grid-template-columns: 1fr; }
+            .archive-card-img { min-height: 200px; }
+            .upcoming-grid { grid-template-columns: 1fr; }
+            .upcoming-card { grid-template-columns: 1fr; }
+            .upcoming-card-side { padding: 1.5rem; flex-direction: row; gap: 1rem; justify-content: flex-start; }
+            .host-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+            .intensive-header { grid-template-columns: 1fr; gap: 3rem; }
+            .intensive-what { grid-template-columns: 1fr; }
+            .intensive-cta-block { grid-template-columns: 1fr; gap: 2rem; }
+            .testi-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/#the-work" class="mobile-nav-link">The Work</a>
+    <a href="/#offers" class="mobile-nav-link">Offers</a>
+    <a href="/#about" class="mobile-nav-link">About</a>
+    <a href="/#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="https://thebiggerstage.com/assessment" class="mobile-nav-link">Assessment</a>
+    <a href="https://calendly.com/matt-stone-2/clarity-call" class="mobile-nav-link" target="_blank">Book a Call</a>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-logo">The Bigger Stage</a>
+    <ul class="nav-links">
+        <li><a href="/#the-work">The Work</a></li>
+        <li><a href="/#offers">Offers</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#podcast">Podcast</a></li>
+        <li><a href="https://thebiggerstage.com/assessment">Assessment</a></li>
+        <li><a href="https://calendly.com/matt-stone-2/clarity-call" class="nav-cta" target="_blank">Book a Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <span class="hero-eyebrow">Live Events · The Bigger Stage</span>
+        <h1>
+            Two ways<br>
+            to be in <em>the room.</em>
+        </h1>
+        <p class="hero-sub" style="animation: fadeUp 0.8s ease-out 0.35s backwards;">
+            <strong>Iconic Conversations</strong> is a periodic invitation-only virtual gathering: one founder, one guest who has made the shift, twenty seats. <strong>The Revelation Intensive</strong> is a live in-person cohort, where a small group of founders go on camera together and witness each other make the shift. Two different formats. One arc: from operator to icon.
+        </p>
+    </div>
+</section>
+
+<!-- EVENT NAVIGATOR -->
+<div class="event-nav">
+    <div class="event-nav-inner">
+        <a href="#iconic-conversations" class="event-nav-item">
+            <div class="event-nav-num">01</div>
+            <div>
+                <span class="event-nav-label">Periodic · Virtual</span>
+                <div class="event-nav-title">Iconic Conversations</div>
+            </div>
+        </a>
+        <a href="#revelation-intensive" class="event-nav-item">
+            <div class="event-nav-num">02</div>
+            <div>
+                <span class="event-nav-label">Live · In Person</span>
+                <div class="event-nav-title">The Revelation Intensive</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     ICONIC CONVERSATIONS
+════════════════════════════════════════ -->
+
+<section id="iconic-conversations">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">01 — Periodic · Virtual · Invitation Only</span>
+        <h2 class="section-headline reveal">Iconic<br><em>Conversations.</em></h2>
+        <p class="section-body reveal">A periodic invitation-only Zoom gathering for twenty founders and operators who are actively making the shift from operator to icon. One in-depth interview with a guest who has made the shift. Structured small-group breakouts where you apply what was just said. A room curated so the people next to you are worth the time.</p>
+
+        <div class="format-grid">
+            <div class="format-card reveal">
+                <div class="format-num">01</div>
+                <h3>The Conversation</h3>
+                <p>A single in-depth interview with one guest who is actively making the shift from operator to icon. Not a panel. Not a Q&amp;A. A real conversation, on the record.</p>
+            </div>
+            <div class="format-card reveal reveal-delay-1">
+                <div class="format-num">02</div>
+                <h3>The Breakouts</h3>
+                <p>Structured small-group rooms where we actually do something with what was just said. Apply it, pressure-test it, translate it to your own business and stage.</p>
+            </div>
+            <div class="format-card reveal reveal-delay-2">
+                <div class="format-num">03</div>
+                <h3>The Room</h3>
+                <p>Twenty-one people, including Matt. Approved in advance. Camera on. The whole point is the people you would want next to you in a room like this.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAST SESSIONS -->
+<section class="archive-section">
+    <div class="section-inner">
+        <div class="archive-header">
+            <div class="reveal">
+                <span class="section-eyebrow">Past Sessions</span>
+                <h2 class="section-headline" style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Where it<br><em>began.</em></h2>
+            </div>
+            <p class="reveal" style="color: var(--color-gray); font-size: 0.95rem; line-height: 1.75; max-width: 420px;">
+                Each session lives as a complete record: the conversation, the moment, the guest. A growing archive of what the shift from operator to icon actually looks like in practice.
+            </p>
+        </div>
+
+        <div class="archive-grid">
+            <!-- SESSION 01 — Shannon Hernandez -->
+            <div class="archive-card reveal">
+                <div class="archive-card-img">
+                    <img src="shannon-hernandez.jpeg" alt="M. Shannon Hernandez">
+                </div>
+                <div class="archive-card-body">
+                    <div class="archive-card-meta">
+                        <span class="archive-tag past">Session 01</span>
+                        <span class="archive-date">May 28, 2026</span>
+                    </div>
+                    <h3>M. Shannon<br>Hernandez</h3>
+                    <p class="guest-title">The messaging strategist for businesses whose work is stronger than their marketing.</p>
+                    <p>Shannon is the strategist experienced business owners turn to when their marketing stops working even though their work is strong. She helped open the first conversation with a sharp look at what it actually takes to make the right clients instantly recognize themselves in what you do.</p>
+                </div>
+            </div>
+
+            <!-- PLACEHOLDER SLOT — future past sessions go here -->
+            <!-- Add additional archive-card blocks as sessions complete -->
+        </div>
+    </div>
+</section>
+
+
+
+<!-- HOST QUOTE -->
+<div class="host-section">
+    <div class="host-inner">
+        <div class="reveal">
+            <span class="section-eyebrow">Your Host</span>
+            <blockquote class="pull-quote-large">
+                The difference between an operator and an icon isn't talent or vision. It's the ability to make other people feel what you already know. This room is where that work gets done.
+            </blockquote>
+            <div class="host-attribution">Matt Stone · Founder, The Bigger Stage</div>
+        </div>
+        <div class="reveal reveal-delay-1">
+            <div class="host-meta">
+                <p>Matt Stone has spent his career in rooms with people whose impact far exceeded their visibility: founders who were brilliant in conversation and invisible online, operators who had built something real but couldn't find the words to say it.</p>
+                <p>Iconic Conversations is the live expression of that work. <strong>Every guest has made the shift.</strong> Every room is built so the people next to you are worth your time.</p>
+                <p><a href="/#about" style="color: var(--color-orange); border-bottom: 1px solid rgba(255,87,34,0.4);">About Matt →</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+
+<!-- ═══════════════════════════════════════
+     THE REVELATION INTENSIVE
+════════════════════════════════════════ -->
+
+<section class="intensive-section" id="revelation-intensive">
+    <div class="section-inner">
+
+        <div class="intensive-header">
+            <div>
+                <div class="intensive-badge reveal">Live · In Person</div>
+                <span class="section-eyebrow reveal">02 — The Revelation Intensive</span>
+                <h2 class="section-headline reveal">On camera.<br>Witnessed.<br><em>In person.</em></h2>
+                <p class="section-body reveal" style="margin-bottom: 1.75rem;">
+                    A one to two-day in-person experience for a small cohort of founders. Each founder goes on camera, one at a time, witnessed by peers in the room. <strong>Hearing another founder make the shift often unlocks your own.</strong>
+                </p>
+                <p class="section-body reveal">
+                    This is not a workshop. There are no slides. The camera is the method: it makes the shift real in a way that a conversation in private cannot. What you say in the room becomes an asset. What you witness becomes a mirror.
+                </p>
+            </div>
+
+            <div class="intensive-deliverables reveal reveal-delay-1">
+                <h4>What each founder leaves with</h4>
+                <ul class="deliverable-list">
+                    <li>Pre-event intake and intention-setting session with Matt</li>
+                    <li>On-camera Revelation session, witnessed by the cohort</li>
+                    <li>Footage and professionally edited clips</li>
+                    <li>Full transcript of the conversation</li>
+                    <li>Narrative analysis and messaging debrief</li>
+                    <li>Cohort connections that typically outlast the event</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="intensive-what">
+            <div class="intensive-item reveal">
+                <span class="intensive-item-label">The Format</span>
+                <p><strong>6 to 10 founders.</strong> One to two days, in person. Structured intake and intention-setting in advance. On the day, each founder goes on camera while the group witnesses. The intimate scale is the point.</p>
+            </div>
+            <div class="intensive-item reveal reveal-delay-1">
+                <span class="intensive-item-label">Co-founders</span>
+                <p><strong>Co-founder pairs are especially welcome.</strong> There is something about going through the process side by side that creates alignment you can't get from a separate session. Many co-founders arrive uncertain and leave unified.</p>
+            </div>
+            <div class="intensive-item reveal reveal-delay-2">
+                <span class="intensive-item-label">Who It's For</span>
+                <p>Founders who have been too close to their own story to tell it clearly. Founders ready to go on camera for the first time, or who have tried and gotten it wrong. Founders entering new markets, bigger rooms, and harder conversations.</p>
+            </div>
+            <div class="intensive-item reveal reveal-delay-3">
+                <span class="intensive-item-label">The Investment</span>
+                <p>Investment is discussed individually during a Clarity Call. Cohort size keeps it personal. Details, logistics, and next dates are confirmed on the call.</p>
+            </div>
+        </div>
+
+        <div class="intensive-cta-block reveal">
+            <div>
+                <h4>Inquire about the next Intensive</h4>
+                <p>Dates and locations are set cohort by cohort. If you're interested in joining or bringing a group, a Clarity Call is the right place to start. We'll look at where you are, what the Intensive could unlock, and whether the timing is right.</p>
+            </div>
+            <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary" target="_blank">Book a Clarity Call →</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- TESTIMONIAL BAND -->
+<div class="testi-band">
+    <div class="testi-band-inner">
+        <span class="section-eyebrow reveal">What founders say</span>
+        <div class="testi-grid">
+            <div class="testi-card reveal">
+                <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. <strong>We needed someone who can produce beautiful media and keep the human being at the center of the process.</strong> Matt has overdelivered."</blockquote>
+                <span class="testi-attr">Samir Selmanovic, Ph.D. &amp; Jordan Soliday · Epic Ordinary LLC · New York City</span>
+            </div>
+            <div class="testi-card reveal reveal-delay-1">
+                <blockquote>"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. <strong>He asks the questions I should be thinking about, and that is the fastest, most efficient way I know of doing something new.</strong>"</blockquote>
+                <span class="testi-attr">Jason Durkee · Founder &amp; President, Idea Development K.K. · Tokyo</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CLOSING CTA -->
+<div class="closing-cta">
+    <span class="section-eyebrow reveal" style="display:block;text-align:center;">Your next step</span>
+    <h2 class="section-headline reveal" style="text-align:center;">Not sure where<br>to <em>start?</em></h2>
+    <p class="reveal">A 30-minute Clarity Call is the front door to everything. We'll look at where you are in the operator-to-icon shift, which format fits your timing, and what the right next move is. No commitment. One insight you can use the same week.</p>
+    <div class="reveal">
+        <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary" target="_blank">Book a Clarity Call</a>
+        <span class="secondary-cta">Or reach out directly: <a href="mailto:matt@mattstone.co">matt@mattstone.co</a></span>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-copy">© 2026 Matt Stone Enterprises LLC · The Bigger Stage</span>
+    <div class="footer-links">
+        <a href="/">Main Site</a>
+        <a href="https://www.youtube.com/@thebiggerstage" target="_blank">Podcast</a>
+        <a href="mailto:matt@mattstone.co">Contact</a>
+        <a href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+        </a>
+    </div>
+</footer>
+
+<script>
+    // REVEAL ON SCROLL
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 80) el.classList.add('active');
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // HAMBURGER
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    menuClose.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+
+</body>
+</html>

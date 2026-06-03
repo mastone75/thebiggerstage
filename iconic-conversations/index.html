@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ============================================================
+         EVENT-SPECIFIC: Update title, description, og:title, og:description,
+         og:image, og:url, twitter:title, twitter:description, twitter:image
+         before each session goes live.
+         Title format: "[Guest Name] — Iconic Conversations — The Bigger Stage"
+         ============================================================ -->
     <title>Iconic Conversations — The Bigger Stage</title>
-    <meta name="description" content="A monthly invitation-only Zoom conversation for twenty founders and operators making the shift from operator to icon.">
+    <meta name="description" content="An invitation-only Zoom conversation for twenty founders and operators making the shift from operator to icon. Twenty seats. One conversation that matters.">
 
-    <!-- Open Graph -->
+    <!-- Open Graph — EVENT-SPECIFIC: update all fields below per session -->
     <meta property="og:title" content="Iconic Conversations with Matt Stone — The Bigger Stage">
     <meta property="og:description" content="Twenty seats. One conversation that matters. Apply for the next session.">
     <meta property="og:image" content="https://thebiggerstage.com/iconic-conversations/iconic-conversations-banner.png">
+    <!-- EVENT-SPECIFIC: og:image should be a session-specific banner if available -->
     <meta property="og:url" content="https://thebiggerstage.com/iconic-conversations">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Bigger Stage">
 
-    <!-- Twitter Card -->
+    <!-- Twitter Card — EVENT-SPECIFIC: update all fields below per session -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Iconic Conversations with Matt Stone">
     <meta name="twitter:description" content="Twenty seats. One conversation that matters. Apply for the next session.">
@@ -559,7 +566,7 @@
     <a href="/#offers" class="mobile-nav-link">Offers</a>
     <a href="/#about" class="mobile-nav-link">About</a>
     <a href="/#podcast" class="mobile-nav-link">Podcast</a>
-    <a href="/iconic-conversations" class="mobile-nav-link">Live Events</a>
+    <a href="/live-events" class="mobile-nav-link">Live Events</a>
 </div>
 
 <!-- NAV -->
@@ -570,7 +577,7 @@
         <li><a href="/#offers">Offers</a></li>
         <li><a href="/#about">About</a></li>
         <li><a href="/#podcast">Podcast</a></li>
-        <li><a href="/iconic-conversations" class="nav-cta">Live Events</a></li>
+        <li><a href="/live-events" class="nav-cta">Live Events</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -580,6 +587,7 @@
 <!-- HERO -->
 <section class="hero">
     <div class="hero-bg">
+        <!-- EVENT-SPECIFIC: swap hero image per session -->
         <img src="iconic-conversations-hero.png" alt="Matt Stone in studio for Iconic Conversations">
     </div>
     <div class="hero-inner">
@@ -591,18 +599,18 @@
             </h1>
             <div class="hero-bridge">With Matt Stone</div>
             <p class="hero-sub">
-                Once a month. Twenty seats. Ninety minutes with someone making the shift from operator to icon — and a working room of founders ready to do something with what was said.
+                Twenty seats. Ninety minutes with someone making the shift from operator to icon — and a working room of founders ready to do something with what was said.
             </p>
 
             <div class="hero-meta">
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Next Session</span>
-                    <!-- EVENT-SPECIFIC: update each month -->
+                    <!-- EVENT-SPECIFIC: update date each session -->
                     <span class="hero-meta-value">Thu, May 28, 2026</span>
                 </div>
                 <div class="hero-meta-item">
                     <span class="hero-meta-label">Time</span>
-                    <!-- EVENT-SPECIFIC: update each month -->
+                    <!-- EVENT-SPECIFIC: update time each session -->
                     <span class="hero-meta-value">12:00–1:30 PM ET</span>
                 </div>
                 <div class="hero-meta-item">
@@ -617,7 +625,7 @@
 
             <div class="hero-cta-wrap">
                 <a href="#apply" class="btn-primary">Apply for a seat</a>
-                <!-- EVENT-SPECIFIC: update deadline per month -->
+                <!-- EVENT-SPECIFIC: update application deadline each session -->
                 <span class="hero-cta-note">Applications close Mon, May 25</span>
             </div>
         </div>
@@ -668,7 +676,16 @@
 </section>
 
 <!-- GUEST SPOTLIGHT -->
-<!-- EVENT-SPECIFIC: swap entire block per session -->
+<!-- ============================================================
+     EVENT-SPECIFIC: Replace this entire block each session.
+     Fields to update:
+       - img src and alt text (guest photo filename)
+       - section-eyebrow: "[Date] · [Session label]"
+       - guest-name: guest's full name (can use <br> for line break)
+       - guest-tagline: guest's one-line positioning statement
+       - guest-bio: 1–2 paragraphs, written in third person
+       - guest-credits: "Featured in:" media outlets (delete if none)
+     ============================================================ -->
 <section class="guest">
     <div class="section-inner">
         <div class="guest-layout">
@@ -754,10 +771,11 @@
             Registration is by approval. We'll review your submission and email you within two business days to confirm your spot. The Zoom link goes only to approved registrants.
         </p>
         <div class="reveal">
-            <!-- EVENT-SPECIFIC: update deadline per month -->
+            <!-- EVENT-SPECIFIC: update deadline text each session -->
             <div class="apply-deadline">Applications close Mon, May 25</div>
         </div>
         <div class="apply-cta-wrap reveal">
+            <!-- EVENT-SPECIFIC: update Google Form URL if a new form is created per session -->
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScI2PfgwLSh52cgF7AcwLA6bF2A7XBIscAtOiFnBPumn1gfXg/viewform" class="btn-primary" target="_blank" rel="noopener">Apply for a seat</a>
             <span class="apply-note">Opens in a new tab · Takes about two minutes · Questions? <a href="mailto:matt@mattstone.co">Email Matt</a></span>
         </div>
