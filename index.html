@@ -1,521 +1,1382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DiNNr — An Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bigger Stage — For founders whose reputation is stronger than their messaging</title>
+    <meta name="description" content="The Bigger Stage helps founder-led service businesses surface the story, standards, and point of view that make them different — then turn them into video and messaging assets that travel without you. The shift from operator to icon, captured on camera.">
 
-  :root {
-    --ink: #1a1815;
-    --parchment: #f5f0e8;
-    --gold: #b89a5c;
-    --gold-light: #d4b87a;
-    --gold-dark: #8a7040;
-    --seal-red: #8b2020;
-    --cream: #faf7f2;
-    --muted: #7a7060;
-  }
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Bigger Stage — For founders whose reputation is stronger than their messaging">
+    <meta property="og:description" content="The shift from operator to icon, for founders tired of being better than they sound. Founder-led service businesses, $1M to $5M.">
+    <meta property="og:image" content="https://thebiggerstage.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://thebiggerstage.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Bigger Stage">
 
-  body {
-    background: var(--ink);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-  }
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Bigger Stage — For founders whose reputation is stronger than their messaging">
+    <meta name="twitter:description" content="The shift from operator to icon, for founders tired of being better than they sound. Founder-led service businesses, $1M to $5M.">
+    <meta name="twitter:image" content="https://thebiggerstage.com/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&amp;family=Archivo:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-charcoal: #1a1a1a;
+            --color-orange: #ff5722;
+            --color-orange-bright: #ff6b3d;
+            --color-white: #ffffff;
+            --color-gray: #8a8a8a;
+            --color-light-gray: #e8e8e8;
+            --color-stone: #f5f5f0;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Archivo', sans-serif;
+        }
 
-  /* ── ENVELOPE WRAPPER ── */
-  .scene {
-    perspective: 1200px;
-    width: 100%;
-    max-width: 680px;
-    padding: 2rem 1rem;
-  }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .envelope-wrap {
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* ── ENVELOPE BODY ── */
-  .envelope {
-    background: var(--parchment);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    box-shadow:
-      0 2px 0 var(--gold-dark),
-      0 20px 60px rgba(0,0,0,0.7),
-      0 4px 20px rgba(0,0,0,0.4);
-  }
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, transparent 100%);
+        }
 
-  /* diagonal fold lines (decorative) */
-  .envelope::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(135deg, transparent calc(50% - 1px), rgba(180,160,120,0.25) calc(50% - 0.5px), rgba(180,160,120,0.25) calc(50% + 0.5px), transparent calc(50% + 1px)),
-      linear-gradient(225deg, transparent calc(50% - 1px), rgba(180,160,120,0.25) calc(50% - 0.5px), rgba(180,160,120,0.25) calc(50% + 0.5px), transparent calc(50% + 1px));
-    pointer-events: none;
-    z-index: 1;
-  }
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-white);
+            text-decoration: none;
+        }
 
-  /* ── WAX SEAL ── */
-  .seal-zone {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
-  .seal {
-    width: 100px;
-    height: 100px;
-    background: var(--seal-red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 0 0 3px #6e1818,
-      0 0 0 5px rgba(139,32,32,0.3),
-      0 4px 16px rgba(0,0,0,0.4);
-    position: relative;
-    cursor: default;
-  }
+        .nav-links a {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+            text-decoration: none; transition: color 0.2s;
+        }
 
-  .seal::after {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,200,150,0.25);
-  }
+        .nav-links a:hover { color: var(--color-white); }
 
-  .seal-monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: rgba(255,230,200,0.9);
-    letter-spacing: 0.05em;
-    position: relative;
-    z-index: 1;
-    line-height: 1;
-  }
+        .nav-links a.nav-cta {
+            color: var(--color-white);
+            background: var(--color-orange);
+            padding: 0.55rem 1.1rem;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+        }
 
-  .envelope-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    text-transform: uppercase;
-    text-align: center;
-  }
+        .nav-links a.nav-cta:hover {
+            background: var(--color-orange-bright);
+            color: var(--color-white);
+            transform: translateY(-1px);
+        }
 
-  /* ── GATE (password area) ── */
-  .gate {
-    padding: 3.5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    min-height: 360px;
-    justify-content: center;
-    position: relative;
-    z-index: 5;
-  }
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 8rem 3rem 6rem;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255,87,34,0.07) 0%, transparent 60%);
+        }
 
-  .gate-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
+        .hero-inner {
+            max-width: 1200px; margin: 0 auto; width: 100%;
+            display: grid; grid-template-columns: 1fr 400px; gap: 5rem; align-items: center;
+        }
 
-  .gate-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-    text-align: center;
-    letter-spacing: 0.05em;
-  }
+        .hero-eyebrow {
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            color: var(--color-orange); letter-spacing: 0.2em; text-transform: uppercase;
+            margin-bottom: 1.5rem; display: block;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
 
-  .gate-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-    margin: 0 auto 2.5rem;
-  }
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 900; line-height: 0.95; letter-spacing: 0.01em;
+            text-transform: uppercase; margin-bottom: 1.2rem;
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+        }
 
-  .gate-prompt {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+        .hero h1 .highlight { color: var(--color-orange); display: block; }
 
-  .password-field {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    max-width: 340px;
-  }
+        .hero-bridge {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 700;
+            color: var(--color-white); letter-spacing: 0.05em; margin-bottom: 1.5rem;
+            opacity: 0.85;
+            animation: fadeUp 0.8s ease-out 0.3s backwards;
+        }
 
-  .password-field input {
-    flex: 1;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid rgba(180,154,92,0.4);
-    border-right: none;
-    border-radius: 2px 0 0 2px;
-    padding: 0.75rem 1rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    letter-spacing: 0.15em;
-    color: var(--ink);
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-    text-align: center;
-  }
+        .hero-sub {
+            font-size: 1.1rem; line-height: 1.75; color: var(--color-gray);
+            max-width: 560px; margin-bottom: 2.5rem;
+            animation: fadeUp 0.8s ease-out 0.4s backwards;
+        }
 
-  .password-field input:focus {
-    border-color: var(--gold);
-    background: rgba(255,255,255,0.85);
-  }
+        .hero-cta-group {
+            display: flex; flex-direction: column; gap: 0.75rem;
+            animation: fadeUp 0.8s ease-out 0.5s backwards;
+        }
 
-  .password-field input::placeholder {
-    letter-spacing: 0.1em;
-    color: rgba(120,110,90,0.45);
-    font-style: italic;
-  }
+        .btn-primary {
+            display: inline-block; background: var(--color-orange);
+            color: var(--color-white); text-decoration: none;
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 1.1rem 2.2rem; transition: background 0.2s, transform 0.2s;
+            align-self: flex-start;
+        }
 
-  .password-field button {
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 0 2px 2px 0;
-    padding: 0 1.25rem;
-    cursor: pointer;
-    color: var(--ink);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
+        .btn-primary:hover { background: var(--color-orange-bright); transform: translateY(-2px); }
 
-  .password-field button:hover {
-    background: var(--gold-light);
-  }
+        .cta-note {
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+        }
 
-  .gate-error {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--seal-red);
-    letter-spacing: 0.05em;
-    margin-top: 0.75rem;
-    opacity: 0;
-    transition: opacity 0.25s;
-    text-align: center;
-    min-height: 18px;
-  }
+        .hero-arc {
+            display: flex; align-items: center; gap: 0.5rem; margin-top: 3rem;
+            animation: fadeUp 0.8s ease-out 0.6s backwards;
+        }
 
-  .gate-error.visible { opacity: 1; }
+        .arc-step {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+            padding: 0.4rem 0.9rem; border: 1px solid rgba(255,255,255,0.15);
+        }
 
-  /* ── LETTER (revealed content) ── */
-  .letter {
-    display: none;
-    padding: 3.5rem 3.5rem;
-    background: var(--cream);
-    position: relative;
-    z-index: 5;
-  }
+        .arc-step.active {
+            color: var(--color-orange); border-color: var(--color-orange);
+            background: rgba(255,87,34,0.08);
+        }
 
-  .letter.open { display: block; }
+        .arc-arrow { color: var(--color-orange); font-size: 1rem; }
 
-  .letter-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(180,154,92,0.2);
-  }
+        .hero-visual {
+            animation: fadeIn 1s ease-out 0.4s backwards;
+        }
 
-  .letter-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
-    font-weight: 300;
-    color: var(--ink);
-    line-height: 1;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
-  }
+        .hero-show-card {
+            border: 2px solid var(--color-orange); padding: 0;
+            position: relative; overflow: hidden;
+        }
 
-  .letter-host-line {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-style: italic;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-  }
+        .hero-show-card img { width: 100%; display: block; }
 
-  .letter-host-line strong {
-    font-style: normal;
-    font-weight: 400;
-    color: var(--gold-dark);
-  }
+        .hero-show-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(10,10,10,0.85);
+            padding: 1rem 1.2rem;
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
 
-  .gold-rule {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 1.5rem auto;
-  }
+        /* POSITIONING LINE */
+        .positioning-bar {
+            background: var(--color-orange); padding: 1.2rem 3rem;
+            text-align: center;
+        }
 
-  .concept-block {
-    margin-bottom: 2.5rem;
-  }
+        .positioning-bar p {
+            font-family: var(--font-display); font-size: clamp(0.85rem, 1.5vw, 1rem);
+            font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--color-white);
+        }
 
-  .concept-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.75;
-    color: #2a2620;
-    margin-bottom: 1em;
-  }
+        /* SECTIONS */
+        section { padding: 7rem 3rem; }
 
-  .concept-text.lead {
-    font-size: 22px;
-    font-style: italic;
-  }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
 
-  .detail-row {
-    display: flex;
-    gap: 2rem;
-    margin: 2rem 0;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(180,154,92,0.15);
-    border-bottom: 1px solid rgba(180,154,92,0.15);
-  }
+        .section-eyebrow {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-orange);
+            margin-bottom: 1.5rem; display: block;
+        }
 
-  .detail-item {
-    flex: 1;
-    text-align: center;
-  }
+        .section-headline {
+            font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 900; text-transform: uppercase; line-height: 1;
+            margin-bottom: 2rem; letter-spacing: -0.01em;
+        }
 
-  .detail-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.4rem;
-  }
+        .section-body {
+            font-size: 1.1rem; line-height: 1.8; color: var(--color-gray);
+            max-width: 680px;
+        }
 
-  .detail-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--ink);
-    font-weight: 400;
-    letter-spacing: 0.03em;
-  }
+        /* WHO THIS IS FOR */
+        .who-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+        }
 
-  /* Story prompt */
-  .prompt-block {
-    margin-top: 2.5rem;
-    padding: 2rem;
-    background: rgba(180,154,92,0.06);
-    border: 1px solid rgba(180,154,92,0.2);
-    border-left: 3px solid var(--gold);
-    border-radius: 2px;
-  }
+        .recognition-grid {
+            display: grid; gap: 1.5rem; margin-top: 1rem;
+        }
 
-  .prompt-eyebrow {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold-dark);
-    margin-bottom: 0.75rem;
-  }
+        .recognition-item {
+            padding: 1.5rem; border-left: 3px solid var(--color-orange);
+            background: rgba(255,87,34,0.04);
+            font-size: 1rem; line-height: 1.7; color: var(--color-light-gray);
+            transition: background 0.2s;
+        }
 
-  .prompt-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-style: italic;
-    color: var(--ink);
-    line-height: 1.5;
-    font-weight: 300;
-  }
+        .recognition-item:hover { background: rgba(255,87,34,0.08); }
 
-  .prompt-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--muted);
-    margin-top: 0.5rem;
-  }
+        .who-photo {
+            width: 100%; margin-top: 2rem;
+            border-left: 3px solid var(--color-orange);
+            overflow: hidden; display: block;
+        }
 
-  /* footer */
-  .letter-footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(180,154,92,0.2);
-    text-align: center;
-  }
+        .who-photo img { width: 100%; display: block; filter: brightness(0.85); }
 
-  .letter-footer p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    font-style: italic;
-  }
+        .pull-quote {
+            font-size: 1.4rem; font-style: italic; color: var(--color-white);
+            line-height: 1.5; margin: 2.5rem 0;
+            padding-left: 2rem; border-left: 3px solid var(--color-orange);
+            max-width: 620px;
+        }
 
-  /* animation */
-  @keyframes unseal {
-    0%   { transform: translateY(30px) scale(0.96); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-  }
+        .testimonial-callout {
+            margin-top: 2rem; padding: 1.75rem;
+            background: rgba(255,87,34,0.04);
+            border-left: 3px solid var(--color-orange);
+        }
 
-  .letter.open {
-    animation: unseal 0.8s cubic-bezier(0.4,0,0.2,1) both;
-  }
+        .testimonial-callout blockquote {
+            font-size: 1rem; line-height: 1.7; color: var(--color-light-gray);
+            font-style: italic; margin: 0 0 1rem;
+        }
 
-  @media (max-width: 520px) {
-    .gate, .letter { padding: 2.5rem 1.5rem; }
-    .gate-title, .letter-title { font-size: 42px; }
-    .detail-row { flex-direction: column; gap: 1rem; }
-  }
-</style>
+        .testimonial-callout .attribution {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-orange);
+        }
+
+        .persona-band {
+            margin-top: 1.5rem; padding: 1.5rem 1.75rem;
+            background: var(--color-black);
+            border-left: 3px solid var(--color-orange);
+            max-width: 820px;
+        }
+
+        .persona-band-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.6rem; display: block;
+        }
+
+        .persona-band p {
+            font-size: 0.95rem; line-height: 1.65; color: var(--color-light-gray);
+            font-style: italic; margin: 0 0 0.6rem;
+        }
+
+        .persona-band .attribution {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-gray);
+        }
+
+        .testimonial-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 1.25rem; display: block;
+        }
+
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step { position: relative; }
+
+        .step-num {
+            font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+            color: rgba(255,87,34,0.15); line-height: 1; margin-bottom: 0.5rem;
+        }
+
+        .step-label {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.75rem;
+        }
+
+        .step h4 {
+            font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 1rem; color: var(--color-white);
+        }
+
+        .step p {
+            font-size: 0.95rem; line-height: 1.75; color: var(--color-gray);
+        }
+
+        /* AT SCALE */
+        .scale-cards {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scale-card {
+            padding: 2rem; border: 1px solid rgba(255,87,34,0.2);
+            background: rgba(255,87,34,0.03);
+        }
+
+        .scale-card-label {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.75rem; display: block;
+        }
+
+        .scale-card h4 {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 0.75rem;
+        }
+
+        .scale-card p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* OFFERS */
+        .offers-section { background: var(--color-charcoal); }
+
+        .offers-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .offer-usecase {
+            margin-top: 0.5rem; margin-bottom: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255,87,34,0.2);
+        }
+
+        .offer-usecase-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.6rem; display: block;
+        }
+
+        .offer-usecase p {
+            font-size: 0.85rem; line-height: 1.65; color: var(--color-light-gray);
+            margin: 0; padding: 0; flex: none;
+        }
+
+        .price-band {
+            margin-top: 2rem; padding: 1.25rem 1.5rem;
+            border: 1px solid rgba(255,87,34,0.25);
+            background: rgba(255,87,34,0.04);
+            font-size: 0.95rem; line-height: 1.6; color: var(--color-light-gray);
+            max-width: 820px;
+        }
+
+        .price-band strong {
+            color: var(--color-orange); font-weight: 600;
+        }
+
+        .offer-card {
+            background: var(--color-black); padding: 2.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex; flex-direction: column;
+            transition: border-color 0.2s;
+        }
+
+        .offer-card:hover { border-color: rgba(255,87,34,0.4); }
+
+        .offer-card.featured {
+            border-color: var(--color-orange);
+            background: rgba(255,87,34,0.05);
+        }
+
+        .offer-badge {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-orange); background: rgba(255,87,34,0.15);
+            display: inline-block; padding: 0.3rem 0.75rem;
+            margin-bottom: 1.5rem; align-self: flex-start;
+        }
+
+        .offer-card h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 900;
+            text-transform: uppercase; margin-bottom: 0.5rem;
+        }
+
+        .offer-investment {
+            font-size: 0.9rem; color: var(--color-orange); font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .offer-card p {
+            font-size: 0.95rem; line-height: 1.75; color: var(--color-gray);
+            margin-bottom: 1.5rem; flex: 1;
+        }
+
+        .offer-deliverables {
+            list-style: none; margin-bottom: 2rem;
+        }
+
+        .offer-deliverables li {
+            font-size: 0.85rem; color: var(--color-gray); padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding-left: 1rem; position: relative;
+        }
+
+        .offer-deliverables li::before {
+            content: '→'; position: absolute; left: 0;
+            color: var(--color-orange); font-size: 0.8rem;
+        }
+
+        .offer-cta {
+            display: inline-block; text-decoration: none;
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            padding: 0.9rem 1.5rem; transition: all 0.2s;
+            border: 1px solid var(--color-orange);
+            color: var(--color-orange); background: transparent;
+            text-align: center;
+        }
+
+        .offer-cta:hover {
+            background: var(--color-orange); color: var(--color-white);
+        }
+
+        .offer-card.featured .offer-cta {
+            background: var(--color-orange); color: var(--color-white);
+        }
+
+        .offer-card.featured .offer-cta:hover {
+            background: var(--color-orange-bright);
+        }
+
+        .intensive-card {
+            margin-top: 2rem; padding: 2.5rem;
+            border: 1px solid rgba(255,87,34,0.3);
+            background: rgba(255,87,34,0.04);
+            display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+        }
+
+        .intensive-badge {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            background: var(--color-orange); color: var(--color-white);
+            display: inline-block; padding: 0.3rem 0.75rem; margin-bottom: 1rem;
+        }
+
+        .intensive-card h3 {
+            font-family: var(--font-display); font-size: 1.3rem; font-weight: 900;
+            text-transform: uppercase; margin-bottom: 0.75rem;
+        }
+
+        .intensive-card p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            padding: 2.5rem; background: var(--color-charcoal);
+            border-top: 3px solid var(--color-orange);
+        }
+
+        .testimonial blockquote {
+            font-size: 1rem; line-height: 1.8; color: var(--color-light-gray);
+            font-style: italic; margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--color-white);
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem; color: var(--color-gray); margin-top: 0.25rem;
+        }
+
+        /* PODCAST */
+        .podcast-section { background: var(--color-charcoal); }
+
+        .episodes-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .episode-card {
+            background: var(--color-black); border: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none; color: var(--color-white);
+            display: block; transition: border-color 0.2s;
+        }
+
+        .episode-card:hover { border-color: var(--color-orange); }
+
+        .episode-thumb {
+            width: 100%; aspect-ratio: 16/9; background: #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+
+        .episode-thumb-inner {
+            width: 100%; height: 100%; display: flex; align-items: center;
+            justify-content: center; background: var(--color-charcoal);
+        }
+
+        .play-icon {
+            width: 48px; height: 48px; background: var(--color-orange);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .play-icon svg { width: 20px; height: 20px; margin-left: 3px; }
+
+        .episode-info { padding: 1.25rem; }
+
+        .episode-title {
+            font-size: 0.9rem; font-weight: 600; line-height: 1.5;
+            color: var(--color-white); margin-bottom: 0.5rem;
+        }
+
+        .episode-guest {
+            font-size: 0.8rem; color: var(--color-gray);
+        }
+
+        .podcast-platforms {
+            margin-top: 2.5rem; display: flex; align-items: center; gap: 1.5rem;
+        }
+
+        .podcast-platforms span {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .platform-link {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-orange);
+            text-decoration: none; border: 1px solid rgba(255,87,34,0.4);
+            padding: 0.4rem 1rem; transition: all 0.2s;
+        }
+
+        .platform-link:hover { background: var(--color-orange); color: var(--color-white); }
+
+        /* ABOUT */
+        .about-layout {
+            display: grid; grid-template-columns: 380px 1fr; gap: 6rem; align-items: start;
+        }
+
+        .about-photo {
+            width: 100%; aspect-ratio: 3/4; background: var(--color-charcoal);
+            border: 3px solid var(--color-orange); overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .about-photo-placeholder {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display); font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+            font-weight: 900; text-transform: uppercase; margin-bottom: 2rem; line-height: 1.1;
+        }
+
+        .about-text p {
+            font-size: 1rem; line-height: 1.85; color: var(--color-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .about-signoff {
+            font-size: 1.1rem; color: var(--color-white) !important;
+            font-style: italic; border-left: 3px solid var(--color-orange);
+            padding-left: 1.5rem; margin-top: 2rem !important;
+        }
+
+        .about-facts {
+            margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .fact {
+            padding: 1rem; background: var(--color-charcoal);
+        }
+
+        .fact-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--color-orange); margin-bottom: 0.4rem; display: block;
+        }
+
+        .fact-value { font-size: 0.85rem; color: var(--color-light-gray); line-height: 1.5; }
+
+        /* STAY IN TOUCH */
+        .stay-in-touch {
+            background: var(--color-charcoal);
+            padding: 7rem 3rem;
+        }
+
+        .stay-in-touch .section-inner {
+            max-width: 700px; margin: 0 auto; text-align: center;
+        }
+
+        .sit-form {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .sit-form .field-full { grid-column: 1 / -1; }
+
+        .sit-field {
+            display: flex; flex-direction: column; gap: 0.4rem; text-align: left;
+        }
+
+        .sit-label {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .sit-label .optional {
+            color: rgba(138,138,138,0.55); font-weight: 400; text-transform: none;
+            letter-spacing: 0; font-style: italic; font-size: 0.7em;
+            margin-left: 0.4rem;
+        }
+
+        .sit-input {
+            background: var(--color-black);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--color-white);
+            font-family: var(--font-body); font-size: 0.95rem;
+            padding: 0.85rem 1rem;
+            width: 100%;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+
+        .sit-input::placeholder { color: rgba(138,138,138,0.45); }
+
+        .sit-input:focus { border-color: var(--color-orange); }
+
+        .sit-submit {
+            grid-column: 1 / -1;
+            margin-top: 0.5rem;
+            background: var(--color-orange);
+            color: var(--color-white);
+            border: none; cursor: pointer;
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 1.1rem 2.2rem;
+            transition: background 0.2s, transform 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+        }
+
+        .sit-submit:hover:not(:disabled) {
+            background: var(--color-orange-bright); transform: translateY(-1px);
+        }
+
+        .sit-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .sit-status {
+            grid-column: 1 / -1;
+            margin-top: 0.75rem;
+            font-size: 0.9rem; line-height: 1.5;
+            min-height: 1.4em;
+        }
+
+        .sit-status.success { color: #4caf50; }
+        .sit-status.error { color: #ef5350; }
+
+        .sit-note {
+            grid-column: 1 / -1;
+            font-size: 0.8rem; color: var(--color-gray);
+            font-style: italic; margin-top: 0.5rem;
+        }
+
+        /* CLOSING CTA */
+        .closing-cta {
+            background: radial-gradient(ellipse at center, rgba(255,87,34,0.12) 0%, transparent 70%);
+            text-align: center; padding: 8rem 3rem;
+        }
+
+        .closing-cta .section-eyebrow { justify-content: center; }
+
+        .closing-cta h2 {
+            font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900; text-transform: uppercase; line-height: 1;
+            margin-bottom: 1.5rem; letter-spacing: -0.02em;
+        }
+
+        .closing-cta p {
+            font-size: 1.1rem; line-height: 1.75; color: var(--color-gray);
+            max-width: 560px; margin: 0 auto 2.5rem;
+        }
+
+        .secondary-cta {
+            display: block; margin-top: 1.25rem;
+            font-size: 0.9rem; color: var(--color-gray);
+        }
+
+        .secondary-cta a { color: var(--color-orange); text-decoration: none; }
+        .secondary-cta a:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-charcoal); padding: 2.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem; color: var(--color-gray);
+            font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-gray); text-decoration: none; transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--color-orange); }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        /* HAMBURGER */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            background: none; border: none; padding: 4px;
+        }
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--color-white); transition: all 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .mobile-menu {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--color-black); z-index: 999;
+            flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-white); text-decoration: none; transition: color 0.2s;
+        }
+        .mobile-menu a:hover { color: var(--color-orange); }
+        .mobile-menu-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; color: var(--color-gray);
+            font-size: 2rem; cursor: pointer; line-height: 1;
+        }
+
+        @media (max-width: 1100px) {
+            .offers-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; z-index: 1001; position: relative; }
+            .hero { padding: 6rem 1.5rem 4rem; }
+            .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-visual { display: block; text-align: center; }
+            .hero-show-card { max-width: 280px; margin: 0 auto; }
+            section { padding: 5rem 1.5rem; }
+            .who-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .offers-grid { grid-template-columns: 1fr; }
+            .scale-cards { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .episodes-grid { grid-template-columns: 1fr; }
+            .about-layout { grid-template-columns: 1fr; }
+            .about-photo { max-width: 320px; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .intensive-card { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="scene">
-  <div class="envelope-wrap">
-    <div class="envelope" id="envelope">
-
-      <!-- LOCKED STATE -->
-      <div class="gate" id="gate">
-        <div class="gate-title">DiNNr</div>
-        <div class="gate-subtitle">An Invitation for Six</div>
-        <div class="gate-divider"></div>
-
-        <div class="seal-zone" style="position:relative; top:auto; left:auto; transform:none; margin-bottom: 2rem;">
-          <div class="seal">
-            <span class="seal-monogram">D</span>
-          </div>
-        </div>
-
-        <div class="gate-prompt">Enter your invitation code</div>
-        <div class="password-field">
-          <input type="password" id="pw" placeholder="· · · · · · ·" autocomplete="off" />
-          <button onclick="unlock()">Open</button>
-        </div>
-        <div class="gate-error" id="err">That isn't the right code.</div>
-      </div>
-
-      <!-- REVEALED LETTER -->
-      <div class="letter" id="letter">
-
-        <div class="letter-header">
-          <div class="letter-title">DiNNr</div>
-          <div class="gold-rule"></div>
-          <div class="letter-host-line">Hosted by <strong>Matt Stone</strong> &amp; <strong>Meridith Grundei</strong></div>
-        </div>
-
-        <div class="concept-block">
-          <p class="concept-text lead">We started with a simple belief: the most valuable thing a room full of creative and generous people can do together is share stories.</p>
-          <p class="concept-text">About the moments that changed them. The things they're reaching for. What keeps them alive in their work and their lives.</p>
-          <p class="concept-text">So we're curating an experience for exactly that.</p>
-        </div>
-
-        <div class="detail-row">
-          <div class="detail-item">
-            <div class="detail-label">When</div>
-            <div class="detail-value">Thursday, June 25th — 6pm</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Where</div>
-            <div class="detail-value" style="font-size:15px; font-style:italic;">Manhattan — details upon RSVP</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Seats</div>
-            <div class="detail-value">Six — including hosts</div>
-          </div>
-        </div>
-
-        <div class="concept-block">
-          <p class="concept-text">The evening you're being invited into has a shape to it. You'll know your part before you arrive. And you won't leave empty-handed.</p>
-          <p class="concept-text">The whole experience is captured, and each guest receives something from it afterward — a small, tangible keepsake of what happened in that room.</p>
-          <p class="concept-text">Each person is chosen with care.</p>
-        </div>
-
-        <div class="detail-row" style="flex-wrap: wrap;">
-          <div class="detail-item">
-            <div class="detail-label">Cost</div>
-            <div class="detail-value" style="font-size:15px;">~$100 per person</div>
-            <div class="detail-value" style="font-size:13px; font-style:italic; color: var(--muted); margin-top:0.3rem;">Fixed pricing with options provided in advance</div>
-          </div>
-        </div>
-
-        <!-- Story prompt -->
-        <div class="prompt-block">
-          <div class="prompt-eyebrow">Your story prompt for the evening</div>
-          <div class="prompt-text">"Your most beautiful mistake —</div>
-          <div class="prompt-text">the best / worst / most stupid risk you ever took that changed everything."</div>
-          <div class="prompt-sub">Come ready.</div>
-        </div>
-
-        <div class="letter-footer">
-          <p>Intimate. Curated. Captured. — DiNNr</p>
-        </div>
-
-      </div>
-    </div>
-  </div>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+    <a href="#the-work" class="mobile-nav-link">The Work</a>
+    <a href="#offers" class="mobile-nav-link">Offers</a>
+    <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="https://thebiggerstage.com/assessment" class="mobile-nav-link">Assessment</a>
+    <a href="/live-events" class="mobile-nav-link">Live Events</a>
 </div>
 
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-logo">The Bigger Stage</a>
+    <ul class="nav-links">
+        <li><a href="#the-work">The Work</a></li>
+        <li><a href="#offers">Offers</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+        <li><a href="https://thebiggerstage.com/assessment">Assessment</a></li>
+        <li><a href="/live-events" class="nav-cta">Live Events</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="hero-eyebrow">For founders who are tired of being better than they sound</span>
+            <h1>
+                Your reputation
+                <span class="highlight">is stronger than your messaging.</span>
+            </h1>
+            <p class="hero-bridge">This is the shift from operator to icon.</p>
+            <p class="hero-sub">You've built real trust through your work, your standards, and the people you've earned. But too much of that trust still depends on you being in the room. The Bigger Stage helps founder-led service businesses surface the story, standards, and point of view that make them different, then capture them on camera and turn them into assets your market can see, feel, and share.</p>
+            <div class="hero-cta-group">
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary">Book a Clarity Call</a>
+                <span class="cta-note">Free, 30 minutes. We'll find one place where your reputation is stronger than your messaging. Or take the <a href="https://thebiggerstage.com/assessment" style="color: var(--color-orange); text-decoration: none; border-bottom: 1px solid rgba(255,87,34,0.4);">Operator-to-Icon Assessment</a>, or skip ahead to the <a href="#rapid-revelation" style="color: var(--color-orange); text-decoration: none; border-bottom: 1px solid rgba(255,87,34,0.4);">Rapid Revelation Session</a>.</span>
+            </div>
+            <div class="hero-arc">
+                <span class="arc-step">Operator</span>
+                <span class="arc-arrow">→</span>
+                <span class="arc-step">Authority</span>
+                <span class="arc-arrow">→</span>
+                <span class="arc-step active">Icon</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-show-card">
+                <img src="IMG_5013.jpeg" alt="Matt Stone">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- POSITIONING BAR -->
+<div class="positioning-bar">
+    <p>This work is for founders. Not CEOs. The distinction matters, because the work is personal.</p>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<section id="the-work">
+    <div class="section-inner">
+        <div class="who-layout">
+            <div class="reveal">
+                <span class="section-eyebrow">The reputation gap</span>
+                <h2 class="section-headline">You're already trusted. The market just can't see it yet.</h2>
+                <p class="section-body">You've built a real business. Real clients, real standards, real proof. People who know you understand exactly why your work matters. The problem is how much of that understanding still depends on you being in the room: explaining the business, telling the story, walking a prospect through what makes you different.</p>
+                <br>
+                <p class="section-body">That's the reputation gap. Your reputation has outgrown your messaging, and the cost is showing up in slower sales, more explaining, harder pricing conversations, and louder competitors getting attention you've already earned.</p>
+            </div>
+            <div class="recognition-grid reveal">
+                <div class="recognition-item">People understand your value after talking to you, not before.</div>
+                <div class="recognition-item">Your website sounds more generic than your actual work.</div>
+                <div class="recognition-item">You rely heavily on referrals because they explain you better than your marketing does.</div>
+                <div class="recognition-item">You're tired of being compared to cheaper or louder competitors who can't do what you do.</div>
+                <div class="recognition-item">You have a strong point of view, but it comes out clearly in conversation, not in your content.</div>
+                <div class="recognition-item">You're stepping into bigger rooms, but your message still feels like it belongs to an earlier version of the business.</div>
+                <div class="recognition-item">You know there's a deeper story behind what you've built. You're just too close to it to say it clearly.</div>
+                <div class="testimonial-callout">
+                    <blockquote>"You picked things I maybe wouldn't have picked myself. The background you bring asks good questions that pull out things I wasn't necessarily thinking about."</blockquote>
+                    <span class="attribution">Rhonda Noordyk · Founder &amp; Financial Advocate</span>
+                </div>
+                <div class="who-photo reveal">
+                    <img src="DB_A5566.jpg" alt="Matt Stone in conversation with founders">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- THE METHOD -->
+<div style="background: var(--color-orange); padding: 3rem 3rem; text-align: center;">
+    <div style="max-width: 820px; margin: 0 auto;">
+        <p style="font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; color: var(--color-white); margin: 0 0 1.25rem; text-transform: uppercase; opacity: 0.85;">This is not influencer training.</p>
+        <p style="font-family: var(--font-body); font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 500; line-height: 1.5; color: var(--color-white); margin: 0 0 1.5rem;">You don't need to become louder, trendier, or more performative. You need the market to understand what your best clients already know: why your work matters, why your standards are different, and why you are the one to trust.</p>
+        <p style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 700; letter-spacing: 0.05em; color: var(--color-white); margin: 0; text-transform: uppercase;">He doesn't help people become louder versions of themselves. He helps them become clearer ones.</p>
+    </div>
+</div>
+
+<section class="method-section" id="method">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">The method</span>
+        <h2 class="section-headline reveal">The Revelation</h2>
+        <p class="section-body reveal">Every founder who makes the operator-to-icon shift goes through the same internal transition first. The meaning behind the business, what it truly stands for, why it matters beyond the service, has to become accessible before it can become communicable. Most operators don’t know exactly what’s blocking them until someone asks the right questions.</p>
+        <br>
+        <p class="section-body reveal">The Revelation is a recorded conversation process designed to draw out what you haven’t been able to say. Not to install a message. To surface the true one. And put it on camera, where it becomes real.</p>
+
+        <blockquote class="pull-quote reveal">"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. He asks the questions I should be thinking about, I respond, and that is the fastest, most efficient way I know of doing something new." <span style="display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-orange); margin-top: 1rem; font-style: normal;">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span></blockquote>
+
+        <div class="steps-grid">
+            <div class="step reveal">
+                <div class="step-num">01</div>
+                <div class="step-label">Reveal</div>
+                <h4>Surface what’s already there</h4>
+                <p>Through a recorded conversation, unscripted and on camera, we excavate the real meaning underneath your business: what it stands for, why it matters, and how you need to talk about it. Most operators don’t know exactly what’s blocking them until someone asks the right questions. The camera becomes your first stage.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">02</div>
+                <div class="step-label">Realign</div>
+                <h4>Shift from operational to iconic</h4>
+                <p>With the message surfaced, we reorient your perspective from the inside out. You’ve been thinking like an operator, in numbers, process, and deliverables. We build a messaging framework that shifts you toward iconic leadership, clarifying your authority, defining your vision, and giving you language your investors, team, and market actually understand.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">03</div>
+                <div class="step-label">Repurpose</div>
+                <h4>Send it into the world</h4>
+                <p>The recordings, the language, and the story become assets, ready to deploy across your brand, your team communications, your investor narrative, and your public presence. Your voice traveling into rooms you are not in, with the clarity and conviction of someone who knows exactly what they stand for.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- YOUR STORY AT SCALE -->
+<section>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Your story at scale</span>
+        <h2 class="section-headline reveal">When the message is clear and on camera, it travels without you.</h2>
+        <p class="section-body reveal">Most founders are the bottleneck of their own brand. Every new partner, hire, or market requires them to show up in person and explain, again, what the business is, why it matters, and why they're the one to lead it.</p>
+        <br>
+        <p class="section-body reveal">The Revelation changes that. When your story is clear and captured on camera, it becomes an asset that works independently. A future franchise partner discovers your vision before you've met. A senior hire understands your leadership before the first interview. A customer feels the meaning behind the business before they pick up the phone.</p>
+        <br>
+        <p class="section-body reveal">This is what separates an icon from an operator. An operator's impact is limited by their presence. An icon's message scales beyond it.</p>
+
+        <blockquote class="pull-quote reveal">"If you have a smart way to repurpose and utilize everything that comes out in the interviews, whether it's marketing, communication, speaking with staff, supporting materials for client proposals, or even developing new products, it's worth its weight in gold." <span style="display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-orange); margin-top: 1rem; font-style: normal;">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span></blockquote>
+
+        <div class="scale-cards">
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For growth</span>
+                <h4>Attract the right people</h4>
+                <p>Partners, hires, and customers who already understand what you stand for arrive pre-aligned. Less convincing. More choosing.</p>
+            </div>
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For scale</span>
+                <h4>Build beyond the service</h4>
+                <p>Franchising, new locations, new markets. The brand travels with you because the meaning is clear, captured, and communicable without you in the room.</p>
+            </div>
+            <div class="scale-card reveal">
+                <span class="scale-card-label">For legacy</span>
+                <h4>Create a lasting voice</h4>
+                <p>The content assets built through The Revelation become the foundation of a platform: a body of work that outlasts any single transaction or season of growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OFFERS -->
+<section class="offers-section" id="offers">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Ways to work together</span>
+        <h2 class="section-headline reveal">Four ways in. One method underneath.</h2>
+        <p class="section-body reveal">Whether you're testing the work or ready to build a full library of trust assets, there's a right place to start. Every engagement begins with a free Clarity Call. Every offer runs on the same method (Reveal, Realign, Repurpose) and creates a natural path forward.</p>
+
+        <div class="price-band reveal">
+            <strong>Who this is built for:</strong> Founders running $1M to $5M service businesses where the founder is still the primary face of the company. Investment ranges from under $750 for the entry session to ongoing partnership engagements. Specifics are discussed on the discovery call.
+        </div>
+
+        <div class="persona-band reveal">
+            <span class="persona-band-label">Founders we work with sound like this</span>
+            <p>"We're doing great in our existing market. Multimillion dollars a year, stable, growing. But I want to expand out of our comfortable market, and that requires thinking about a whole bunch of new stuff. Honestly, with operations, I'm busy."</p>
+            <span class="attribution">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span>
+        </div>
+
+        <div class="offers-grid" style="margin-top: 3rem;">
+
+            <div class="offer-card featured reveal" id="rapid-revelation">
+                <span class="offer-badge">First paid session</span>
+                <h3>The Rapid Revelation Session</h3>
+                <div class="offer-investment">Single session · Under $750</div>
+                <p>Begin with a short self-assessment that surfaces where you are in the operator-to-icon shift. Then we meet for an hour, mostly conversation, with fifteen minutes captured on camera. A few days later we reconvene to watch the clips together, capture what emerged, and map the real opportunity. High value. Minimal disruption.</p>
+                <ul class="offer-deliverables">
+                    <li>Self-assessment: your Operator-to-Icon baseline</li>
+                    <li>One-hour conversation with Matt (15 minutes on camera)</li>
+                    <li>3 professionally edited clips from the recording</li>
+                    <li>Debrief call to review clips and identify next opportunities</li>
+                    <li>Clear picture of what's possible if you go deeper</li>
+                </ul>
+                <div class="offer-usecase">
+                    <span class="offer-usecase-label">Use it for</span>
+                    <p>Testing your founder story, sharpening your LinkedIn presence, hearing what your message sounds like when it finally lands, and deciding whether to go further.</p>
+                </div>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+
+            <div class="offer-card reveal">
+                <span class="offer-badge">Complete project</span>
+                <h3>The Revelation</h3>
+                <div class="offer-investment">Flat project investment</div>
+                <p>The full Reveal, Realign, Repurpose process, deep and unhurried. A long-form recorded conversation that excavates the real meaning underneath your business, followed by a messaging framework that shifts you from operational thinking to iconic leadership. Delivered with edited video, shareable clips, a full transcript, and a narrative analysis.</p>
+                <ul class="offer-deliverables">
+                    <li>Intention-setting consultation</li>
+                    <li>Long-form recorded conversation</li>
+                    <li>Edited video and shareable clips</li>
+                    <li>Full transcript</li>
+                    <li>Narrative analysis and debrief</li>
+                </ul>
+                <div class="offer-usecase">
+                    <span class="offer-usecase-label">Use it for</span>
+                    <p>Your homepage and About page, sales follow-up, investor and partner conversations, recruiting key hires, speaker outreach, and a foundation of founder-led content your team can build from.</p>
+                </div>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+
+            <div class="offer-card reveal">
+                <span class="offer-badge">Ongoing</span>
+                <h3>The Bigger Stage Partnership</h3>
+                <div class="offer-investment">Monthly retainer</div>
+                <p>For founders building toward icon steadily over time. Each session goes deeper as you grow into new rooms and audiences, refining your message, strengthening your presence, and building a growing library of content that scales your voice beyond you. This is where the full operator-to-icon arc unfolds.</p>
+                <ul class="offer-deliverables">
+                    <li>Ongoing intention-setting and recorded sessions</li>
+                    <li>Narrative refinement as your story evolves</li>
+                    <li>Growing library of content assets</li>
+                    <li>Strategic thinking partnership</li>
+                </ul>
+                <div class="offer-usecase">
+                    <span class="offer-usecase-label">Use it for</span>
+                    <p>A repeatable engine of trust assets across your evolving point of view, client stories, leadership message, and market position. The infrastructure underneath a founder-led brand at scale.</p>
+                </div>
+                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
+            </div>
+
+            <div class="offer-card reveal">
+                <span class="offer-badge">Live · On location</span>
+                <h3>The Untold Stories Session</h3>
+                <div class="offer-investment">On-location · Single session</div>
+                <p>Matt comes to your city. One masterful on-camera interview, conducted on location — your stories excavated, edited, and delivered as a full content system. Pre-shoot strategy consultation, a 45-minute on-camera interview, professional editing, 8–12 clips with copy, and a full messaging analysis.</p>
+                <ul class="offer-deliverables">
+                    <li>Pre-shoot strategy consultation</li>
+                    <li>45-minute on-camera interview</li>
+                    <li>Full-length edited story video</li>
+                    <li>8–12 clips and shorts with copy</li>
+                    <li>Iconic Messaging Analysis and 90-day rollout plan</li>
+                </ul>
+                <div class="offer-usecase">
+                    <span class="offer-usecase-label">Coming to</span>
+                    <p>New York City · Tulsa · Denver · Portland. Limited to 5 founders per city. Register your interest and you'll be first to know when spots open in your city.</p>
+                </div>
+                <a href="/untold-stories" class="offer-cta">Get more information →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">Founders, in their own words</span>
+        <h2 class="section-headline reveal">What the work actually does.</h2>
+        <p class="section-body reveal">Each of these founders came in with a different question. Each one walked out with a different kind of answer.</p>
+        <div class="testimonials-grid">
+            <div class="testimonial reveal">
+                <span class="testimonial-label">On the work itself</span>
+                <blockquote>"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. When he asks the questions I should be thinking about, I respond, and that is the fastest, most efficient way I know of doing something new and exciting. The biggest surprise was just how easy it is. Meetings typically suck the energy out of you. Talking to Matt, you actually get energy and feel better when it's done."</blockquote>
+                <div class="testimonial-author">Jason Durkee</div>
+                <div class="testimonial-role">Founder &amp; President, Idea Development K.K. · Tokyo skills training for Japanese multinationals</div>
+            </div>
+            <div class="testimonial reveal">
+                <span class="testimonial-label">On the experience of being interviewed</span>
+                <blockquote>"You had great questions. You made it really comfortable for us to just have a conversation. Not only was the one hour we spent together great, but the deliverables on the back end were polished and gave me and my team what we needed to showcase what it is that we're doing and where we're going. You picked things that I maybe wouldn't have picked myself, but I was happy with it. Part of the reason we were working together was because of the background you bring to ask good questions that pulled out things I wasn't necessarily thinking about."</blockquote>
+                <div class="testimonial-author">Rhonda Noordyk</div>
+                <div class="testimonial-role">Founder &amp; Financial Advocate</div>
+            </div>
+            <div class="testimonial reveal">
+                <span class="testimonial-label">On craft, from storytelling professionals</span>
+                <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. He skillfully held the room and seamlessly facilitated the conversation. In his podcast, he made it easy for us to tell a true, unpolished story. When it came time to translate that story into video, he carried it with the same attentive, unhurried, quietly excellent care. Presence first. Story second. Craft all the way through. We needed someone who can produce beautiful media and keep the human being at the center of the process, and Matt has overdelivered."</blockquote>
+                <div class="testimonial-author">Samir Selmanovic, Ph.D. &amp; Jordan Soliday</div>
+                <div class="testimonial-role">Leadership Coach &amp; Innovation Instructor · Epic Ordinary LLC</div>
+            </div>
+            <div class="testimonial reveal">
+                <span class="testimonial-label">On where the assets travel</span>
+                <blockquote>"In my case, working with Matt helps me make enough output, information, thought, wording, that we can repurpose and use in a ton of different ways. Marketing, communication, speaking with staff, supporting materials for client proposals, even developing new products. If you have a smart way to repurpose and utilize everything that comes out in interviews, it's worth its weight in gold."</blockquote>
+                <div class="testimonial-author">Jason Durkee</div>
+                <div class="testimonial-role">Founder &amp; President, Idea Development K.K. · Tokyo</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PODCAST -->
+<section class="podcast-section" id="podcast">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">The Bigger Stage podcast</span>
+        <h2 class="section-headline reveal">Conversations with people who know what it takes.</h2>
+        <p class="section-body reveal">These are not clients. They're leaders, founders, and thinkers whose work sharpens how I think about this one. Every episode is an honest conversation about the human moments behind growth: how trust gets built, how visibility changes responsibility, and how storytelling becomes a leadership skill as the stakes rise.</p>
+
+        <div class="episodes-grid">
+            <a href="https://youtu.be/kXs6tvhHFkk?si=2RbGpcGqWe3IFIR6" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/kXs6tvhHFkk/hqdefault.jpg" alt="He Built a Multi-Million Dollar Painting Empire — Then Walked Away" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">He Built a Multi-Million Dollar Painting Empire — Then Walked Away</div>
+                    <div class="episode-guest">Kevin Nolan</div>
+                </div>
+            </a>
+            <a href="https://youtu.be/rXekWjxFOiE?si=7pp5fNDQP4sYVA6B" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/rXekWjxFOiE/hqdefault.jpg" alt="The More You Prepare, The More You Can Let Go" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">The Sacrifice Paradox: What You Give Up Is What Gets You There</div>
+                    <div class="episode-guest">David Kalinowski</div>
+                </div>
+            </a>
+            <a href="https://youtu.be/p3V1qygGO6o?si=6RsbQgrNp2LdjsTW" target="_blank" class="episode-card reveal">
+                <div class="episode-thumb">
+                    <img src="https://img.youtube.com/vi/p3V1qygGO6o/hqdefault.jpg" alt="The Sacrifice Paradox: What You Give Up Is What Gets You There" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+                <div class="episode-info">
+                    <div class="episode-title">The More You Prepare, The More You Can Let Go</div>
+                    <div class="episode-guest">Meridith Grundei</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="podcast-platforms reveal">
+            <span>Find all episodes on</span>
+            <a href="https://www.youtube.com/@thebiggerstage" target="_blank" class="platform-link">YouTube</a>
+            <a href="https://podcasts.apple.com/us/podcast/the-bigger-stage-w-matt-stone/id1843248743" target="_blank" class="platform-link">Apple Podcasts</a>
+            <a href="https://open.spotify.com/show/23sV8PD1HY84g1tiZscqwc?si=25842a0f14374f8d" target="_blank" class="platform-link">Spotify</a>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-inner">
+        <div class="about-layout">
+            <div class="about-photo reveal">
+                <img src="IMG_5470.jpeg" alt="Matt Stone in New York City">
+            </div>
+            <div class="about-text reveal">
+                <span class="section-eyebrow">About Matt</span>
+                <h2>From the boardroom to the classroom to painting the outside of a room.</h2>
+                <p>Matt Stone has worked across more contexts than almost anyone you'll meet in this category: a law office, federal agencies, the highest levels of leadership at the Pentagon, multinational boardrooms, Hollywood studios, Silicon Valley startups, a painting franchise, university classrooms. The contexts changed. The work never did.</p>
+                <p>In every room, the same thing mattered most: the ability to listen deeply enough to draw out what someone couldn't quite say, then reflect it back in a way that changed the next decision. A case that settled. A pitch that landed. A team that finally understood why the work mattered. A founder who finally heard their own message.</p>
+                <p>The range matters because founders aren't one thing. You might be selling to a Fortune 500 procurement team in the morning and onboarding a new tradesperson in the afternoon. The work of finding language that travels across that range is exactly what most founder-messaging services miss. Matt has spent a career in it.</p>
+                <p>For ten years, he built a management consultancy on someone else's foundation, carrying another founder's meaning, speaking another founder's words. He got far. But something never fully landed. He knew that gap intimately: the personal cost of a presence that doesn't match what you've actually built. That gap became The Bigger Stage. The operator-to-icon journey isn't just a framework he teaches. It's one he lived.</p>
+                <div class="testimonial-callout">
+                    <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. Presence first. Story second. Craft all the way through."</blockquote>
+                    <span class="attribution">Samir Selmanovic, Ph.D. &amp; Jordan Soliday · Epic Ordinary LLC</span>
+                </div>
+                <div class="about-facts">
+                    <div class="fact"><span class="fact-label">Background</span><span class="fact-value">Law, Hollywood, Silicon Valley, federal consulting, management advisory, franchise operations</span></div>
+                    <div class="fact"><span class="fact-label">Training</span><span class="fact-value">J.D., University of Hawaiʻi · B.A., University of Oregon · Neuroscience-based coaching</span></div>
+                    <div class="fact"><span class="fact-label">Lived in</span><span class="fact-value">Seven US states, Europe, Asia</span></div>
+                    <div class="fact"><span class="fact-label">Based</span><span class="fact-value">New York metropolitan area</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STAY IN TOUCH -->
+<section class="stay-in-touch" id="stay-in-touch">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal" style="display:block;text-align:center;">Stay in Touch</span>
+        <h2 class="section-headline reveal" style="font-size:clamp(2rem,4vw,3rem);">Words worth reading.<br>When they're ready.</h2>
+        <p class="reveal" style="color:var(--color-gray);font-size:1.05rem;line-height:1.75;max-width:560px;margin:0 auto;">
+            Occasional notes on founder messaging, presence, and the gap between reputation and reach. No cadence. No noise. Just thinking worth your time.
+        </p>
+        <div class="sit-form reveal" id="sitForm">
+            <div class="sit-field">
+                <label class="sit-label" for="sit-fname">First Name</label>
+                <input class="sit-input" type="text" id="sit-fname" name="first_name" placeholder="Your first name" required autocomplete="given-name">
+            </div>
+            <div class="sit-field">
+                <label class="sit-label" for="sit-email">Email</label>
+                <input class="sit-input" type="email" id="sit-email" name="email" placeholder="your@email.com" required autocomplete="email">
+            </div>
+            <div class="sit-field">
+                <label class="sit-label" for="sit-lname">Last Name <span class="optional">optional</span></label>
+                <input class="sit-input" type="text" id="sit-lname" name="last_name" placeholder="Last name" autocomplete="family-name">
+            </div>
+            <div class="sit-field">
+                <label class="sit-label" for="sit-company">Company <span class="optional">optional</span></label>
+                <input class="sit-input" type="text" id="sit-company" name="company" placeholder="Your company" autocomplete="organization">
+            </div>
+            <button class="sit-submit" id="sitSubmit" type="button" onclick="handleSitSubmit()">
+                <span id="sitBtnText">Subscribe</span>
+            </button>
+            <div class="sit-status" id="sitStatus"></div>
+            <p class="sit-note">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="closing-cta">
+    <div class="section-inner" style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <span class="section-eyebrow reveal" style="display: block; text-align: center;">Your next step</span>
+        <h2 class="section-headline reveal">Find the message your market is missing.</h2>
+        <p class="reveal">A 30-minute conversation. We'll look at where your reputation is stronger than your messaging, and identify one story, standard, or point of view your market needs to hear more clearly. You'll leave with at least one insight you can use the same week.</p>
+        <div class="reveal">
+            <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary">Book a Clarity Call</a>
+            <span class="secondary-cta">Or reach out directly: <a href="mailto:matt@mattstone.co">matt@mattstone.co</a></span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-copy">© 2026 Matt Stone Enterprises LLC</span>
+    <div class="footer-links">
+        <a href="https://www.youtube.com/@thebiggerstage" target="_blank">The Bigger Stage Podcast</a>
+        <a href="mailto:matt@mattstone.co">Contact</a>
+        <a href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+        </a>
+    </div>
+</footer>
+
 <script>
-  const PASSWORD = 'DiNNr';
+    // STAY IN TOUCH — MailerLite Integration
+    async function handleSitSubmit() {
+        const firstName = document.getElementById('sit-fname').value.trim();
+        const email    = document.getElementById('sit-email').value.trim();
+        const lastName = document.getElementById('sit-lname').value.trim();
+        const company  = document.getElementById('sit-company').value.trim();
+        const btn      = document.getElementById('sitSubmit');
+        const status   = document.getElementById('sitStatus');
+        const btnText  = document.getElementById('sitBtnText');
 
-  document.getElementById('pw').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') unlock();
-    document.getElementById('err').classList.remove('visible');
-  });
+        // Basic validation
+        status.className = 'sit-status';
+        status.textContent = '';
 
-  function unlock() {
-    const val = document.getElementById('pw').value.trim();
-    if (val === PASSWORD) {
-      document.getElementById('gate').style.display = 'none';
-      document.getElementById('letter').classList.add('open');
-    } else {
-      const err = document.getElementById('err');
-      err.classList.add('visible');
-      document.getElementById('pw').value = '';
-      document.getElementById('pw').focus();
+        if (!firstName) {
+            status.className = 'sit-status error';
+            status.textContent = 'Please enter your first name.';
+            document.getElementById('sit-fname').focus();
+            return;
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            status.className = 'sit-status error';
+            status.textContent = 'Please enter a valid email address.';
+            document.getElementById('sit-email').focus();
+            return;
+        }
+
+        btn.disabled = true;
+        btnText.textContent = 'Subscribing…';
+
+        try {
+            const res = await fetch('/.netlify/functions/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    first_name: firstName,
+                    last_name: lastName || undefined,
+                    company: company || undefined
+                })
+            });
+
+            const result = await res.json();
+            if (!res.ok) throw new Error(result.error || 'Subscription failed.');
+
+            // Success
+            document.getElementById('sitForm').innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:2rem 0;">
+                    <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-orange);margin-bottom:1rem;">You're in.</div>
+                    <p style="color:var(--color-light-gray);font-size:1rem;line-height:1.7;">Thanks, ${firstName}. You'll hear from us when there's something worth saying.</p>
+                </div>
+            `;
+
+        } catch (err) {
+            console.error('MailerLite error:', err);
+            status.className = 'sit-status error';
+            status.textContent = 'Something went wrong. Please try again or email matt@mattstone.co directly.';
+            btn.disabled = false;
+            btnText.textContent = 'Subscribe';
+        }
     }
-  }
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 80) el.classList.add('active');
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    menuClose.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
 </script>
+
 </body>
 </html>
