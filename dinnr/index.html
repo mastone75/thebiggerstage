@@ -29,7 +29,6 @@
     overflow-x: hidden;
   }
 
-  /* ── ENVELOPE WRAPPER ── */
   .scene {
     perspective: 1200px;
     width: 100%;
@@ -37,13 +36,132 @@
     padding: 2rem 1rem;
   }
 
-  .envelope-wrap {
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  /* ── ENVELOPE ANIMATION STAGE ── */
+  .envelope-stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background: var(--ink);
+    pointer-events: none;
   }
 
-  /* ── ENVELOPE BODY ── */
+  .env-svg-wrap {
+    width: 340px;
+    height: 240px;
+    position: relative;
+  }
+
+  /* envelope body */
+  .env-body {
+    position: absolute;
+    inset: 0;
+    background: var(--parchment);
+    border-radius: 4px;
+    box-shadow:
+      0 2px 0 var(--gold-dark),
+      0 20px 60px rgba(0,0,0,0.7);
+    overflow: hidden;
+  }
+
+  /* fold lines */
+  .env-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, transparent calc(50% - 1px), rgba(180,160,120,0.25) calc(50% - 0.5px), rgba(180,160,120,0.25) calc(50% + 0.5px), transparent calc(50% + 1px)),
+      linear-gradient(225deg, transparent calc(50% - 1px), rgba(180,160,120,0.25) calc(50% - 0.5px), rgba(180,160,120,0.25) calc(50% + 0.5px), transparent calc(50% + 1px));
+    pointer-events: none;
+  }
+
+  /* flap — sits on top, folds up */
+  .env-flap {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50%;
+    background: #ede8de;
+    transform-origin: top center;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    border-radius: 4px 4px 0 0;
+    box-shadow: inset 0 -1px 0 rgba(180,154,92,0.2);
+    transform: rotateX(0deg);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    z-index: 2;
+  }
+
+  .env-flap.open {
+    transform: rotateX(-180deg);
+  }
+
+  /* seal */
+  .env-seal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px; height: 72px;
+    background: var(--seal-red);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 3px #6e1818, 0 0 0 5px rgba(139,32,32,0.3), 0 4px 16px rgba(0,0,0,0.4);
+    z-index: 3;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .env-seal::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,200,150,0.25);
+  }
+
+  .env-seal span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: rgba(255,230,200,0.9);
+    position: relative; z-index: 1;
+  }
+
+  .env-seal.break {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+
+  /* letter rising out of envelope */
+  .env-letter-peek {
+    position: absolute;
+    bottom: 10px; left: 12px; right: 12px;
+    height: 85%;
+    background: var(--cream);
+    border-radius: 2px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.15);
+    transform: translateY(0px);
+    opacity: 0;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s;
+    z-index: 1;
+  }
+
+  .env-letter-peek.rise {
+    transform: translateY(-70px);
+    opacity: 1;
+  }
+
+  /* stage fade out */
+  .envelope-stage.done {
+    animation: stageFade 0.6s ease forwards;
+  }
+
+  @keyframes stageFade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+  }
+
+  /* ── MAIN CONTENT ── */
   .envelope {
     background: var(--parchment);
     border-radius: 4px;
@@ -53,9 +171,12 @@
       0 2px 0 var(--gold-dark),
       0 20px 60px rgba(0,0,0,0.7),
       0 4px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.5s ease;
   }
 
-  /* diagonal fold lines (decorative) */
+  .envelope.visible { opacity: 1; }
+
   .envelope::before {
     content: '';
     position: absolute;
@@ -67,192 +188,21 @@
     z-index: 1;
   }
 
-  /* ── WAX SEAL ── */
-  .seal-zone {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .seal {
-    width: 100px;
-    height: 100px;
-    background: var(--seal-red);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 0 0 3px #6e1818,
-      0 0 0 5px rgba(139,32,32,0.3),
-      0 4px 16px rgba(0,0,0,0.4);
-    position: relative;
-    cursor: default;
-  }
-
-  .seal::after {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,200,150,0.25);
-  }
-
-  .seal-monogram {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: rgba(255,230,200,0.9);
-    letter-spacing: 0.05em;
-    position: relative;
-    z-index: 1;
-    line-height: 1;
-  }
-
-  .envelope-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    color: var(--muted);
-    text-transform: uppercase;
-    text-align: center;
-  }
-
-  /* ── GATE (password area) ── */
-  .gate {
-    padding: 3.5rem 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    min-height: 360px;
-    justify-content: center;
-    position: relative;
-    z-index: 5;
-  }
-
-  .gate-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--ink);
-    letter-spacing: 0.04em;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .gate-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-    text-align: center;
-    letter-spacing: 0.05em;
-  }
-
-  .gate-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-    margin: 0 auto 2.5rem;
-  }
-
-  .gate-prompt {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    color: var(--muted);
-    text-align: center;
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .password-field {
-    display: flex;
-    gap: 0;
-    width: 100%;
-    max-width: 340px;
-  }
-
-  .password-field input {
-    flex: 1;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid rgba(180,154,92,0.4);
-    border-right: none;
-    border-radius: 2px 0 0 2px;
-    padding: 0.75rem 1rem;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    letter-spacing: 0.15em;
-    color: var(--ink);
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-    text-align: center;
-  }
-
-  .password-field input:focus {
-    border-color: var(--gold);
-    background: rgba(255,255,255,0.85);
-  }
-
-  .password-field input::placeholder {
-    letter-spacing: 0.1em;
-    color: rgba(120,110,90,0.45);
-    font-style: italic;
-  }
-
-  .password-field button {
-    background: var(--gold);
-    border: 1px solid var(--gold);
-    border-radius: 0 2px 2px 0;
-    padding: 0 1.25rem;
-    cursor: pointer;
-    color: var(--ink);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-
-  .password-field button:hover {
-    background: var(--gold-light);
-  }
-
-  .gate-error {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--seal-red);
-    letter-spacing: 0.05em;
-    margin-top: 0.75rem;
-    opacity: 0;
-    transition: opacity 0.25s;
-    text-align: center;
-    min-height: 18px;
-  }
-
-  .gate-error.visible { opacity: 1; }
-
-  /* ── LETTER (revealed content) ── */
+  /* ── LETTER CONTENT ── */
   .letter {
-    display: none;
     padding: 3.5rem 3.5rem;
     background: var(--cream);
     position: relative;
     z-index: 5;
+    animation: unseal 0.8s cubic-bezier(0.4,0,0.2,1) both;
+    animation-delay: 0.2s;
+    opacity: 0;
   }
 
-  .letter.open { display: block; }
+  @keyframes unseal {
+    0%   { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
 
   .letter-header {
     text-align: center;
@@ -292,9 +242,7 @@
     margin: 1.5rem auto;
   }
 
-  .concept-block {
-    margin-bottom: 2.5rem;
-  }
+  .concept-block { margin-bottom: 2.5rem; }
 
   .concept-text {
     font-family: 'Cormorant Garamond', serif;
@@ -341,7 +289,6 @@
     letter-spacing: 0.03em;
   }
 
-  /* Story prompt */
   .prompt-block {
     margin-top: 2.5rem;
     padding: 2rem;
@@ -376,7 +323,6 @@
     margin-top: 0.5rem;
   }
 
-  /* footer */
   .letter-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
@@ -392,130 +338,117 @@
     font-style: italic;
   }
 
-  /* animation */
-  @keyframes unseal {
-    0%   { transform: translateY(30px) scale(0.96); opacity: 0; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
-  }
-
-  .letter.open {
-    animation: unseal 0.8s cubic-bezier(0.4,0,0.2,1) both;
-  }
-
   @media (max-width: 520px) {
-    .gate, .letter { padding: 2.5rem 1.5rem; }
-    .gate-title, .letter-title { font-size: 42px; }
+    .letter { padding: 2.5rem 1.5rem; }
+    .letter-title { font-size: 42px; }
     .detail-row { flex-direction: column; gap: 1rem; }
+    .env-svg-wrap { width: 260px; height: 184px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ENVELOPE OPENING ANIMATION -->
+<div class="envelope-stage" id="stage">
+  <div class="env-svg-wrap">
+    <div class="env-body">
+      <div class="env-letter-peek" id="letterPeek"></div>
+      <div class="env-flap" id="envFlap"></div>
+      <div class="env-seal" id="envSeal"><span>D</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
 <div class="scene">
-  <div class="envelope-wrap">
-    <div class="envelope" id="envelope">
+  <div class="envelope" id="envelope">
+    <div class="letter" id="letter">
 
-      <!-- LOCKED STATE -->
-      <div class="gate" id="gate">
-        <div class="gate-title">DiNNr</div>
-        <div class="gate-subtitle">An Invitation for Six</div>
-        <div class="gate-divider"></div>
-
-        <div class="seal-zone" style="position:relative; top:auto; left:auto; transform:none; margin-bottom: 2rem;">
-          <div class="seal">
-            <span class="seal-monogram">D</span>
-          </div>
-        </div>
-
-        <div class="gate-prompt">Enter your invitation code</div>
-        <div class="password-field">
-          <input type="password" id="pw" placeholder="· · · · · · ·" autocomplete="off" />
-          <button onclick="unlock()">Open</button>
-        </div>
-        <div class="gate-error" id="err">That isn't the right code.</div>
+      <div class="letter-header">
+        <div class="letter-title">DiNNr</div>
+        <div class="gold-rule"></div>
+        <div class="letter-host-line">Hosted by <strong>Matt Stone</strong> &amp; <strong>Meridith Grundei</strong></div>
       </div>
 
-      <!-- REVEALED LETTER -->
-      <div class="letter" id="letter">
-
-        <div class="letter-header">
-          <div class="letter-title">DiNNr</div>
-          <div class="gold-rule"></div>
-          <div class="letter-host-line">Hosted by <strong>Matt Stone</strong> &amp; <strong>Meridith Grundei</strong></div>
-        </div>
-
-        <div class="concept-block">
-          <p class="concept-text lead">We started with a simple belief: the most valuable thing a room full of creative and generous people can do together is share stories.</p>
-          <p class="concept-text">About the moments that changed them. The things they're reaching for. What keeps them alive in their work and their lives.</p>
-          <p class="concept-text">So we're curating an experience for exactly that.</p>
-        </div>
-
-        <div class="detail-row">
-          <div class="detail-item">
-            <div class="detail-label">When</div>
-            <div class="detail-value">Thursday, June 25th — 6pm</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Where</div>
-            <div class="detail-value" style="font-size:15px; font-style:italic;">Manhattan — details upon RSVP</div>
-          </div>
-          <div class="detail-item">
-            <div class="detail-label">Seats</div>
-            <div class="detail-value">Six — including hosts</div>
-          </div>
-        </div>
-
-        <div class="concept-block">
-          <p class="concept-text">The evening you're being invited into has a shape to it. You'll know your part before you arrive. And you won't leave empty-handed.</p>
-          <p class="concept-text">The whole experience is captured, and each guest receives something from it afterward — a small, tangible keepsake of what happened in that room.</p>
-          <p class="concept-text">Each person is chosen with care.</p>
-        </div>
-
-        <div class="detail-row" style="flex-wrap: wrap;">
-          <div class="detail-item">
-            <div class="detail-label">Cost</div>
-            <div class="detail-value" style="font-size:15px;">~$100 per person</div>
-            <div class="detail-value" style="font-size:13px; font-style:italic; color: var(--muted); margin-top:0.3rem;">Fixed pricing with options provided in advance</div>
-          </div>
-        </div>
-
-        <!-- Story prompt -->
-        <div class="prompt-block">
-          <div class="prompt-eyebrow">Your story prompt for the evening</div>
-          <div class="prompt-text">"Your most beautiful mistake —</div>
-          <div class="prompt-text">the best / worst / most stupid risk you ever took that changed everything."</div>
-          <div class="prompt-sub">Come ready.</div>
-        </div>
-
-        <div class="letter-footer">
-          <p>Intimate. Curated. Captured. — DiNNr</p>
-        </div>
-
+      <div class="concept-block">
+        <p class="concept-text lead">We started with a simple belief: the most valuable thing a room full of creative and generous people can do together is share stories.</p>
+        <p class="concept-text">About the moments that changed them. The things they're reaching for. What keeps them alive in their work and their lives.</p>
+        <p class="concept-text">So we're curating an experience for exactly that.</p>
       </div>
+
+      <div class="detail-row">
+        <div class="detail-item">
+          <div class="detail-label">When</div>
+          <div class="detail-value">Thursday, June 25th — 6pm</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Where</div>
+          <div class="detail-value" style="font-size:15px; font-style:italic;">Manhattan — details upon RSVP</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Seats</div>
+          <div class="detail-value">Six — including hosts</div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <p class="concept-text">The evening you're being invited into has a shape to it. You'll know your part before you arrive. And you won't leave empty-handed.</p>
+        <p class="concept-text">The whole experience is captured, and each guest receives something from it afterward — a small, tangible keepsake of what happened in that room.</p>
+        <p class="concept-text">Each person is chosen with care.</p>
+      </div>
+
+      <div class="detail-row" style="flex-wrap: wrap;">
+        <div class="detail-item">
+          <div class="detail-label">Cost</div>
+          <div class="detail-value" style="font-size:15px;">~$100 per person</div>
+          <div class="detail-value" style="font-size:13px; font-style:italic; color: var(--muted); margin-top:0.3rem;">Fixed pricing with options provided in advance</div>
+        </div>
+      </div>
+
+      <div class="prompt-block">
+        <div class="prompt-eyebrow">Your story prompt for the evening</div>
+        <div class="prompt-text">"Your most beautiful mistake —</div>
+        <div class="prompt-text">the best / worst / most stupid risk you ever took that changed everything."</div>
+        <div class="prompt-sub">Come ready.</div>
+      </div>
+
+      <div class="letter-footer">
+        <p>Intimate. Curated. Captured. — DiNNr</p>
+      </div>
+
     </div>
   </div>
 </div>
 
 <script>
-  const PASSWORD = 'DiNNr';
+  function runAnimation() {
+    const stage     = document.getElementById('stage');
+    const flap      = document.getElementById('envFlap');
+    const seal      = document.getElementById('envSeal');
+    const peek      = document.getElementById('letterPeek');
+    const envelope  = document.getElementById('envelope');
 
-  document.getElementById('pw').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') unlock();
-    document.getElementById('err').classList.remove('visible');
-  });
+    // Step 1 (600ms): break seal
+    setTimeout(() => { seal.classList.add('break'); }, 600);
 
-  function unlock() {
-    const val = document.getElementById('pw').value.trim();
-    if (val === PASSWORD) {
-      document.getElementById('gate').style.display = 'none';
-      document.getElementById('letter').classList.add('open');
-    } else {
-      const err = document.getElementById('err');
-      err.classList.add('visible');
-      document.getElementById('pw').value = '';
-      document.getElementById('pw').focus();
-    }
+    // Step 2 (1000ms): open flap
+    setTimeout(() => { flap.classList.add('open'); }, 1000);
+
+    // Step 3 (1500ms): letter rises
+    setTimeout(() => { peek.classList.add('rise'); }, 1500);
+
+    // Step 4 (2300ms): fade out stage, reveal content
+    setTimeout(() => {
+      stage.classList.add('done');
+      envelope.classList.add('visible');
+    }, 2300);
+
+    // Step 5 (2900ms): remove stage from layout
+    setTimeout(() => { stage.style.display = 'none'; }, 2900);
   }
+
+  // Small delay so fonts load before animation starts
+  window.addEventListener('load', () => setTimeout(runAnimation, 300));
 </script>
 </body>
 </html>
