@@ -197,29 +197,6 @@ section{padding:7rem 3rem;}
   letter-spacing:0.15em;text-transform:uppercase;color:var(--orange);
 }
 
-/* ── FORMATS ── */
-.formats-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:2px;
-  margin-top:3rem;
-}
-.format-card{
-  background:var(--charcoal);padding:2.5rem;
-  border:1px solid rgba(255,255,255,0.05);
-  transition:border-color 0.2s;
-}
-.format-card:hover{border-color:rgba(255,87,34,0.4);}
-.format-icon{
-  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
-  letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);
-  margin-bottom:1.25rem;display:block;
-}
-.format-card h3{
-  font-family:var(--font-display);font-size:1.3rem;font-weight:900;
-  text-transform:uppercase;letter-spacing:0.05em;
-  margin-bottom:1rem;color:var(--white);
-}
-.format-card p{font-size:0.95rem;line-height:1.75;color:var(--gray);}
-
 /* ── PODCAST SPLIT ── */
 .podcast-split{
   display:grid;grid-template-columns:1fr 1fr;gap:0;
@@ -525,12 +502,73 @@ footer{
   to{opacity:1;transform:translateY(0);}
 }
 
+/* ── SEE THE WORK ── */
+.work-intro{max-width:680px;margin:0 auto 3.5rem;text-align:center;}
+.work-intro .body-lg{margin:0 auto;color:var(--gray);}
+.work-intro .body-lg strong{color:var(--white);}
+.work-video{
+  position:relative;width:100%;max-width:900px;margin:0 auto;
+  aspect-ratio:16/9;background:var(--charcoal);
+  border:1px solid rgba(255,87,34,0.25);
+}
+.work-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+.work-video-cap{
+  text-align:center;margin:1.1rem auto 0;
+  font-family:var(--font-display);font-size:0.65rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);
+}
+.work-video-cap span{color:var(--orange);}
+.report-lead{text-align:center;max-width:640px;margin:4.5rem auto 0;}
+.report-lead .section-eyebrow{display:block;}
+.report-lead h3{
+  font-family:var(--font-display);font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:900;
+  text-transform:uppercase;letter-spacing:0.01em;line-height:1.05;color:var(--white);margin-bottom:0.9rem;
+}
+.report-lead h3 em{color:var(--orange);font-style:italic;}
+.report-lead p{font-size:0.98rem;color:var(--gray);line-height:1.7;}
+.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:3rem;}
+.report-card{
+  background:var(--charcoal);padding:2.75rem;
+  border:1px solid rgba(255,255,255,0.06);
+  position:relative;display:flex;flex-direction:column;
+}
+.report-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);}
+.report-kicker{
+  font-family:var(--font-display);font-size:0.6rem;font-weight:700;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:1.1rem;display:block;
+}
+.report-subject{
+  font-family:var(--font-display);font-size:1.35rem;font-weight:900;
+  text-transform:uppercase;letter-spacing:0.02em;color:var(--white);line-height:1;margin-bottom:0.35rem;display:block;
+}
+.report-role{font-size:0.82rem;color:var(--gray);margin-bottom:1.4rem;display:block;}
+.report-line{font-style:italic;font-size:1rem;line-height:1.6;color:var(--white);margin-bottom:1.6rem;}
+.report-ex{border-left:2px solid var(--orange);padding:0.5rem 0 0.5rem 1.1rem;margin-bottom:1.1rem;}
+.report-ex p{font-style:italic;font-size:0.9rem;line-height:1.6;color:var(--gray);}
+.report-inside{margin-top:auto;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.07);}
+.report-inside .form-label{margin-bottom:0.7rem;}
+.report-inside-list{display:flex;flex-wrap:wrap;gap:0.4rem 0.5rem;}
+.report-inside-list span{font-size:0.72rem;color:var(--gray);border:1px solid rgba(255,255,255,0.1);padding:0.35rem 0.6rem;}
+.report-cta{
+  max-width:560px;margin:2px auto 0;background:var(--charcoal);
+  border:1px solid rgba(255,87,34,0.25);padding:2.5rem;text-align:center;
+}
+.report-cta p{font-size:0.9rem;color:var(--gray);line-height:1.6;margin-bottom:1.5rem;}
+.report-cta-btn{
+  display:inline-block;border:1px solid var(--orange);color:var(--orange);text-decoration:none;
+  font-family:var(--font-display);font-size:0.8rem;font-weight:700;
+  letter-spacing:0.15em;text-transform:uppercase;padding:1rem 2.2rem;
+  transition:background 0.2s,color 0.2s;
+}
+.report-cta-btn:hover{background:var(--orange);color:var(--white);}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   nav{padding:1.25rem 1.5rem;}
   .hero{padding:8rem 1.5rem 5rem;}
   .hero-inner,.problem-grid,.bio-grid,.investment-inner,.podcast-split{grid-template-columns:1fr;}
-  .formats-grid,.deliverables-grid,.testi-grid,.city-grid,.tier-grid,.form-row,.where-grid{grid-template-columns:1fr;}
+  .deliverables-grid,.testi-grid,.city-grid,.tier-grid,.form-row,.where-grid,.report-grid{grid-template-columns:1fr;}
   section{padding:5rem 1.5rem;}
   footer{flex-direction:column;gap:1rem;text-align:center;}
   .del-item:nth-child(even){border-right:none;}
@@ -614,27 +652,6 @@ footer{
   </div>
 </section>
 
-<!-- FORMATS -->
-<section id="formats">
-  <div class="section-inner">
-    <span class="section-eyebrow reveal">The interview formats</span>
-    <h2 class="section-headline reveal">Two styles. <em>One transformative conversation.</em></h2>
-    <p class="body-lg reveal">You choose the format that fits your story and your audience.</p>
-    <div class="formats-grid">
-      <div class="format-card reveal reveal-delay-1">
-        <span class="format-icon">Format 01</span>
-        <h3>Podcast Style</h3>
-        <p>Conversational, warm, and revealing. A two-person dialogue that draws out your origin, your inflection points, and the perspective only you can offer. Both host and guest on camera — natural, unscripted, human.</p>
-      </div>
-      <div class="format-card reveal reveal-delay-2">
-        <span class="format-icon">Format 02</span>
-        <h3>Executive Sit-Down</h3>
-        <p>Single camera, subject-forward, interviewer off-screen. All attention stays on you — authoritative, focused, and built to command credibility. The format that says: this person is worth listening to.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section id="process" class="process-bg">
   <div class="section-inner">
@@ -709,13 +726,71 @@ footer{
     <h2 class="section-headline reveal">Your complete <em>Untold Stories package.</em></h2>
     <div class="deliverables-grid">
       <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Pre-shoot strategy consultation</strong><span>Story excavation before the camera rolls</span></div></div>
-      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>Professional on-camera interview</strong><span>Podcast style or executive sit-down — your choice</span></div></div>
+      <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>Professional on-camera interview</strong><span>A masterfully guided conversation, captured on camera</span></div></div>
       <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Professionally edited full story</strong><span>Your breakthrough story, production ready</span></div></div>
       <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>8–12 clips & shorts with copy</strong><span>Formatted for LinkedIn, Instagram, YouTube, and more</span></div></div>
       <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Full transcripts</strong><span>Every word, searchable and reusable</span></div></div>
       <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>Iconic messaging analysis</strong><span>Strategic language recommendations from your session</span></div></div>
       <div class="del-item reveal"><div class="del-dot"></div><div class="del-text"><strong>Three-month content rollout plan</strong><span>Platform-specific deployment calendar</span></div></div>
       <div class="del-item reveal reveal-delay-1"><div class="del-dot"></div><div class="del-text"><strong>One-hour debrief consultation</strong><span>Review, refine, leave with total clarity</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEE THE WORK / SAMPLE DELIVERABLES -->
+<section id="the-work">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal" style="display:block;text-align:center;">See the actual work</span>
+    <h2 class="section-headline reveal" style="text-align:center;">The deliverable, <em>not the description.</em></h2>
+    <div class="work-intro reveal">
+      <p class="body-lg">Here's a real session demo, plus two <strong>Founder Narrative &amp; Brand Intelligence Reports</strong> &mdash; the strategic asset built from a single conversation. This is the kind of output your session produces.</p>
+    </div>
+
+    <div class="work-video reveal">
+      <iframe src="https://www.youtube.com/embed/iQdEfmmh3AM" title="The Bigger Stage &mdash; Untold Stories Session demo" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="work-video-cap reveal"><span>&#9654;</span>&nbsp;&nbsp;Watch the full session demo</p>
+
+    <div class="report-lead reveal">
+      <span class="section-eyebrow">The written deliverable</span>
+      <h3>Two founders. <em>One method.</em></h3>
+      <p>Built from real conversations &mdash; one bold and ambition-forward, one humble and dignity-driven. Same method, surfacing each founder's own language so it works everywhere they show up.</p>
+    </div>
+
+    <div class="report-grid">
+      <div class="report-card reveal">
+        <span class="report-kicker">Founder Narrative &amp; Brand Intelligence Report</span>
+        <span class="report-subject">Duncan Barrigan</span>
+        <span class="report-role">Founder &amp; CEO, Lunos</span>
+        <p class="report-line">"The operator who scaled GoCardless from 30 to 900 &mdash; now building the agent-to-agent future of payments."</p>
+        <div class="report-ex"><p>"It's actually a communication and negotiation problem. It's not a payments problem at all."</p></div>
+        <div class="report-ex"><p>"It's not copyable. A late-stage company can't suddenly adopt space cowboy and bright pink &mdash; they'd look like the aging person buying the cliched sports car."</p></div>
+        <div class="report-inside">
+          <span class="form-label">Inside the report</span>
+          <div class="report-inside-list">
+            <span>The thesis, verbatim</span><span>Investor &amp; vision narrative</span><span>Values as a hiring filter</span><span>The signature PR story</span><span>Voice &amp; ghostwriting guide</span><span>Channel deployment map</span>
+          </div>
+        </div>
+      </div>
+      <div class="report-card reveal reveal-delay-1">
+        <span class="report-kicker">Founder Narrative &amp; Brand Intelligence Report</span>
+        <span class="report-subject">Ricky Michel Presbot</span>
+        <span class="report-role">Co-Founder &amp; CEO, Ualett</span>
+        <p class="report-line">"The Dominican founder who pitched his first investor at a funeral &mdash; building dignity-first finance for the workers the system overlooks."</p>
+        <div class="report-ex"><p>"It's more than a cash advance &mdash; the first liquidity box for the gig workers."</p></div>
+        <div class="report-ex"><p>"If we believe in you, why wouldn't you believe in me? It's believe, and build on trust &mdash; on both sides."</p></div>
+        <div class="report-inside">
+          <span class="form-label">Inside the report</span>
+          <div class="report-inside-list">
+            <span>The thesis, verbatim</span><span>Investor &amp; vision narrative</span><span>Values as a hiring filter</span><span>The signature PR story</span><span>Voice &amp; ghostwriting guide</span><span>Channel deployment map</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="report-cta reveal">
+      <p>Want to talk through what your own report would surface? Book a free consultation &mdash; no commitment, no pitch.</p>
+      <a href="https://calendly.com/matt-stone-2/clarity-call" target="_blank" rel="noopener" class="report-cta-btn">Book a free consultation &rarr;</a>
     </div>
   </div>
 </section>
