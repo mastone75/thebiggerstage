@@ -576,6 +576,26 @@ footer{
   .podcast-img{min-height:300px;}
   .hero-photo-badge{position:static;margin-top:1rem;max-width:100%;}
 }
+/* ── LOCATIONS ── */
+.loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:3rem;}
+.loc-card{background:var(--charcoal);border:1px solid rgba(255,255,255,0.06);padding:2rem;display:flex;flex-direction:column;}
+.loc-num{font-family:var(--font-display);font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:0.9rem;}
+.loc-card h3{font-family:var(--font-display);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--white);margin-bottom:0.6rem;}
+.loc-card p{font-size:0.9rem;line-height:1.65;color:var(--gray);}
+.loc-note{margin-top:2rem;font-size:0.85rem;color:var(--gray);line-height:1.6;max-width:720px;}
+.loc-note strong{color:var(--white);}
+
+/* ── VISION DE-RISK BAND ── */
+.vision-band{background:var(--charcoal);border-top:1px solid rgba(255,87,34,0.25);border-bottom:1px solid rgba(255,87,34,0.25);padding:3rem;}
+.vision-band-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.vision-band-text{max-width:660px;}
+.vision-band-text .section-eyebrow{margin-bottom:0.6rem;}
+.vision-band-text h3{font-family:var(--font-display);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:900;text-transform:uppercase;letter-spacing:0.01em;color:var(--white);margin-bottom:0.6rem;line-height:1.1;}
+.vision-band-text p{font-size:0.95rem;color:var(--gray);line-height:1.65;}
+.vision-band-text strong{color:var(--white);}
+.vision-band-btn{display:inline-block;border:1px solid var(--orange);color:var(--orange);text-decoration:none;font-family:var(--font-display);font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:1rem 2.2rem;transition:background 0.2s,color 0.2s;white-space:nowrap;}
+.vision-band-btn:hover{background:var(--orange);color:var(--white);}
+@media(max-width:900px){.loc-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -595,7 +615,7 @@ footer{
       <p class="hero-sub">You've built something real. <strong>One masterful interview</strong> will surface the breakthrough stories your market has never heard — and turn it into narrative that works everywhere you show up.</p>
       <div class="hero-cta">
         <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
-        <span class="hero-note">Coming to NYC · Tulsa · Denver · Portland &nbsp;·&nbsp; Limited to 5 per city</span>
+        <span class="hero-note">Held in New York City and select cities each season</span>
       </div>
     </div>
     <div class="hero-photo-wrap reveal">
@@ -647,7 +667,7 @@ footer{
       <span class="section-eyebrow">The work in action</span>
       <h3>What it looks like in the room</h3>
       <p class="podcast-quote">"Being interviewed by Matt is basically just a conversation — <strong>easier than almost anything you'll do during your day.</strong> Half the time you're thinking, wow, I'm saying something cool. But that's because the thinking that went into the questions was smart."</p>
-      <span class="podcast-attr">Jason Durkee · Founder & President<br>Idea Development Corporation · Tokyo, Japan</span>
+      <span class="podcast-attr">Jason Durkee · Founder & President<br>Idea Development K.K. · Tokyo, Japan</span>
     </div>
   </div>
 </section>
@@ -837,8 +857,8 @@ footer{
         <p class="body-lg" style="margin-bottom:1.25rem;">Matt Stone has worked across rooms most people never see — courtrooms, boardrooms, Hollywood studios, Silicon Valley startups, the Pentagon, and international operations. The setting kept changing; the work never did: listen deeply, surface what matters, and reflect it back in a way that sparks insight and action.</p>
         <p class="body-lg" style="margin-bottom:2rem;">With the precision of a lawyer, the presence of a coach, and the purpose of a strategic partner, Matt creates the kind of space that brings out the best in you. He pulls, and keeps pulling, until the deeper meaning surfaces and your story is told in ways you couldn't tell it alone. That's why clients say he pulled out things they weren't even thinking about.</p>
         <div class="bio-facts">
-          <div class="bio-fact"><span class="bio-fact-label">Background</span><span class="bio-fact-val">Law, Hollywood, Silicon Valley, federal consulting, global business development</span></div>
-          <div class="bio-fact"><span class="bio-fact-label">Training</span><span class="bio-fact-val">J.D. · Neuroscience-based coaching · Certified mediation</span></div>
+          <div class="bio-fact"><span class="bio-fact-label">Background</span><span class="bio-fact-val">Law, Hollywood, Silicon Valley, federal consulting, management advisory, global business development</span></div>
+          <div class="bio-fact"><span class="bio-fact-label">Training</span><span class="bio-fact-val">J.D., University of Hawaiʻi · B.A., University of Oregon · Neuroscience-based coaching</span></div>
           <div class="bio-fact"><span class="bio-fact-label">Lived in</span><span class="bio-fact-val">Seven US states, Europe, Asia</span></div>
           <div class="bio-fact"><span class="bio-fact-label">Based</span><span class="bio-fact-val">New York City</span></div>
         </div>
@@ -857,7 +877,7 @@ footer{
         <p class="body-lg reveal" style="margin-bottom:2rem;">Assembling a masterful interviewer, production team, messaging strategist, and narrative architect independently would cost multiples of this. The Untold Stories Session brings all of it into one focused experience.</p>
         <div class="pullquote reveal">
           <p>"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. He asks the questions I should be thinking about — and that is the fastest, most efficient and effective way I know of making a new change."</p>
-          <small>Jason Durkee · Founder & President, Idea Development Corporation · Tokyo, Japan</small>
+          <small>Jason Durkee · Founder & President, Idea Development K.K. · Tokyo, Japan</small>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -866,12 +886,24 @@ footer{
           <div class="price-card-amt">$8,900</div>
           <p class="price-card-sub">Everything included. One price. No tiers. Pre-shoot consultation, on-camera interview, full story edit, 8–12 clips with copy, transcripts, messaging analysis, 90-day rollout plan, and debrief.</p>
           <a href="#waitlist" class="btn-primary">Join the Waitlist →</a>
-          <p class="price-card-note">Limited to 5 per city · Dates opening soon</p>
+          <p class="price-card-note">In New York City or a select city near you · Dates opening soon</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- VISION SESSION DE-RISK -->
+<div class="vision-band">
+  <div class="vision-band-inner">
+    <div class="vision-band-text">
+      <span class="section-eyebrow">Not ready to commit?</span>
+      <h3>Start with the Vision Session.</h3>
+      <p>One recorded session to map where you're going, with a short film and a one-page map to show for it. <strong>$750, credited in full toward your Untold Stories Session.</strong> The fastest way to feel the work before the full production.</p>
+    </div>
+    <a href="/vision-session" class="vision-band-btn">See the Vision Session →</a>
+  </div>
+</div>
 
 <!-- TESTIMONIALS -->
 <section>
@@ -892,6 +924,33 @@ footer{
       <blockquote>"Matt masterfully pulled stories out that helped us differentiate in our market in a new, more powerful way."</blockquote>
       <span class="testi-attr">Cody & Lynzie Bowman · Sacred Ground Properties · Tulsa, OK</span>
     </div>
+  </div>
+</section>
+
+<!-- WHERE IT HAPPENS -->
+<section id="locations">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Where it happens</span>
+    <h2 class="section-headline reveal">Three ways to get <em>in the room.</em></h2>
+    <p class="body-lg reveal" style="max-width:720px;">The session itself is the same wherever it takes place. What changes is how we get you in the chair.</p>
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <span class="loc-num">01 · Simplest</span>
+        <h3>In New York City</h3>
+        <p>Matt is based in New York. Come to the studio and we shoot here, on a date that works for you.</p>
+      </div>
+      <div class="loc-card reveal reveal-delay-1">
+        <span class="loc-num">02 · On tour</span>
+        <h3>In a select city</h3>
+        <p>Each season Matt brings the session to a handful of cities, in small cohorts of up to five founders per visit. Join the waitlist for yours below.</p>
+      </div>
+      <div class="loc-card reveal reveal-delay-2">
+        <span class="loc-num">03 · Exclusive</span>
+        <h3>Your city, on your schedule</h3>
+        <p>Prefer to have Matt come to you, just for your session? Exclusive on-location sessions are available, with travel arranged directly.</p>
+      </div>
+    </div>
+    <p class="loc-note reveal"><strong>The $8,900 covers the full session and everything it produces.</strong> In New York or on a select-city visit, that's the whole investment. For an exclusive session in your own city, travel is quoted separately.</p>
   </div>
 </section>
 
@@ -942,7 +1001,7 @@ footer{
       <p class="form-note">No commitment required. You'll hear from us when dates open in your city.</p>
       <div class="proof-row">
         <span class="proof-item"><span>·</span> No spam, ever</span>
-        <span class="proof-item"><span>·</span> Limited to 5 per city</span>
+        <span class="proof-item"><span>·</span> Small cohorts each visit</span>
       </div>
     </div>
 

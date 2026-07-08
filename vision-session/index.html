@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Bigger Stage — For founders whose reputation is stronger than their messaging</title>
-    <meta name="description" content="The Bigger Stage helps founder-led service businesses surface the story, standards, and point of view that make them different — then turn them into video and messaging assets that travel without you. The shift from operator to icon, captured on camera.">
+    <title>The Vision Session — The Bigger Stage</title>
+    <meta name="description" content="One recorded session to map the future you are already building toward. You walk away with a short film in your own voice and a one-page map of where you are headed. Credited toward the Untold Stories Session.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="The Bigger Stage — For founders whose reputation is stronger than their messaging">
-    <meta property="og:description" content="The shift from operator to icon, for founders tired of being better than they sound. Founder-led service businesses, $1M to $5M.">
+    <meta property="og:title" content="The Vision Session — The Bigger Stage">
+    <meta property="og:description" content="One session to map where you are going. A short Vision Cut and a one-page Vision Map, credited toward the Untold Stories Session.">
     <meta property="og:image" content="https://thebiggerstage.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://thebiggerstage.com">
+    <meta property="og:url" content="https://thebiggerstage.com/vision-session">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Bigger Stage">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The Bigger Stage — For founders whose reputation is stronger than their messaging">
-    <meta name="twitter:description" content="The shift from operator to icon, for founders tired of being better than they sound. Founder-led service businesses, $1M to $5M.">
+    <meta name="twitter:title" content="The Vision Session — The Bigger Stage">
+    <meta name="twitter:description" content="One session to map where you are going. A short Vision Cut and a one-page Vision Map, credited toward the Untold Stories Session.">
     <meta name="twitter:image" content="https://thebiggerstage.com/og-image.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -960,13 +960,52 @@
 </head>
 <body>
 
+<!-- PAGE-SPECIFIC STYLES -->
+<style>
+    .vision-hero {
+        min-height: auto;
+        padding: 11rem 3rem 5rem;
+        background: radial-gradient(ellipse at 70% 40%, rgba(255,87,34,0.09) 0%, transparent 60%);
+    }
+    .vision-hero .hero-inner { grid-template-columns: 1fr; max-width: 880px; }
+    .vision-lede {
+        font-size: 1.15rem; line-height: 1.8; color: var(--color-light-gray);
+        max-width: 720px; margin-bottom: 2.5rem;
+        animation: fadeUp 0.8s ease-out 0.4s backwards;
+    }
+    .vision-invest {
+        border: 2px solid var(--color-orange);
+        background: rgba(255,87,34,0.05);
+        padding: 2.5rem;
+        display: grid; grid-template-columns: auto 1fr auto;
+        align-items: center; gap: 2.5rem;
+        margin-top: 3rem;
+    }
+    .vii-amount {
+        font-family: var(--font-display); font-size: 3.5rem; font-weight: 900;
+        color: var(--color-orange); line-height: 1;
+    }
+    .vii-text {
+        font-size: 1.05rem; line-height: 1.65; color: var(--color-light-gray);
+        max-width: 460px;
+    }
+    .vii-text strong { color: var(--color-white); font-weight: 600; }
+    .vision-uplink {
+        max-width: 760px;
+    }
+    @media (max-width: 900px) {
+        .vision-hero { padding: 8rem 1.5rem 3rem; }
+        .vision-invest { grid-template-columns: 1fr; gap: 1.5rem; text-align: left; padding: 2rem; }
+    }
+</style>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
     <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
-    <a href="#the-work" class="mobile-nav-link">The Work</a>
-    <a href="#the-sessions" class="mobile-nav-link">The Sessions</a>
-    <a href="#about" class="mobile-nav-link">About</a>
-    <a href="#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="/#the-work" class="mobile-nav-link">The Work</a>
+    <a href="/#the-sessions" class="mobile-nav-link">The Sessions</a>
+    <a href="/#about" class="mobile-nav-link">About</a>
+    <a href="/untold-stories" class="mobile-nav-link">Untold Stories</a>
     <a href="https://calendly.com/matt-stone-2/clarity-call" class="mobile-nav-link">Book a Clarity Call</a>
 </div>
 
@@ -974,9 +1013,9 @@
 <nav>
     <a href="/" class="nav-logo">The Bigger Stage</a>
     <ul class="nav-links">
-        <li><a href="#the-work">The Work</a></li>
-        <li><a href="#the-sessions">The Sessions</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="/#the-work">The Work</a></li>
+        <li><a href="/#the-sessions">The Sessions</a></li>
+        <li><a href="/#about">About</a></li>
         <li><a href="https://calendly.com/matt-stone-2/clarity-call" class="nav-cta">Book a Clarity Call</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -985,384 +1024,76 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero vision-hero">
     <div class="hero-inner">
         <div class="hero-text">
-            <span class="hero-eyebrow">For founders who are tired of being better than they sound</span>
-            <h1>
-                Your reputation
-                <span class="highlight">is stronger than your messaging.</span>
-            </h1>
-            <p class="hero-bridge">This is the shift from operator to icon.</p>
-            <p class="hero-sub">You've built real trust through your work, your standards, and the people you've earned. But too much of that trust still depends on you being in the room. The Bigger Stage helps founder-led service businesses surface the story, standards, and point of view that make them different, then capture them on camera and turn them into assets your market can see, feel, and share.</p>
+            <span class="hero-eyebrow">Where You're Going · The Vision Session</span>
+            <h1>See where <span class="highlight">you're going.</span></h1>
+            <p class="hero-bridge">One session to map the future you're already building toward.</p>
+            <p class="vision-lede">A single recorded conversation that surfaces your vision, anchors it to one true moment from your story, and hands you two things to show for it: a short film in your own voice, and a one-page map of where you're headed. It's the fastest way to feel the work before the full session, and every dollar credits toward it.</p>
             <div class="hero-cta-group">
                 <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary">Book a Clarity Call</a>
-                <span class="cta-note">Free, 30 minutes. We'll find one place where your reputation is stronger than your messaging. Or take the <a href="https://thebiggerstage.com/assessment" style="color: var(--color-orange); text-decoration: none; border-bottom: 1px solid rgba(255,87,34,0.4);">Operator-to-Icon Assessment</a>, or see <a href="#the-sessions" style="color: var(--color-orange); text-decoration: none; border-bottom: 1px solid rgba(255,87,34,0.4);">the path to the Untold Stories Session</a>.</span>
-            </div>
-            <div class="hero-arc">
-                <span class="arc-step">Operator</span>
-                <span class="arc-arrow">→</span>
-                <span class="arc-step">Authority</span>
-                <span class="arc-arrow">→</span>
-                <span class="arc-step active">Icon</span>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hero-show-card">
-                <img src="IMG_5013.jpeg" alt="Matt Stone">
+                <span class="cta-note">Every Vision Session begins with a short Clarity Call, a chance to confirm it's the right fit before you commit. $750, credited in full toward your Untold Stories Session.</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- POSITIONING BAR -->
-<div class="positioning-bar">
-    <p>This work is for founders. Not CEOs. The distinction matters, because the work is personal.</p>
-</div>
-
-<!-- WHO THIS IS FOR -->
-<section id="the-work">
+<!-- WHAT IT IS -->
+<section>
     <div class="section-inner">
-        <div class="who-layout">
-            <div class="reveal">
-                <span class="section-eyebrow">The reputation gap</span>
-                <h2 class="section-headline">You're already trusted. The market just can't see it yet.</h2>
-                <p class="section-body">You've built a real business. Real clients, real standards, real proof. People who know you understand exactly why your work matters. The problem is how much of that understanding still depends on you being in the room: explaining the business, telling the story, walking a prospect through what makes you different.</p>
-                <br>
-                <p class="section-body">That's the reputation gap. Your reputation has outgrown your messaging, and the cost is showing up in slower sales, more explaining, harder pricing conversations, and louder competitors getting attention you've already earned.</p>
-            </div>
-            <div class="recognition-grid reveal">
-                <div class="recognition-item">People understand your value after talking to you, not before.</div>
-                <div class="recognition-item">Your website sounds more generic than your actual work.</div>
-                <div class="recognition-item">You rely heavily on referrals because they explain you better than your marketing does.</div>
-                <div class="recognition-item">You're tired of being compared to cheaper or louder competitors who can't do what you do.</div>
-                <div class="recognition-item">You have a strong point of view, but it comes out clearly in conversation, not in your narrative.</div>
-                <div class="recognition-item">You're stepping into bigger rooms, but your message still feels like it belongs to an earlier version of the business.</div>
-                <div class="recognition-item">You know there's a deeper story behind what you've built. You're just too close to it to say it clearly.</div>
-                <div class="testimonial-callout">
-                    <blockquote>"You picked things I maybe wouldn't have picked myself. The background you bring asks good questions that pull out things I wasn't necessarily thinking about."</blockquote>
-                    <span class="attribution">Rhonda Noordyk · Founder &amp; Financial Advocate</span>
-                </div>
-                <div class="who-photo reveal">
-                    <img src="DB_A5566.jpg" alt="Matt Stone in conversation with founders">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- THE METHOD -->
-<div style="background: var(--color-orange); padding: 3rem 3rem; text-align: center;">
-    <div style="max-width: 820px; margin: 0 auto;">
-        <p style="font-family: var(--font-display); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; color: var(--color-white); margin: 0 0 1.25rem; text-transform: uppercase; opacity: 0.85;">This is not influencer training.</p>
-        <p style="font-family: var(--font-body); font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 500; line-height: 1.5; color: var(--color-white); margin: 0 0 1.5rem;">You don't need to become louder, trendier, or more performative. You need the market to understand what your best clients already know: why your work matters, why your standards are different, and why you are the one to trust.</p>
-        <p style="font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 700; letter-spacing: 0.05em; color: var(--color-white); margin: 0; text-transform: uppercase;">He doesn't help people become louder versions of themselves. He helps them become clearer ones.</p>
-    </div>
-</div>
-
-<section class="method-section" id="method">
-    <div class="section-inner">
-        <span class="section-eyebrow reveal">The method</span>
-        <h2 class="section-headline reveal">The Revelation</h2>
-        <p class="section-body reveal">Every founder who makes the operator-to-icon shift goes through the same internal transition first. The meaning behind the business, what it truly stands for, why it matters beyond the service, has to become accessible before it can become communicable. Most operators don’t know exactly what’s blocking them until someone asks the right questions.</p>
+        <span class="section-eyebrow reveal">What it is</span>
+        <h2 class="section-headline reveal">Start with where you're going.</h2>
+        <p class="section-body reveal">Most founder messaging digs through the past. The Vision Session starts at the other end: the future you're already driving toward but can't quite put into words. This isn't imagining a future or wishful thinking. It's excavation. The vision is already in you, the reason you started, the thing you can't quite say at dinner. We surface it, then anchor it to one true moment from your history so it lands as credible, not aspirational.</p>
         <br>
-        <p class="section-body reveal">The Revelation is a recorded conversation process designed to draw out what you haven’t been able to say. Not to install a message. To surface the true one. And put it on camera, where it becomes real.</p>
+        <p class="section-body reveal">We work from a three-year horizon: far enough ahead to be about who you're becoming, close enough to stay real. You come ready to talk about where you want to be. We do the rest.</p>
+    </div>
+</section>
 
-        <blockquote class="pull-quote reveal">"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. He asks the questions I should be thinking about, I respond, and that is the fastest, most efficient way I know of doing something new." <span style="display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-orange); margin-top: 1rem; font-style: normal;">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span></blockquote>
-
+<!-- WHAT YOU WALK AWAY WITH -->
+<section class="offers-section">
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">What you walk away with</span>
+        <h2 class="section-headline reveal">One session. Three things in hand.</h2>
         <div class="steps-grid">
             <div class="step reveal">
                 <div class="step-num">01</div>
-                <div class="step-label">Reveal</div>
-                <h4>Surface what’s already there</h4>
-                <p>Through a recorded conversation, unscripted and on camera, we excavate the real meaning underneath your business: what it stands for, why it matters, and how you need to talk about it. Most operators don’t know exactly what’s blocking them until someone asks the right questions. The camera becomes your first stage.</p>
+                <div class="step-label">The Session</div>
+                <h4>Where you're going, on camera</h4>
+                <p>Forty-five to sixty minutes, online and recorded. We go deep on the future you're already building toward: your life, your customers' lives, your community, your impact. Then we surface the one true moment from your history that makes it credible. Most founders leave clearer than they've been in a year.</p>
             </div>
             <div class="step reveal">
                 <div class="step-num">02</div>
-                <div class="step-label">Realign</div>
-                <h4>Shift from operational to iconic</h4>
-                <p>With the message surfaced, we reorient your perspective from the inside out. You’ve been thinking like an operator, in numbers, process, and deliverables. We build a messaging framework that shifts you toward iconic leadership, clarifying your authority, defining your vision, and giving you language your investors, team, and market actually understand.</p>
+                <div class="step-label">The Vision Cut</div>
+                <h4>Your vision, in your own voice</h4>
+                <p>A short edited video, sixty to ninety seconds, of you saying where you're going, anchored by that one proof-point. Immediate and real, something you can put in front of your market the week it lands.</p>
             </div>
             <div class="step reveal">
                 <div class="step-num">03</div>
-                <div class="step-label">Repurpose</div>
-                <h4>Send it into the world</h4>
-                <p>The recordings, the language, and the story become assets, ready to deploy across your brand, your team communications, your investor narrative, and your public presence. Your voice traveling into rooms you are not in, with the clarity and conviction of someone who knows exactly what they stand for.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- YOUR STORY AT SCALE -->
-<section>
-    <div class="section-inner">
-        <span class="section-eyebrow reveal">Your story at scale</span>
-        <h2 class="section-headline reveal">When the message is clear and on camera, it travels without you.</h2>
-        <p class="section-body reveal">Most founders are the bottleneck of their own brand. Every new partner, hire, or market requires them to show up in person and explain, again, what the business is, why it matters, and why they're the one to lead it.</p>
-        <br>
-        <p class="section-body reveal">The Revelation changes that. When your story is clear and captured on camera, it becomes an asset that works independently. A future franchise partner discovers your vision before you've met. A senior hire understands your leadership before the first interview. A customer feels the meaning behind the business before they pick up the phone.</p>
-        <br>
-        <p class="section-body reveal">This is what separates an icon from an operator. An operator's impact is limited by their presence. An icon's message scales beyond it.</p>
-
-        <blockquote class="pull-quote reveal">"If you have a smart way to repurpose and utilize everything that comes out in the interviews, whether it's marketing, communication, speaking with staff, supporting materials for client proposals, or even developing new products, it's worth its weight in gold." <span style="display: block; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-orange); margin-top: 1rem; font-style: normal;">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span></blockquote>
-
-        <div class="scale-cards">
-            <div class="scale-card reveal">
-                <span class="scale-card-label">For growth</span>
-                <h4>Attract the right people</h4>
-                <p>Partners, hires, and customers who already understand what you stand for arrive pre-aligned. Less convincing. More choosing.</p>
-            </div>
-            <div class="scale-card reveal">
-                <span class="scale-card-label">For scale</span>
-                <h4>Build beyond the service</h4>
-                <p>Franchising, new locations, new markets. The brand travels with you because the meaning is clear, captured, and communicable without you in the room.</p>
-            </div>
-            <div class="scale-card reveal">
-                <span class="scale-card-label">For legacy</span>
-                <h4>Create a lasting voice</h4>
-                <p>The narrative assets built through The Revelation become the foundation of a platform: a body of work that outlasts any single transaction or season of growth.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- THE SESSIONS / THE PATH -->
-<section class="offers-section" id="the-sessions">
-    <div class="section-inner">
-        <span class="section-eyebrow reveal">The path</span>
-        <h2 class="section-headline reveal">One destination. A clear way in.</h2>
-        <p class="section-body reveal">Everything here leads to one place: the Untold Stories Session, where your defining story is surfaced on camera and built into the assets that move every stakeholder who decides your future. There are two ways to get there, and both begin with a conversation.</p>
-
-        <div class="price-band reveal">
-            <strong>Who this is built for:</strong> Founders running $1M to $5M service businesses where the founder is still the primary face of the company. Every path begins with a free Clarity Call, where the specifics are discussed.
-        </div>
-
-        <div class="persona-band reveal">
-            <span class="persona-band-label">Founders we work with sound like this</span>
-            <p>"We're doing great in our existing market. Multimillion dollars a year, stable, growing. But I want to expand out of our comfortable market, and that requires thinking about a whole bunch of new stuff. Honestly, with operations, I'm busy."</p>
-            <span class="attribution">Jason Durkee · Founder &amp; President, Idea Development K.K. (Tokyo)</span>
-        </div>
-
-        <!-- TWO ON-RAMPS -->
-        <div class="ladder-onramps">
-            <div class="onramp-card reveal">
-                <span class="rung-num">Step 01 · Start here</span>
-                <h3>The Clarity Call</h3>
-                <div class="onramp-investment">Free · 30 minutes</div>
-                <p>A short conversation to find one place where your reputation is stronger than your messaging. You'll leave with at least one insight you can use the same week, and a clear sense of whether the work is right for you.</p>
-                <a href="https://calendly.com/matt-stone-2/clarity-call" class="offer-cta">Book a Clarity Call →</a>
-            </div>
-            <div class="onramp-card reveal">
-                <span class="rung-num">Step 02 · Or go deeper first</span>
-                <h3>The Vision Session</h3>
-                <div class="onramp-investment">$750 · Credited toward the Untold Stories Session</div>
-                <p>One recorded session to map where you're going. We go deep on the future you're already building toward, then surface the one true moment from your history that makes it credible. You walk away with a short Vision Cut and a one-page Vision Map.</p>
-                <a href="/vision-session" class="offer-cta">See the Vision Session →</a>
+                <div class="step-label">The Vision Map</div>
+                <h4>The outline of your untold story</h4>
+                <p>One page. Your vision in words you didn't have before, grounded by the proof-point, and then the handful of stories that would make that vision real in other people's minds. A table of contents for everything still to tell.</p>
             </div>
         </div>
 
-        <div class="ladder-arrow-down reveal">&#8595;</div>
-
-        <!-- THE DESTINATION -->
-        <div class="destination-card reveal">
-            <span class="offer-badge">Step 03 · The destination</span>
-            <h3>The Untold Stories Session</h3>
-            <div class="offer-investment">On location · $8,900</div>
-            <p>Matt comes to your city for one masterful on-camera interview, roughly an hour with you in the chair, where your defining narrative is surfaced and shaped, then built into the elements that move every stakeholder who decides your future, inside the company and out.</p>
-            <div class="destination-jewel"><strong>The Founder Story Reel</strong> is your professionally edited full story, the centerpiece everything else is built around.</div>
-            <ul class="offer-deliverables">
-                <li>Pre-shoot strategy consultation</li>
-                <li>~1 hour on-camera interview</li>
-                <li>Founder Story Reel, your full story edited</li>
-                <li>8&#8211;12 clips and shorts with copy</li>
-                <li>Founder Narrative &amp; Brand Intelligence Report</li>
-                <li>Three-month narrative rollout plan</li>
-            </ul>
-            <div class="destination-meta">Available in New York City and a select number of cities each season. Register your interest and you'll be first to know when Matt is coming to yours.</div>
-            <a href="/untold-stories" class="offer-cta">See the Untold Stories Session →</a>
-        </div>
-
-        <!-- WHAT COMES AFTER -->
-        <div class="backend-zone reveal">
-            <span class="backend-label">What comes after</span>
-            <div class="backend-items">
-                <div class="backend-item">
-                    <h4>The Bigger Stage Partnership</h4>
-                    <p>Ongoing narrative development for founders building toward icon steadily over time. Each session goes deeper as you grow into new rooms.</p>
-                    <a href="https://calendly.com/matt-stone-2/clarity-call">Discuss on a Clarity Call →</a>
-                </div>
-                <div class="backend-item">
-                    <h4>The Revelation</h4>
-                    <p>The full narrative process delivered remotely, for founders who want the complete engagement without an on-location shoot.</p>
-                    <a href="https://calendly.com/matt-stone-2/clarity-call">Discuss on a Clarity Call →</a>
-                </div>
-                <div class="backend-item">
-                    <h4>Live Events</h4>
-                    <p>The Untold Stories experience in the room, with founders surfacing their stories live and on camera together.</p>
-                    <a href="/live-events">Learn more →</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section>
-    <div class="section-inner">
-        <span class="section-eyebrow reveal">Founders, in their own words</span>
-        <h2 class="section-headline reveal">What the work actually does.</h2>
-        <p class="section-body reveal">Each of these founders came in with a different question. Each one walked out with a different kind of answer.</p>
-        <div class="testimonials-grid">
-            <div class="testimonial reveal">
-                <span class="testimonial-label">On the work itself</span>
-                <blockquote>"The most effective way I can think about what's necessary to grow the business is really to have Matt do the thinking for me. When he asks the questions I should be thinking about, I respond, and that is the fastest, most efficient way I know of doing something new and exciting. The biggest surprise was just how easy it is. Meetings typically suck the energy out of you. Talking to Matt, you actually get energy and feel better when it's done."</blockquote>
-                <div class="testimonial-author">Jason Durkee</div>
-                <div class="testimonial-role">Founder &amp; President, Idea Development K.K. · Tokyo skills training for Japanese multinationals</div>
-            </div>
-            <div class="testimonial reveal">
-                <span class="testimonial-label">On the experience of being interviewed</span>
-                <blockquote>"You had great questions. You made it really comfortable for us to just have a conversation. Not only was the one hour we spent together great, but the deliverables on the back end were polished and gave me and my team what we needed to showcase what it is that we're doing and where we're going. You picked things that I maybe wouldn't have picked myself, but I was happy with it. Part of the reason we were working together was because of the background you bring to ask good questions that pulled out things I wasn't necessarily thinking about."</blockquote>
-                <div class="testimonial-author">Rhonda Noordyk</div>
-                <div class="testimonial-role">Founder &amp; Financial Advocate</div>
-            </div>
-            <div class="testimonial reveal">
-                <span class="testimonial-label">On craft, from storytelling professionals</span>
-                <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. He skillfully held the room and seamlessly facilitated the conversation. In his podcast, he made it easy for us to tell a true, unpolished story. When it came time to translate that story into video, he carried it with the same attentive, unhurried, quietly excellent care. Presence first. Story second. Craft all the way through. We needed someone who can produce beautiful media and keep the human being at the center of the process, and Matt has overdelivered."</blockquote>
-                <div class="testimonial-author">Samir Selmanovic, Ph.D. &amp; Jordan Soliday</div>
-                <div class="testimonial-role">Leadership Coach &amp; Innovation Instructor · Epic Ordinary LLC</div>
-            </div>
-            <div class="testimonial reveal">
-                <span class="testimonial-label">On where the assets travel</span>
-                <blockquote>"In my case, working with Matt helps me make enough output, information, thought, wording, that we can repurpose and use in a ton of different ways. Marketing, communication, speaking with staff, supporting materials for client proposals, even developing new products. If you have a smart way to repurpose and utilize everything that comes out in interviews, it's worth its weight in gold."</blockquote>
-                <div class="testimonial-author">Jason Durkee</div>
-                <div class="testimonial-role">Founder &amp; President, Idea Development K.K. · Tokyo</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PODCAST -->
-<section class="podcast-section" id="podcast">
-    <div class="section-inner">
-        <span class="section-eyebrow reveal">The Bigger Stage podcast</span>
-        <h2 class="section-headline reveal">Conversations with people who know what it takes.</h2>
-        <p class="section-body reveal">These are not clients. They're leaders, founders, and thinkers whose work sharpens how I think about this one. Every episode is an honest conversation about the human moments behind growth: how trust gets built, how visibility changes responsibility, and how storytelling becomes a leadership skill as the stakes rise.</p>
-
-        <div class="episodes-grid">
-            <a href="https://youtu.be/kXs6tvhHFkk?si=2RbGpcGqWe3IFIR6" target="_blank" class="episode-card reveal">
-                <div class="episode-thumb">
-                    <img src="https://img.youtube.com/vi/kXs6tvhHFkk/hqdefault.jpg" alt="He Built a Multi-Million Dollar Painting Empire — Then Walked Away" style="width:100%;height:100%;object-fit:cover;display:block;">
-                </div>
-                <div class="episode-info">
-                    <div class="episode-title">He Built a Multi-Million Dollar Painting Empire — Then Walked Away</div>
-                    <div class="episode-guest">Kevin Nolan</div>
-                </div>
-            </a>
-            <a href="https://youtu.be/rXekWjxFOiE?si=7pp5fNDQP4sYVA6B" target="_blank" class="episode-card reveal">
-                <div class="episode-thumb">
-                    <img src="https://img.youtube.com/vi/rXekWjxFOiE/hqdefault.jpg" alt="The More You Prepare, The More You Can Let Go" style="width:100%;height:100%;object-fit:cover;display:block;">
-                </div>
-                <div class="episode-info">
-                    <div class="episode-title">The Sacrifice Paradox: What You Give Up Is What Gets You There</div>
-                    <div class="episode-guest">David Kalinowski</div>
-                </div>
-            </a>
-            <a href="https://youtu.be/p3V1qygGO6o?si=6RsbQgrNp2LdjsTW" target="_blank" class="episode-card reveal">
-                <div class="episode-thumb">
-                    <img src="https://img.youtube.com/vi/p3V1qygGO6o/hqdefault.jpg" alt="The Sacrifice Paradox: What You Give Up Is What Gets You There" style="width:100%;height:100%;object-fit:cover;display:block;">
-                </div>
-                <div class="episode-info">
-                    <div class="episode-title">The More You Prepare, The More You Can Let Go</div>
-                    <div class="episode-guest">Meridith Grundei</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="podcast-platforms reveal">
-            <span>Find all episodes on</span>
-            <a href="https://www.youtube.com/@thebiggerstage" target="_blank" class="platform-link">YouTube</a>
-            <a href="https://podcasts.apple.com/us/podcast/the-bigger-stage-w-matt-stone/id1843248743" target="_blank" class="platform-link">Apple Podcasts</a>
-            <a href="https://open.spotify.com/show/23sV8PD1HY84g1tiZscqwc?si=25842a0f14374f8d" target="_blank" class="platform-link">Spotify</a>
-        </div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <div class="section-inner">
-        <div class="about-layout">
-            <div class="about-photo reveal">
-                <img src="IMG_5470.jpeg" alt="Matt Stone in New York City">
-            </div>
-            <div class="about-text reveal">
-                <span class="section-eyebrow">About Matt</span>
-                <h2>From Hollywood studios to boardrooms and courtrooms.</h2>
-                <p>Matt Stone has worked across more contexts than almost anyone you'll meet in this category: a law office, the Pentagon, multinational corporations, Hollywood studios, and multiple startups in Silicon Valley and elsewhere. Different contexts. Same drivers.</p>
-                <p>In every room, the thing that has always mattered the most is the ability to listen deeply enough to draw out what someone couldn't quite say, then reflect it back in a way that changed the next decision. A case that settled. A pitch that landed. A team that finally understood why the work mattered. A founder who finally heard their own message.</p>
-                <p>The range matters because founders aren't one thing. You might be selling to a Fortune 500 procurement team in the morning and onboarding a new salesperson in the afternoon. The work of finding a narrative that travels across that range is exactly what most founder-messaging services miss. Matt has spent a career in it.</p>
-                <p>For ten years, he built a management consultancy on someone else's foundation, carrying another founder's meaning, speaking another founder's words. He got far. But something never fully landed. He knew that gap intimately: the personal cost of a presence that doesn't match what you've actually built. That gap became The Bigger Stage. The operator-to-icon journey isn't just a framework he teaches. It's one he lived.</p>
-                <div class="testimonial-callout">
-                    <blockquote>"We are storytelling professionals, and yet, Matt helped us crystallize the narratives we were carrying. Presence first. Story second. Craft all the way through."</blockquote>
-                    <span class="attribution">Samir Selmanovic, Ph.D. &amp; Jordan Soliday · Epic Ordinary LLC</span>
-                </div>
-                <div class="about-facts">
-                    <div class="fact"><span class="fact-label">Background</span><span class="fact-value">Law, Hollywood, Silicon Valley, federal consulting, management advisory, global business development</span></div>
-                    <div class="fact"><span class="fact-label">Training</span><span class="fact-value">J.D., University of Hawaiʻi · B.A., University of Oregon · Neuroscience-based coaching</span></div>
-                    <div class="fact"><span class="fact-label">Lived in</span><span class="fact-value">Seven US states, Europe, Asia</span></div>
-                    <div class="fact"><span class="fact-label">Based</span><span class="fact-value">New York City</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- STAY IN TOUCH -->
-<section class="stay-in-touch" id="stay-in-touch">
-    <div class="section-inner">
-        <span class="section-eyebrow reveal" style="display:block;text-align:center;">Stay in Touch</span>
-        <h2 class="section-headline reveal" style="font-size:clamp(2rem,4vw,3rem);">Words worth reading.<br>When they're ready.</h2>
-        <p class="reveal" style="color:var(--color-gray);font-size:1.05rem;line-height:1.75;max-width:560px;margin:0 auto;">
-            Occasional notes on founder messaging, presence, and the gap between reputation and reach. No cadence. No noise. Just thinking worth your time.
-        </p>
-        <div class="sit-form reveal" id="sitForm">
-            <div class="sit-field">
-                <label class="sit-label" for="sit-fname">First Name</label>
-                <input class="sit-input" type="text" id="sit-fname" name="first_name" placeholder="Your first name" required autocomplete="given-name">
-            </div>
-            <div class="sit-field">
-                <label class="sit-label" for="sit-email">Email</label>
-                <input class="sit-input" type="email" id="sit-email" name="email" placeholder="your@email.com" required autocomplete="email">
-            </div>
-            <div class="sit-field">
-                <label class="sit-label" for="sit-lname">Last Name <span class="optional">optional</span></label>
-                <input class="sit-input" type="text" id="sit-lname" name="last_name" placeholder="Last name" autocomplete="family-name">
-            </div>
-            <div class="sit-field">
-                <label class="sit-label" for="sit-company">Company <span class="optional">optional</span></label>
-                <input class="sit-input" type="text" id="sit-company" name="company" placeholder="Your company" autocomplete="organization">
-            </div>
-            <button class="sit-submit" id="sitSubmit" type="button" onclick="handleSitSubmit()">
-                <span id="sitBtnText">Subscribe</span>
-            </button>
-            <div class="sit-status" id="sitStatus"></div>
-            <p class="sit-note">No spam. Unsubscribe anytime.</p>
-        </div>
-    </div>
-</section>
-
-<!-- CLOSING CTA -->
-<section class="closing-cta">
-    <div class="section-inner" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <span class="section-eyebrow reveal" style="display: block; text-align: center;">Your next step</span>
-        <h2 class="section-headline reveal">Find the message your market is missing.</h2>
-        <p class="reveal">A 30-minute conversation. We'll look at where your reputation is stronger than your messaging, and identify one story, standard, or point of view your market needs to hear more clearly. You'll leave with at least one insight you can use the same week.</p>
-        <div class="reveal">
+        <div class="vision-invest reveal">
+            <div class="vii-amount">$750</div>
+            <div class="vii-text"><strong>Credited in full toward your Untold Stories Session.</strong> It starts with a short Clarity Call to confirm the fit, then one conversation and two finished artifacts within a week.</div>
             <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary">Book a Clarity Call</a>
-            <span class="secondary-cta">Or reach out directly: <a href="mailto:matt@mattstone.co">matt@mattstone.co</a></span>
         </div>
     </div>
 </section>
 
+<!-- WHERE IT LEADS -->
+<section>
+    <div class="section-inner vision-uplink">
+        <span class="section-eyebrow reveal">Where it leads</span>
+        <h2 class="section-headline reveal">One thread today. The whole story next.</h2>
+        <p class="section-body reveal">The Vision Session excavates one thread all the way down. The Untold Stories Session excavates all of them and builds the system that carries them: your Founder Story Reel, your clips, your Brand Intelligence Report, your rollout. Your Vision Map ends with the outline of that fuller story, and your $750 comes straight off the top when you're ready to build it.</p>
+        <br>
+        <a href="/untold-stories" class="offer-cta reveal">See the Untold Stories Session →</a>
+    </div>
+</section>
 <!-- FOOTER -->
 <footer>
     <span class="footer-copy">© 2026 Matt Stone Enterprises LLC</span>
