@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ============================================================
+         Title format: "Your Iconic Introduction — The Bigger Stage"
+         ============================================================ -->
+    <title>Your Iconic Introduction — The Bigger Stage</title>
+    <meta name="description" content="A development journey and studio production that turns your introduction into something unforgettable — a to-camera video, an interview-style package, and social assets that let your story precede you. $2,250.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Your Iconic Introduction — The Bigger Stage">
+    <meta property="og:description" content="The story you tell about yourself, produced like it matters. Book a Clarity Call.">
+    <meta property="og:image" content="https://thebiggerstage.com/your-iconic-introduction/iconic-introduction-banner.png">
+    <meta property="og:url" content="https://thebiggerstage.com/your-iconic-introduction">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Bigger Stage">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Iconic Introduction — The Bigger Stage">
+    <meta name="twitter:description" content="The story you tell about yourself, produced like it matters. Book a Clarity Call.">
+    <meta name="twitter:image" content="https://thebiggerstage.com/your-iconic-introduction/iconic-introduction-banner.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Archivo:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-charcoal: #1a1a1a;
+            --color-orange: #ff5722;
+            --color-orange-bright: #ff6b3d;
+            --color-white: #ffffff;
+            --color-gray: #8a8a8a;
+            --color-light-gray: #e8e8e8;
+            --color-stone: #f5f5f0;
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Archivo', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* NAV */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-white);
+            text-decoration: none;
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+            text-decoration: none; transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--color-white); }
+
+        .nav-links a.nav-cta {
+            color: var(--color-white);
+            background: var(--color-orange);
+            padding: 0.55rem 1.1rem;
+            transition: background 0.2s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .nav-links a.nav-cta:hover {
+            background: var(--color-orange-bright);
+            color: var(--color-white);
+            transform: translateY(-1px);
+        }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 0.5rem;
+        }
+
+        .hamburger span {
+            display: block; width: 24px; height: 2px;
+            background: var(--color-white); transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--color-black); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            gap: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+        }
+
+        .mobile-menu.open { opacity: 1; pointer-events: auto; }
+
+        .mobile-menu a {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 900;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-white); text-decoration: none; transition: color 0.2s;
+        }
+
+        .mobile-menu a:hover { color: var(--color-orange); }
+
+        .mobile-menu-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; color: var(--color-gray);
+            font-size: 2rem; cursor: pointer; line-height: 1;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 7rem 0 4rem;
+            background: var(--color-black);
+            overflow: hidden;
+            min-height: 92vh;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: var(--color-black);
+        }
+
+        .hero-bg img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            max-width: none;
+            width: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            display: block;
+            animation: fadeIn 1.2s ease-out backwards;
+        }
+
+        /* Soft gradient blends the dark left of the image into the text area */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(to right,
+                    rgba(10,10,10,1) 0%,
+                    rgba(10,10,10,0.95) 20%,
+                    rgba(10,10,10,0.7) 40%,
+                    rgba(10,10,10,0.25) 55%,
+                    rgba(10,10,10,0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 3rem;
+        }
+
+        .hero-text {
+            max-width: 580px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            color: var(--color-orange); letter-spacing: 0.2em; text-transform: uppercase;
+            margin-bottom: 1.5rem; display: block;
+            animation: fadeUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display); font-size: clamp(2.75rem, 5.5vw, 5rem);
+            font-weight: 900; line-height: 0.95; letter-spacing: 0.01em;
+            text-transform: uppercase; margin-bottom: 1.2rem;
+            animation: fadeUp 0.8s ease-out 0.2s backwards;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+        }
+
+        .hero h1 .highlight { color: var(--color-orange); display: block; }
+
+        .hero-bridge {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+            color: var(--color-white); letter-spacing: 0.05em; margin-bottom: 1.5rem;
+            opacity: 0.9;
+            animation: fadeUp 0.8s ease-out 0.3s backwards;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem; line-height: 1.75; color: var(--color-light-gray);
+            max-width: 520px; margin-bottom: 2rem;
+            animation: fadeUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 1.75rem;
+            margin-bottom: 2.5rem; padding-top: 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.18);
+            animation: fadeUp 0.8s ease-out 0.5s backwards;
+        }
+
+        .hero-meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+
+        .hero-meta-label {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .hero-meta-value {
+            font-size: 0.95rem; color: var(--color-white); font-weight: 500;
+        }
+
+        .btn-primary {
+            display: inline-block; background: var(--color-orange);
+            color: var(--color-white); text-decoration: none;
+            font-family: var(--font-display); font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            padding: 1.1rem 2.2rem; transition: background 0.2s, transform 0.2s;
+            border: none; cursor: pointer;
+        }
+
+        .btn-primary:hover { background: var(--color-orange-bright); transform: translateY(-2px); }
+
+        .hero-cta-wrap {
+            display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+            animation: fadeUp 0.8s ease-out 0.6s backwards;
+        }
+
+        .hero-cta-note {
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+        }
+
+        /* SECTIONS */
+        section { padding: 7rem 3rem; }
+
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        .section-eyebrow {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-orange);
+            margin-bottom: 1.5rem; display: block;
+        }
+
+        .section-headline {
+            font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.5rem);
+            font-weight: 900; text-transform: uppercase; line-height: 1;
+            margin-bottom: 2rem; letter-spacing: -0.01em;
+        }
+
+        .section-body {
+            font-size: 1.1rem; line-height: 1.8; color: var(--color-gray);
+            max-width: 680px;
+        }
+
+        .section-body p { margin-bottom: 1.25rem; }
+        .section-body p:last-child { margin-bottom: 0; }
+        .section-body strong { color: var(--color-white); font-weight: 500; }
+
+        /* PREMISE */
+        .premise { background: var(--color-charcoal); }
+
+        .premise-layout {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start;
+        }
+
+        /* FORMAT */
+        .format-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .format-card {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .format-card:nth-child(3n) { border-right: none; }
+        .format-card:nth-last-child(-n+3) { border-bottom: none; }
+
+        .format-num {
+            font-family: var(--font-display); font-size: 3rem; font-weight: 900;
+            color: var(--color-orange); line-height: 1; margin-bottom: 1.25rem;
+        }
+
+        .format-card h3 {
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 0.75rem; color: var(--color-white);
+        }
+
+        .format-card p {
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+        }
+
+        /* SAMPLE VIDEO */
+        .sample { background: var(--color-charcoal); }
+
+        .sample-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+
+        .video-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            margin-top: 3rem;
+            border-left: 3px solid var(--color-orange);
+            background: var(--color-black);
+            overflow: hidden;
+        }
+
+        .video-wrap iframe {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: none;
+        }
+
+        .sample-caption {
+            margin-top: 1.75rem;
+            font-size: 0.95rem; line-height: 1.7; color: var(--color-gray);
+            max-width: 640px; margin-left: auto; margin-right: auto;
+        }
+
+        .sample-caption strong { color: var(--color-white); font-weight: 500; }
+
+        /* GALLERY STRIP */
+        .gallery-strip {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-strip figure { position: relative; overflow: hidden; }
+
+        .gallery-strip img {
+            width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5;
+            filter: brightness(0.9);
+            transition: filter 0.3s, transform 0.4s;
+        }
+
+        .gallery-strip figure:hover img { filter: brightness(1); transform: scale(1.03); }
+
+        .gallery-strip figcaption {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-gray);
+            margin-top: 0.9rem;
+        }
+
+        /* GUEST / PACKAGE */
+        .guest { background: var(--color-charcoal); }
+
+        .guest-layout {
+            display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 5rem; align-items: center;
+        }
+
+        .guest-image-wrap {
+            position: relative;
+            border-left: 3px solid var(--color-orange);
+            overflow: hidden;
+        }
+
+        .guest-image-wrap img {
+            width: 100%; display: block;
+            object-fit: cover; object-position: center 20%;
+            filter: brightness(0.95);
+        }
+
+        .guest-content .section-eyebrow { margin-bottom: 1rem; }
+
+        .guest-name {
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+            font-weight: 900; text-transform: uppercase;
+            line-height: 0.95; letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+        }
+
+        .guest-tagline {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 700;
+            letter-spacing: 0.05em; color: var(--color-orange);
+            margin-bottom: 2rem; line-height: 1.4;
+        }
+
+        .guest-bio p {
+            font-size: 1rem; line-height: 1.75; color: var(--color-light-gray);
+            margin-bottom: 1.25rem;
+        }
+
+        .guest-bio p:last-child { margin-bottom: 0; }
+
+        .guest-bio em {
+            font-style: italic; color: var(--color-white);
+        }
+
+        .guest-credits {
+            margin-top: 2rem; padding-top: 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gray);
+        }
+
+        .guest-credits strong { color: var(--color-orange); font-weight: 700; }
+
+        /* PACKAGE LIST (deliverables, styled as audience-list) */
+        .package-list {
+            list-style: none; counter-reset: pkg-counter; margin-top: 2rem;
+        }
+
+        .package-list li {
+            counter-increment: pkg-counter;
+            padding: 1.1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: grid; grid-template-columns: auto 1fr; gap: 1.25rem;
+            align-items: baseline;
+        }
+
+        .package-list li:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+
+        .package-list li::before {
+            content: counter(pkg-counter, decimal-leading-zero);
+            font-family: var(--font-display); font-size: 0.95rem; font-weight: 900;
+            color: var(--color-orange); letter-spacing: 0.05em;
+        }
+
+        .package-list h4 {
+            font-family: var(--font-display); font-size: 0.9rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.04em;
+            margin-bottom: 0.2rem; color: var(--color-white);
+        }
+
+        .package-list p {
+            font-size: 0.9rem; line-height: 1.6; color: var(--color-gray);
+        }
+
+        /* PRICE BLOCK */
+        .price-block {
+            margin-top: 2.25rem; padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+        }
+
+        .price-value {
+            font-family: var(--font-display); font-size: 2.75rem; font-weight: 900;
+            color: var(--color-orange); line-height: 1;
+        }
+
+        .price-note {
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+            max-width: 320px;
+        }
+
+        /* AUDIENCE */
+        .audience-layout {
+            display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start;
+        }
+
+        .audience-list {
+            list-style: none; counter-reset: aud-counter;
+        }
+
+        .audience-list li {
+            counter-increment: aud-counter;
+            padding: 1.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: grid; grid-template-columns: auto 1fr; gap: 1.75rem;
+            align-items: baseline;
+        }
+
+        .audience-list li:first-child {
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .audience-list li::before {
+            content: counter(aud-counter, decimal-leading-zero);
+            font-family: var(--font-display); font-size: 1.1rem; font-weight: 900;
+            color: var(--color-orange); letter-spacing: 0.05em;
+        }
+
+        .audience-list h4 {
+            font-family: var(--font-display); font-size: 1rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 0.4rem; color: var(--color-white);
+        }
+
+        .audience-list p {
+            font-size: 0.95rem; line-height: 1.65; color: var(--color-gray);
+        }
+
+        /* HOST QUOTE */
+        .host { background: var(--color-charcoal); }
+
+        .host-inner {
+            max-width: 880px; margin: 0 auto;
+        }
+
+        .pull-quote-large {
+            font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+            font-style: italic; color: var(--color-white);
+            line-height: 1.5; margin: 0 0 2rem;
+            padding: 0 0 0 2rem;
+            border-left: 3px solid var(--color-orange);
+            max-width: 720px;
+        }
+
+        .host-attribution {
+            font-family: var(--font-display); font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--color-gray);
+            padding-left: 2rem;
+        }
+
+        .host-attribution strong { color: var(--color-orange); font-weight: 700; }
+
+        /* APPLY / BOOK */
+        .apply { text-align: center; }
+
+        .apply-inner { max-width: 720px; margin: 0 auto; }
+
+        .apply .section-eyebrow { display: inline-block; }
+
+        .apply .section-body { margin: 0 auto; }
+
+        .apply-deadline {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            margin-top: 1.5rem; padding: 0.55rem 1.1rem;
+            background: rgba(255,87,34,0.08);
+            border: 1px solid rgba(255,87,34,0.3);
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-orange);
+        }
+
+        .apply-deadline::before { content: '●'; font-size: 0.6rem; }
+
+        .apply-cta-wrap {
+            margin-top: 3rem; display: flex; flex-direction: column;
+            align-items: center; gap: 1rem;
+        }
+
+        .apply-note {
+            font-size: 0.85rem; color: var(--color-gray); font-style: italic;
+        }
+
+        .apply-note a {
+            color: var(--color-orange); text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .apply-note a:hover { color: var(--color-orange-bright); }
+
+        /* FOOTER */
+        footer {
+            background: var(--color-charcoal); padding: 2.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem; color: var(--color-gray);
+            font-family: var(--font-display); letter-spacing: 0.05em; text-transform: uppercase;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            font-family: var(--font-display); font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-gray); text-decoration: none; transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--color-orange); }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; z-index: 1001; position: relative; }
+            .hero { padding: 6rem 0 4rem; min-height: 85vh; }
+            .hero-inner { padding: 0 1.5rem; }
+            .hero-bg img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: 60% 15%;
+            }
+            .hero-bg::after {
+                background:
+                    linear-gradient(to bottom,
+                        rgba(10,10,10,0.92) 0%,
+                        rgba(10,10,10,0.78) 50%,
+                        rgba(10,10,10,0.88) 100%);
+            }
+            section { padding: 5rem 1.5rem; }
+            .premise-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .format-grid { grid-template-columns: 1fr; }
+            .format-card {
+                border-right: none !important;
+                border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+            }
+            .format-card:last-child { border-bottom: none !important; }
+            .gallery-strip { grid-template-columns: 1fr; gap: 2rem; }
+            .guest-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .guest-image-wrap { max-width: 360px; }
+            .audience-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .price-block { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">&#x2715;</button>
+    <a href="/#the-work" class="mobile-nav-link">The Work</a>
+    <a href="/#offers" class="mobile-nav-link">Offers</a>
+    <a href="/#about" class="mobile-nav-link">About</a>
+    <a href="/#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="#book" class="mobile-nav-link">Clarity Call</a>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="/" class="nav-logo">The Bigger Stage</a>
+    <ul class="nav-links">
+        <li><a href="/#the-work">The Work</a></li>
+        <li><a href="/#offers">Offers</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#podcast">Podcast</a></li>
+        <li><a href="#book" class="nav-cta">Clarity Call</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="iconic-introduction-hero.jpeg" alt="Studio portrait for Your Iconic Introduction">
+    </div>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <span class="hero-eyebrow">One story. Produced right.</span>
+            <h1>
+                Your Iconic
+                <span class="highlight">Introduction.</span>
+            </h1>
+            <div class="hero-bridge">A Bigger Stage Studio Production</div>
+            <p class="hero-sub">
+                You get one chance to say who you are before someone decides whether to lean in. This is the development journey and studio session that turns your introduction into something unforgettable — and gives you the assets to let it precede you everywhere you go.
+            </p>
+
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Format</span>
+                    <span class="hero-meta-value">Pre-session · In-studio · Delivered</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Location</span>
+                    <span class="hero-meta-value">In-studio recording</span>
+                </div>
+                <div class="hero-meta-item">
+                    <span class="hero-meta-label">Investment</span>
+                    <span class="hero-meta-value">$2,250</span>
+                </div>
+            </div>
+
+            <div class="hero-cta-wrap">
+                <a href="#book" class="btn-primary">Book a Clarity Call</a>
+                <span class="hero-cta-note">Takes 15 minutes · No obligation</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PREMISE -->
+<section class="premise">
+    <div class="section-inner">
+        <div class="premise-layout">
+            <div class="reveal">
+                <span class="section-eyebrow">The Premise</span>
+                <h2 class="section-headline">Less noise.<br>More story.</h2>
+            </div>
+            <div class="section-body reveal">
+                <p>We've all built a stronger muscle for tuning things out. AI-generated slop, relentless content, everyone competing for the same few seconds of attention. So when someone tells a genuine, human story that helps us understand our world — or ourselves — a little better, it's a moment we remember. Sometimes for good.</p>
+                <p>Whether it's a networking event, the first thirty seconds on a stage, or the line before an investor pitch, you get one opportunity where the people on the other side are actually open to hearing something they haven't heard before. Something revelatory. <strong>Something iconic.</strong></p>
+                <p>Most introductions lead with what you do. <strong>The iconic introduction leads with why you do it</strong> — and says just enough that people in the room feel like they understand something true about you, and find themselves thinking, if not saying, "tell me more."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMAT -->
+<section>
+    <div class="section-inner">
+        <span class="section-eyebrow reveal">How It Works</span>
+        <h2 class="section-headline reveal">One journey.<br>Three movements.</h2>
+
+        <div class="format-grid">
+            <div class="format-card reveal">
+                <div class="format-num">01</div>
+                <h3>Design It</h3>
+                <p>A working session, online, where we shape your story — what it says, what it leaves out, and how it lands in the first thirty seconds. Not a script handed to you. A story built with you.</p>
+            </div>
+            <div class="format-card reveal">
+                <div class="format-num">02</div>
+                <h3>Record It</h3>
+                <p>You come into the studio and we record it — lit, mic'd, and directed, so what comes across on camera is the same energy and thoughtfulness that made the story worth telling in the first place.</p>
+            </div>
+            <div class="format-card reveal">
+                <div class="format-num">03</div>
+                <h3>Deliver It</h3>
+                <p>Post-production and consulting turn the raw session into a finished package — ready to post, ready to send, ready to be the thing that precedes you into the room.</p>
+            </div>
+        </div>
+
+        <div class="gallery-strip">
+            <figure class="reveal">
+                <img src="iconic-introduction-studio.jpeg" alt="Studio lighting and camera setup for a recording session">
+                <figcaption>In the studio</figcaption>
+            </figure>
+            <figure class="reveal">
+                <img src="iconic-introduction-prep.jpeg" alt="A guest preparing before her session">
+                <figcaption>Getting camera-ready</figcaption>
+            </figure>
+            <figure class="reveal">
+                <img src="iconic-introduction-post.jpeg" alt="Editing footage in post-production">
+                <figcaption>Cut in post</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<!-- SAMPLE VIDEO -->
+<section class="sample">
+    <div class="section-inner sample-inner">
+        <span class="section-eyebrow reveal">See It In Action</span>
+        <h2 class="section-headline reveal">This is what<br>it looks like.</h2>
+        <div class="video-wrap reveal">
+            <iframe src="https://www.youtube.com/embed/raffmZns5uo" title="Sample Iconic Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="sample-caption reveal">
+            <strong>This is a sample</strong> — one person's Iconic Introduction, produced start to finish. Yours will be its own thing: built around your story, your voice, and what you need it to do. No two are the same.
+        </p>
+    </div>
+</section>
+
+<!-- PACKAGE / INVESTMENT -->
+<section class="guest">
+    <div class="section-inner">
+        <div class="guest-layout">
+            <div class="guest-image-wrap reveal">
+                <img src="iconic-introduction-interview.jpeg" alt="Interview-style recording session in studio">
+            </div>
+            <div class="guest-content reveal">
+                <span class="section-eyebrow">What's Included</span>
+                <h2 class="guest-name">The Full<br>Package</h2>
+                <p class="guest-tagline">The pre-session, the studio day, and the post-production — one price, no surprises.</p>
+
+                <ol class="package-list">
+                    <li>
+                        <div>
+                            <h4>Pre-Session Design</h4>
+                            <p>A live, online working session to script and shape your Iconic Introduction before you ever step in front of a camera.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>In-Studio Recording</h4>
+                            <p>A full production day — lighting, sound, and direction — so the story is captured the way it deserves to be.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>To-Camera Introduction</h4>
+                            <p>Your polished, finished introduction, delivered ready to post on your website, social profiles, or in an email.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Interview-Style Package</h4>
+                            <p>A one-to-three-minute conversational version of your introduction — a different format for a different context.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Social Clips</h4>
+                            <p>Additional cut-down assets built for sharing across LinkedIn, Instagram, and wherever else your story needs to travel.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Full Transcript</h4>
+                            <p>A written transcript of your session — reusable for bios, speaker sheets, pitch decks, and more.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="price-block">
+                    <span class="price-value">$2,250</span>
+                    <span class="price-note">The design session, the studio day, and the full post-production package — one investment, built to be used everywhere your story needs to go.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- AUDIENCE -->
+<section>
+    <div class="section-inner">
+        <div class="audience-layout">
+            <div class="reveal">
+                <span class="section-eyebrow">Who This Is For</span>
+                <h2 class="section-headline">Built for a specific kind of moment.</h2>
+                <p class="section-body" style="margin-top: 1.5rem;">
+                    If your introduction is currently doing less for you than it could be, this is worth thirty minutes of your attention.
+                </p>
+            </div>
+            <ol class="audience-list reveal">
+                <li>
+                    <div>
+                        <h4>New Leaders</h4>
+                        <p>Stepping into a role and needing an introduction that establishes who they are, fast — before the org chart does it for them.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Founders &amp; Speakers</h4>
+                        <p>Who open every pitch, panel, or keynote the same way, and want the first thirty seconds to actually earn the next ten minutes.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Executives in Transition</h4>
+                        <p>Making a public shift — a new company, a new title, a new chapter — who need people to understand it quickly and remember it longer.</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Anyone Who Networks for a Living</h4>
+                        <p>Tired of leading with what they do, and ready to lead with why they do it — and to have it on video, ready to send.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- HOST QUOTE -->
+<section class="host">
+    <div class="host-inner">
+        <span class="section-eyebrow reveal">Your Host</span>
+        <blockquote class="pull-quote-large reveal">
+            Most people tell you what they do. The ones you remember tell you why — with enough energy and honesty that you feel like you're already part of their story. That's not luck. That's design, direction, and a room built to bring it out of you.
+        </blockquote>
+        <div class="host-attribution reveal">
+            <strong>Matt Stone</strong> · Founder, The Bigger Stage
+        </div>
+    </div>
+</section>
+
+<!-- BOOK -->
+<section class="apply" id="book">
+    <div class="apply-inner">
+        <span class="section-eyebrow reveal">Get Started</span>
+        <h2 class="section-headline reveal">The story you tell<br>about yourself, produced<br>like it matters.</h2>
+        <p class="section-body reveal">
+            Start with a Clarity Call. We'll talk through what your introduction needs to do, whether this is the right fit, and what the pre-session, studio day, and delivery would look like for you.
+        </p>
+        <div class="apply-cta-wrap reveal">
+            <a href="https://calendly.com/matt-stone-2/clarity-call" class="btn-primary" target="_blank" rel="noopener">Book a Clarity Call</a>
+            <span class="apply-note">Opens in a new tab · 15 minutes · Questions? <a href="mailto:matt@mattstone.co">Email Matt</a></span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-copy">© 2026 Matt Stone Enterprises LLC</span>
+    <div class="footer-links">
+        <a href="https://www.youtube.com/@thebiggerstage" target="_blank">The Bigger Stage Podcast</a>
+        <a href="mailto:matt@mattstone.co">Contact</a>
+        <a href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+        </a>
+    </div>
+</footer>
+
+<script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < windowHeight - 80) el.classList.add('active');
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    menuClose.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+</script>
+
+</body>
+</html>
