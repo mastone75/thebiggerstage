@@ -178,6 +178,12 @@
   .mentor .rl b{color:var(--ink);font-weight:600}
   .nyc{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-top:22px}
   .nyc .dot{color:var(--lacquer)}
+  .mentor .li{display:inline-flex;align-items:center;gap:7px;margin-top:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lacquer);transition:color .2s}
+  .mentor .li:hover{color:#8f2110}
+  .mentor .li svg{width:14px;height:14px;flex:0 0 auto}
+  .status{display:inline-flex;align-items:center;gap:9px;margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-bright);border:1px solid rgba(198,161,90,.42);border-radius:999px;padding:7px 15px}
+  .status .pulse{width:8px;height:8px;border-radius:50%;background:var(--lacquer);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(194,46,28,.55)}70%{box-shadow:0 0 0 9px rgba(194,46,28,0)}100%{box-shadow:0 0 0 0 rgba(194,46,28,0)}}
 
   /* deliverables */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
@@ -188,7 +194,7 @@
   .card p{font-size:14.5px;margin-top:10px;color:#c4cbda}
 
   /* timeline */
-  .rail{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:48px;position:relative}
+  .rail{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;position:relative}
   .rail::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:var(--line-ink)}
   .mile{position:relative;padding:26px 12px 0 0}
   .mile::before{content:"";position:absolute;left:0;top:2px;width:11px;height:11px;border-radius:50%;background:var(--night);border:2px solid var(--bronze)}
@@ -228,6 +234,7 @@
     html{scroll-behavior:auto}
     .reveal{opacity:1;transform:none;transition:none}
     .scrollcue{animation:none}
+    .status .pulse{animation:none}
   }
 </style>
 </head>
@@ -242,7 +249,7 @@
       <a class="link" href="#program">Program</a>
       <a class="link" href="#mentors">Mentors</a>
       <a class="link" href="#timeline">Timeline</a>
-      <a class="btn" href="#apply">Apply</a>
+      <a class="btn" href="#apply">Contact</a>
     </nav>
   </header>
 
@@ -338,6 +345,7 @@
             <div>
               <div class="nm">Natsuyo Lipschutz</div>
               <div class="rl">Professional speaker &amp; cross-cultural strategist. The <b>first Japanese to earn the CSP®</b> (Certified Speaking Professional) — in her second language. Creator of the Breakthrough Method™, combining Logic × Story × Culture.</div>
+              <a class="li" href="https://www.linkedin.com/in/natsuyolipschutz/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a>
             </div>
           </div>
           <div class="mentor">
@@ -345,6 +353,7 @@
             <div>
               <div class="nm">Matt Stone</div>
               <div class="rl">Entrepreneur and narrative strategist; host of <b>The Bigger Stage Podcast</b>. Eleven years lived in Japan. Builds each leader's/founder's long-form "Scalable Story."</div>
+              <a class="li" href="https://www.linkedin.com/in/matt-stone-letsconnect/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.8 0 0 .78 0 1.73v20.54C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .78 23.2 0 22.22 0z"/></svg>LinkedIn</a>
             </div>
           </div>
           <div class="nyc"><span class="dot">◆</span> Both based in New York City</div>
@@ -384,16 +393,13 @@
       <span class="arc a1"></span>
       <div class="wrap">
         <div class="reveal" style="max-width:56ch">
-          <div class="eyebrow">The road to Tokyo</div>
-          <h2 class="h-lg">One cohort, one calendar</h2>
+          <div class="eyebrow">The process</div>
+          <h2 class="h-lg">Screening <span style="color:var(--lacquer)">→</span> Program in 2027</h2>
         </div>
         <div class="rail reveal">
-          <div class="mile"><div class="dt">SEP '26</div><div class="ev">Live talks — Matt &amp; Natsuyo</div></div>
-          <div class="mile"><div class="dt">OCT '26</div><div class="ev">Promo online events</div></div>
-          <div class="mile"><div class="dt">NOV '26</div><div class="ev">Auditions open</div></div>
-          <div class="mile"><div class="dt">DEC '26</div><div class="ev">Cohort announced</div></div>
-          <div class="mile"><div class="dt">FEB '27</div><div class="ev">Online pre-sessions</div></div>
-          <div class="mile key"><div class="dt">MAR 18–20 '27</div><div class="ev">In-person intensive · Tokyo</div></div>
+          <div class="mile"><div class="dt">SCREENING</div><div class="ev">Open now — by application and a conversation with Natsuyo &amp; Matt</div></div>
+          <div class="mile"><div class="dt">SELECTION</div><div class="ev">One small, capped cohort</div></div>
+          <div class="mile key"><div class="dt">2027</div><div class="ev">Program begins — exact dates to be announced</div></div>
         </div>
       </div>
     </section>
@@ -402,13 +408,12 @@
     <section id="apply" class="band dark">
       <span class="arc a2"></span>
       <div class="wrap apply reveal">
-        <div class="eyebrow" style="justify-content:center">Apply</div>
+        <div class="eyebrow" style="justify-content:center">Get in touch</div>
         <h2 class="h-lg">Ten seats. One cohort. Tokyo to New York.</h2>
-        <p class="sub">Auditions open November 2026. Places are capped at ten founders and leaders per cohort.</p>
+        <p class="sub">Screening is underway now. Selection is by application and conversation, with places limited to a single small cohort — email Natsuyo and/or Matt to start the conversation.</p>
         <div class="cta-row">
-          <!-- Point href at your application form or contact address -->
-          <a class="btn" href="#apply">Apply for a place</a>
-          <a class="btn ghost" href="#program">See the program</a>
+          <a class="btn" href="mailto:speaker@natsuyolipschutz.us" style="text-transform:none;letter-spacing:.02em;min-width:290px;text-align:center">speaker@natsuyolipschutz.us</a>
+          <a class="btn" href="mailto:matt@mattstone.co" style="text-transform:none;letter-spacing:.02em;min-width:290px;text-align:center">matt@mattstone.co</a>
         </div>
         <div class="fine">From being understood — to moving people to act.</div>
       </div>
