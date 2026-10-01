@@ -956,6 +956,33 @@
             footer { flex-direction: column; gap: 1rem; text-align: center; }
             .intensive-card { grid-template-columns: 1fr; }
         }
+
+        /* EVENT CALLOUT (Your New Opening Line) */
+        .hero-event {
+            display: inline-flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;
+            margin-bottom: 2rem; padding: 0.55rem 1.1rem 0.55rem 0.55rem;
+            border: 1px solid rgba(255,87,34,0.45); border-radius: 999px;
+            background: rgba(255,87,34,0.06);
+            color: var(--color-light-gray); text-decoration: none;
+            font-family: var(--font-body); font-size: 0.92rem; line-height: 1.35;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+            animation: fadeUp 0.8s ease-out 0.05s backwards;
+        }
+        .hero-event:hover, .hero-event:focus-visible {
+            border-color: var(--color-orange); background: rgba(255,87,34,0.12); transform: translateY(-1px);
+        }
+        .hero-event-tag {
+            font-family: var(--font-display); font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-white);
+            background: var(--color-orange); padding: 0.35rem 0.75rem; border-radius: 999px; white-space: nowrap;
+        }
+        .hero-event strong { color: var(--color-white); font-weight: 600; }
+        .hero-event-arrow { display: inline-block; margin-left: 0.2rem; color: var(--color-orange); transition: transform 0.2s; }
+        .hero-event:hover .hero-event-arrow { transform: translateX(3px); }
+        .mobile-menu a.mobile-nav-event { color: var(--color-orange); }
+        @media (max-width: 900px) {
+            .hero-event { border-radius: 14px; font-size: 0.88rem; padding: 0.6rem 0.9rem 0.6rem 0.6rem; }
+        }
     </style>
 </head>
 <body>
@@ -967,6 +994,7 @@
     <a href="#the-sessions" class="mobile-nav-link">The Sessions</a>
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#podcast" class="mobile-nav-link">Podcast</a>
+    <a href="https://thebiggerstage.com/your-new-opening-line/" class="mobile-nav-link mobile-nav-event">Your New Opening Line</a>
     <a href="https://calendly.com/matt-stone-2/clarity-call" class="mobile-nav-link">Book a Clarity Call</a>
 </div>
 
@@ -988,6 +1016,10 @@
 <section class="hero">
     <div class="hero-inner">
         <div class="hero-text">
+            <a href="https://thebiggerstage.com/your-new-opening-line/" class="hero-event">
+                <span class="hero-event-tag">Denver &middot; Oct 16</span>
+                <span><strong>Your New Opening Line</strong>, a one-day intensive with Mark&nbsp;DeCarlo&nbsp;<span class="hero-event-arrow" aria-hidden="true">&rarr;</span></span>
+            </a>
             <span class="hero-eyebrow">For founders who are tired of being better than they sound</span>
             <h1>
                 Your reputation
